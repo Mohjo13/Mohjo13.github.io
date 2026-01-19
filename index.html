@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Mohsen Parchami — Game Developer Portfolio" />
+    <title>Mohsen Parchami | Portfolio</title>
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="bg"></div>
+
+    <header class="site-header">
+        <a class="logo" href="#top" aria-label="Home">MP</a>
+
+        <nav class="nav">
+            <a href="#work">Work</a>
+            <a href="#skills">Skills</a>
+            <a href="#about">About</a>
+            <a class="btn" href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main id="top" class="wrap">
+        <section class="hero">
+            <p class="kicker">Game dev • Unity • C# • Systems</p>
+
+            <h1 class="headline">
+                Mohsen <span class="glow">Parchami</span>
+            </h1>
+
+            <p class="subhead">
+                I build gameplay systems, camera setups, shaders/VFX, and solid-feeling interactions.
+                This site is my portfolio hub.
+            </p>
+
+            <div class="hero-actions">
+                <a class="btn primary" href="#work">See work</a>
+                <a class="btn ghost" href="#contact">Get in touch</a>
+            </div>
+
+            <div class="chips">
+                <span class="chip">Unity</span>
+                <span class="chip">C#</span>
+                <span class="chip">Cinemachine</span>
+                <span class="chip">Shader Graph</span>
+                <span class="chip">VFX / Audio</span>
+            </div>
+        </section>
+
+        <section id="work" class="section">
+            <div class="section-head">
+                <h2>Selected work</h2>
+                <p>Replace these cards with your real projects (videos, Itch links, GitHub, etc.).</p>
+            </div>
+
+            <div class="grid">
+                <article class="card reveal">
+                    <h3>Project One</h3>
+                    <p>1–2 lines: what you built, what engine/tools, what you owned.</p>
+                    <div class="card-actions">
+                        <a href="#" aria-label="Project link">Link</a>
+                        <a href="#" aria-label="Video link">Video</a>
+                    </div>
+                </article>
+
+                <article class="card reveal">
+                    <h3>Project Two</h3>
+                    <p>Example: chase camera system, checkpoint transitions, triggers.</p>
+                    <div class="card-actions">
+                        <a href="#">Link</a>
+                        <a href="#">Video</a>
+                    </div>
+                </article>
+
+                <article class="card reveal">
+                    <h3>Project Three</h3>
+                    <p>Example: shader/VFX ripple cooldown indicator, decals on terrain.</p>
+                    <div class="card-actions">
+                        <a href="#">Link</a>
+                        <a href="#">Video</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="section-head">
+                <h2>Skills</h2>
+                <p>Keep it short. Recruiters skim.</p>
+            </div>
+
+            <div class="two-col">
+                <div class="panel reveal">
+                    <h3>Tech</h3>
+                    <ul>
+                        <li>Unity (URP), C# scripting, gameplay systems</li>
+                        <li>Cinemachine cameras, triggers, state switching</li>
+                        <li>Shader Graph / VFX Graph basics</li>
+                        <li>Git / GitHub, iteration + debugging</li>
+                    </ul>
+                </div>
+
+                <div class="panel reveal">
+                    <h3>Design</h3>
+                    <ul>
+                        <li>System design, moment-to-moment feel</li>
+                        <li>Horror tension pacing, feedback, readability</li>
+                        <li>Rapid prototyping, clear documentation</li>
+                        <li>Research methods (player experience)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="section-head">
+                <h2>About</h2>
+                <p>Write this like a human. 4–6 lines max.</p>
+            </div>
+
+            <div class="about reveal">
+                <p>
+                    I’m a game development student focused on systems + scripting.
+                    I like building things that feel sharp: movement, cameras, VFX feedback, and game-state logic.
+                    I’m currently looking for internship opportunities in Sweden (Stockholm area).
+                </p>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="section-head">
+                <h2>Contact</h2>
+                <p>Put your real links here when ready.</p>
+            </div>
+
+            <div class="contact reveal">
+                <a class="btn primary" href="mailto:youremail@example.com">Email me</a>
+                <a class="btn ghost" href="#" target="_blank" rel="noreferrer">GitHub</a>
+                <a class="btn ghost" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a class="btn ghost" href="#" target="_blank" rel="noreferrer">Itch.io</a>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>© <span id="year"></span> Mohsen Parchami</p>
+        </footer>
+    </main>
+
+    <div class="cursor" aria-hidden="true"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
