@@ -1,4 +1,4 @@
-/* =========================================================
+﻿ /* =========================================================
    REGION: Global Base Styles
    - Sets baseline font sizing and default text styling
    - Defines helper utilities like .topspace
@@ -16,11 +16,18 @@ body {
     font-family: "Open sans", Helvetica, Arial, sans-serif;
     color: #666666;
     padding: 0;
+    background-color: #F6D8FF !important;
 }
+
+
+#main {
+    background-color: #F6D8FF !important;
+}
+
 
 /* Utility spacing helper used by template sections */
 .topspace {
-    margin-top: 40px;
+    margin-top: 100px;
 }
 
 /* Anchor jump offset for sticky navbar
@@ -29,8 +36,134 @@ body {
 #about,
 #skills,
 #projects,
+#systems,
 #contact {
     scroll-margin-top: 90px; /* adjust if you change navbar height */
+}
+
+    /* ================================
+   ABOUT 
+   ================================ */
+    #about .section-title {
+        margin-bottom: 100px;
+    }
+
+
+#about .lead {
+    font-size: 18px;
+    line-height: 1.7;
+    font-weight: 400;
+    color: #444;
+}
+
+/* ================================
+   PROJECT – Feature Layout (image left, content right)
+   ================================ */
+
+.project-feature {
+    margin-top: 25px;
+}
+
+#projects .project-spacer {
+    height: 80px; /* change this number */
+}
+
+/* Tall image container (controls the “elongated” look) */
+.project-media {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 900ms ease, transform 900ms ease;
+}
+
+    .project-media.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .project-media img {
+        width: 100%;
+        height: auto;
+        object-fit: contain; /* <- no cropping */
+        display: block;
+        border-radius: 26px;
+        border: 2px solid #111;
+    }
+
+
+
+/* PROJECT layout: add air + clean spacing */
+#projects .project-feature .row {
+    /*/display: flex;*/
+    flex-wrap: wrap;
+    align-items: flex-start;
+    /*gap: 48px;*/ /* space between image and text */
+}
+
+#projects .project-feature {
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+
+
+    /* IMPORTANT: let Bootstrap cols work with flex gap */
+    #projects .project-feature [class*="col-"] {
+        float: none;
+    }
+
+
+
+
+/* Project: keep steam icon always to the right of the text */
+.project-bottom-row {
+    /*/display: flex;*/
+    align-items: flex-end; /* icon sits near bottom like your sketch */
+    /*/gap: 18px; /* space between text and icon */
+}
+
+
+
+.project-bottom-steam {
+    flex: 0 0 auto; /* icon keeps its size */
+}
+
+
+
+
+/* Right side: push bottom content down */
+.project-info {
+   /*/display: flex;*/
+    flex-direction: column;
+}
+
+/* Remove space between project title and text */
+.project-desc {
+    font-size: 20px; /* try 15–18px */
+    line-height: 1.7;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+
+
+
+/* Mobile: let height be automatic */
+@media (max-width: 991px) {
+    .project-media img {
+        max-height: 340px;
+        height: auto;
+        border-radius: 22px;
+    }
+
+    .project-info {
+        height: auto;
+        margin-top: 18px;
+        max-width: 520px; /* adjust: 460–580px */
+    }
+
+    .project-bottom {
+        margin-top: 15px;
+    }
 }
 
 
@@ -197,7 +330,7 @@ body {
 /* =========================================================
    REGION: Typography
    - Base paragraph/list spacing
-   - Headers (h1�h6), links, and helper classes
+   - Headers (h1–h6), links, and helper classes
    ========================================================= */
 
 /*********************************************************************
@@ -233,7 +366,7 @@ h6,
 .h5,
 .h6 {
     font-family: "Open sans", Helvetica, Arial, sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     color: #333333;
 }
 
@@ -283,7 +416,19 @@ a {
     text-transform: capitalize;
     margin-top: -0.23em;
 }
+/* Bigger project title (only when you choose to use it) */
+.project-title-big {
+    font-size: 56px;
+    line-height: 1.05;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
 
+@media (max-width: 991px) {
+    .project-title-big {
+        font-size: 40px;
+    }
+}
 /* WordPress image size helper classes (template leftovers) */
 .size-auto,
 .size-full,
@@ -313,8 +458,8 @@ a {
     /* Circular avatar in hero */
     #head img.img-circle {
         display: block;
-        width: 140px;
-        height: 140px;
+        width: 200px;
+        height: 200px;
         overflow: hidden;
         border: 9px solid rgba(0, 0, 0, 0.05);
         margin: 0 auto;
@@ -446,7 +591,7 @@ img {
 /* CTA panel container */
 .panel-cta {
     box-shadow: 0 0 0 1px #e1e1e1, 0 0 0 3px #fff, 0 0 0 4px #e1e1e1;
-    background: #f3f3f3;
+    background: #E5B9FF;
     -webkit-border-radius: 0;
     -webkit-background-clip: padding-box;
     -moz-border-radius: 0;
@@ -463,10 +608,14 @@ img {
         margin: 0;
     }
 
-    .panel-cta .panel-body {
-        padding: 35px;
-    }
+.panel-cta {
+    width: 100%;
+}
 
+
+/* ================================
+   SKILLS – ICON NORMALIZATION
+   ================================ */
 /* Section - Featured (Skills/Services cards) */
 .featured {
     font-size: 13px;
@@ -483,6 +632,39 @@ img {
         vertical-align: middle;
         margin: 0 0 25px 0;
     }
+
+.skill-icon {
+    /*/display: flex;*/
+    align-items: center;
+    justify-content: center;
+    height: 140px; /* SAME height for all icons */
+    margin-bottom: 15px;
+}
+
+    .skill-icon img {
+        max-width: 100px; /* SAME visual size */
+        max-height: 100px;
+        width: auto;
+        height: auto;
+    }
+
+/* ================================
+   SKILLS ICON REVEAL (on scroll / anchor)
+   ================================ */
+
+#skills .skill-icon img {
+    margin-top: 100px;
+    opacity: 0;
+    transform: translateY(-14px);
+    transition: opacity 600ms ease, transform 600ms ease;
+    will-change: opacity, transform;
+}
+
+    #skills .skill-icon img.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
 
 /* Section - Recent works / Projects */
 .thumbnails {
@@ -553,7 +735,7 @@ img {
         transition-duration: 550ms;
     }
 
-        /* �See details� badge on hover */
+        /* “See details” badge on hover */
         .thumbnail .cover .more {
             position: absolute;
             bottom: 15px;
@@ -621,6 +803,60 @@ img {
         background: none;
     }
 
+/* Inline Steam icon + label */
+.project-steam-inline {
+    display: inline-flex;
+    align-items: center;
+    /*/gap: 6px;*/
+    text-decoration: none;
+}
+
+    .project-steam-inline img {
+        height: 18px; /* small + subtle */
+        width: auto;
+    }
+
+.project-steam-text {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #666;
+}
+
+.project-steam-inline:hover .project-steam-text {
+    color: #000;
+}
+
+/* ================================
+   PROJECT – Hero Image (Framed)
+   ================================ */
+
+.project-hero {
+    margin-bottom: 30px;
+    padding: 12px; /* space between image and frame */
+    border: 1px solid #e0e0e0; /* frame line */
+    background-color: #ffffff; /* keeps it clean on tinted sections */
+    display: inline-block; /* frame wraps tightly */
+}
+
+    .project-hero img {
+        width: 100%;
+        max-width: 900px; /* adjust size here */
+        height: auto;
+        display: block;
+    }
+
+/* Project – Steam icon size (temporary) */
+#projects img[src*="steam"] {
+    max-width: 50px; /* adjust this */
+    height: auto;
+}
+
+/* Narrow project description column */
+
+
+
+
 
 /* =========================================================
    REGION: Blog Styling (OPTIONAL)
@@ -679,7 +915,7 @@ img {
         .entry-title span:after {
             left: 100%;
             margin-left: 45px;
-        }
+        }*/
 
 .entry-header .entry-meta {
     text-align: center;
@@ -984,6 +1220,84 @@ footer.entry-meta {
         margin: 0 10px 0 0;
     }
 
+/* ================================
+   SYSTEMS – Alternating Rows Layout
+   ================================ */
+
+.systems-list {
+    margin-top: 30px;
+}
+
+.system-row {
+    padding: 35px 0;
+    border-top: 1px solid #e6e6e6;
+}
+
+    .system-row:last-child {
+        border-bottom: 1px solid #e6e6e6;
+    }
+
+/* Image wrapper */
+.system-media {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 26px;
+}
+
+    .system-media img {
+        width: 100%;
+        max-width: 500px; /* ← adjust this */
+        height: auto;
+        border-radius: 26px; /* match Project image */
+        display: block;
+    }
+
+/* Text wrapper */
+.system-content {
+    padding-top: 10px; /* helps align vertically with image */
+}
+
+/* Title: make it feel like your Project title (big + clean) */
+.system-title {
+    font-family: "Open sans", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 15px 0;
+    font-size: 24px;
+    font-weight: 400;
+    color: #333333;
+}
+
+.system-text {
+    font-size: 15px; /* try 15–18px */
+    line-height: 1.5;
+    margin: 0;
+    line-height: 1.7em;
+    color: #666666;
+}
+
+/* Alternating layout (Row 2, Row 4...) */
+.system-row-right .row {
+    /*/display: flex;*/
+    flex-wrap: wrap;
+}
+
+.system-row-right .col-md-5 {
+    padding-left: 40px; /* space on image side */
+    order: 2; /* image moves right */
+}
+
+.system-row-right .col-md-7 {
+    padding-right: 40px; /* space on image side */
+    order: 1; /* text moves left */
+}
+
+/* Mobile: stack naturally and keep it clean */
+@media (max-width: 991px) {
+    .system-content {
+        padding-top: 18px;
+    }
+}
 
 /* =========================================================
    REGION: Responsive / Layout Constraints
@@ -996,3 +1310,10 @@ footer.entry-meta {
         max-width: 1080px;
     }
 }
+
+/* DEBUG: show all layout boxes */
+* {
+    outline: 
+    0px solid black !important;
+}
+
