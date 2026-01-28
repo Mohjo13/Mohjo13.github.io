@@ -4,10 +4,13 @@
    - Defines helper utilities like .topspace
    ========================================================= */
 
-html {
+html, body {
     font-size: 100%;
     /* Smooth scrolling for anchor navigation (Home/About/Skills/Projects/Contact) */
     scroll-behavior: smooth;
+}
+html, body {
+    overflow-x: hidden;
 }
 
 body {
@@ -117,10 +120,21 @@ body {
         display: block;
     }
 
+    #projects .project-feature .row {
+        gap: 0; /* safety */
+    }
+}
+
     #projects .project-feature [class*="col-"] {
         float: left; /* restore Bootstrap behavior */
         width: 100%;
     }
+@media (max-width: 991px) {
+    .system-row .col-md-5,
+    .system-row .col-md-7 {
+        order: initial !important; /* cancel any alternating order */
+    }
+}
 
 
 
@@ -282,7 +296,7 @@ body {
 
         /* Mobile hamburger button styling */
         .navbar-default .navbar-toggle {
-            border-color: #666666;
+            border-color: #000000;
         }
 
             .navbar-default .navbar-toggle:hover,
@@ -930,7 +944,7 @@ body {
                 margin-left: 45px;
             }
 
-    */
+    
 
     .entry-header .entry-meta {
         text-align: center;
