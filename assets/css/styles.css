@@ -92,11 +92,12 @@ body {
 
 
 /* PROJECT layout: add air + clean spacing */
+
 #projects .project-feature .row {
-    /*/display: flex;*/
+    /display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    /*gap: 48px;*/ /* space between image and text */
+    gap: 48px; /* space between image and text */
 }
 
 #projects .project-feature {
@@ -110,1210 +111,1237 @@ body {
         float: none;
     }
 
-
-
-
-/* Project: keep steam icon always to the right of the text */
-.project-bottom-row {
-    /*/display: flex;*/
-    align-items: flex-end; /* icon sits near bottom like your sketch */
-    /*/gap: 18px; /* space between text and icon */
-}
-
-
-
-.project-bottom-steam {
-    flex: 0 0 auto; /* icon keeps its size */
-}
-
-
-
-
-/* Right side: push bottom content down */
-.project-info {
-   /*/display: flex;*/
-    flex-direction: column;
-}
-
-/* Remove space between project title and text */
-.project-desc {
-    font-size: 20px; /* try 15–18px */
-    line-height: 1.7;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-
-
-
-
-/* Mobile: let height be automatic */
+/* MOBILE: disable flex so Bootstrap stacks cleanly */
 @media (max-width: 991px) {
-    .project-media img {
-        max-height: 340px;
-        height: auto;
-        border-radius: 22px;
+    #projects .project-feature .row {
+        display: block;
     }
+
+    #projects .project-feature [class*="col-"] {
+        float: left; /* restore Bootstrap behavior */
+        width: 100%;
+    }
+
+
+
+    /* Project: keep steam icon always to the right of the text */
+    .project-bottom-row {
+        /*/display: flex;*/
+        align-items: flex-end; /* icon sits near bottom like your sketch */
+        /*/gap: 18px; /* space between text and icon */
+    }
+
+
+
+    .project-bottom-steam {
+        flex: 0 0 auto; /* icon keeps its size */
+    }
+
+
+
 
     .project-info {
-        height: auto;
+        max-width: none;
         margin-top: 18px;
-        max-width: 520px; /* adjust: 460–580px */
     }
 
-    .project-bottom {
-        margin-top: 15px;
+    /* Remove space between project title and text */
+    .project-desc {
+        font-size: 20px; /* try 15–18px */
+        line-height: 1.7;
+        margin-top: 0;
+        margin-bottom: 0;
     }
-}
 
 
-/* =========================================================
+
+
+
+    /* Mobile: let height be automatic */
+    @media (max-width: 991px) {
+        .project-media img {
+            max-height: 340px;
+            height: auto;
+            border-radius: 22px;
+            max-width: none;
+        }
+
+        .project-info {
+            max-width: none;
+            height: auto;
+            margin-top: 18px;
+            max-width: none;
+            max-width: 520px; /* adjust: 460–580px */
+        }
+
+        .project-bottom {
+            margin-top: 15px;
+        }
+    }
+
+
+    /* =========================================================
    REGION: Navigation (Header Navbar)
    - Styles the main Bootstrap navbar
    - Works with template.js which toggles .stick on scroll
    ========================================================= */
 
-/*********************************************************************
+    /*********************************************************************
                             Navigation in header
 **********************************************************************/
-.navbar {
-    border-width: 1px 0;
-    -webkit-border-radius: 0;
-    -webkit-background-clip: padding-box;
-    -moz-border-radius: 0;
-    -moz-background-clip: padding;
-    border-radius: 0;
-    background-clip: padding-box;
-    width: 100%;
-}
+    .navbar {
+        border-width: 1px 0;
+        -webkit-border-radius: 0;
+        -webkit-background-clip: padding-box;
+        -moz-border-radius: 0;
+        -moz-background-clip: padding;
+        border-radius: 0;
+        background-clip: padding-box;
+        width: 100%;
+    }
 
-    /* Applied by template.js on scroll:
+        /* Applied by template.js on scroll:
    - Makes navbar fixed at top with slight opacity */
-    .navbar.stick {
-        position: fixed;
-        top: 0;
-        left: 0;
-        opacity: .85;
-    }
-
-/* Navbar collapsed area (the list of links) */
-.navbar-collapse {
-    -webkit-border-radius: 0;
-    -webkit-background-clip: padding-box;
-    -moz-border-radius: 0;
-    -moz-background-clip: padding;
-    border-radius: 0;
-    background-clip: padding-box;
-    font-family: "Open sans", Helvetica, Arial, sans-serif;
-    font-weight: 300;
-    text-transform: uppercase;
-}
-
-    /* Center nav links */
-    .navbar-collapse .navbar-nav {
-        float: none;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-        .navbar-collapse .navbar-nav > li {
-            float: none;
-            display: inline-block;
+        .navbar.stick {
+            position: fixed;
+            top: 0;
+            left: 0;
+            opacity: .85;
         }
 
-            .navbar-collapse .navbar-nav > li > a {
-                padding: 20px 30px;
+    /* Navbar collapsed area (the list of links) */
+    .navbar-collapse {
+        -webkit-border-radius: 0;
+        -webkit-background-clip: padding-box;
+        -moz-border-radius: 0;
+        -moz-background-clip: padding;
+        border-radius: 0;
+        background-clip: padding-box;
+        font-family: "Open sans", Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+
+        /* Center nav links */
+        .navbar-collapse .navbar-nav {
+            float: none;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+            .navbar-collapse .navbar-nav > li {
+                float: none;
+                display: inline-block;
             }
 
-/* Dropdown positioning (not used if you removed More Pages, but safe to keep) */
-.dropdown ul.dropdown-menu {
-    top: 85%;
-    text-align: left;
-}
+                .navbar-collapse .navbar-nav > li > a {
+                    padding: 20px 30px;
+                }
 
-    .dropdown ul.dropdown-menu > li > a {
-        padding: 5px 30px;
+    /* Dropdown positioning (not used if you removed More Pages, but safe to keep) */
+    .dropdown ul.dropdown-menu {
+        top: 85%;
+        text-align: left;
     }
 
-/* Default navbar theme colors */
-.navbar-default {
-    background-color: #8AAA9D;
-    border-color: #cccccc;
-}
-
-    .navbar-default .navbar-nav > li > a {
-        color: #454545;
-    }
-
-        .navbar-default .navbar-nav > li > a:hover,
-        .navbar-default .navbar-nav > li > a:focus {
-            color: #000000;
-            background-color: #8AAA9D;
+        .dropdown ul.dropdown-menu > li > a {
+            padding: 5px 30px;
         }
 
-    .navbar-default .navbar-nav > .active > a,
-    .navbar-default .navbar-nav > .active > a:hover,
-    .navbar-default .navbar-nav > .active > a:focus {
-        color: #000000;
+    /* Default navbar theme colors */
+    .navbar-default {
         background-color: #8AAA9D;
-    }
-
-    .navbar-default .dropdown ul.dropdown-menu > li > a {
-        color: #454545;
-    }
-
-        .navbar-default .dropdown ul.dropdown-menu > li > a:hover {
-            background-color: #8AAA9D;
-            color: #000000;
-        }
-
-    /* Mobile hamburger button styling */
-    .navbar-default .navbar-toggle {
-        border-color: #666666;
-    }
-
-        .navbar-default .navbar-toggle:hover,
-        .navbar-default .navbar-toggle:focus {
-            background-color: #8AAA9D;
-        }
-
-        .navbar-default .navbar-toggle .icon-bar {
-            background-color: #8AAA9D;
-        }
-
-    /* Borders shown on collapsed menu */
-    .navbar-default .navbar-collapse,
-    .navbar-default .navbar-form {
         border-color: #cccccc;
     }
 
-    .navbar-default .navbar-nav > .open > a,
-    .navbar-default .navbar-nav > .open > a:hover,
-    .navbar-default .navbar-nav > .open > a:focus {
-        background-color: #8AAA9D;
-        color: #000000;
-    }
+        .navbar-default .navbar-nav > li > a {
+            color: #454545;
+        }
+
+            .navbar-default .navbar-nav > li > a:hover,
+            .navbar-default .navbar-nav > li > a:focus {
+                color: #000000;
+                background-color: #8AAA9D;
+            }
+
+        .navbar-default .navbar-nav > .active > a,
+        .navbar-default .navbar-nav > .active > a:hover,
+        .navbar-default .navbar-nav > .active > a:focus {
+            color: #000000;
+            background-color: #8AAA9D;
+        }
+
+        .navbar-default .dropdown ul.dropdown-menu > li > a {
+            color: #454545;
+        }
+
+            .navbar-default .dropdown ul.dropdown-menu > li > a:hover {
+                background-color: #8AAA9D;
+                color: #000000;
+            }
+
+        /* Mobile hamburger button styling */
+        .navbar-default .navbar-toggle {
+            border-color: #666666;
+        }
+
+            .navbar-default .navbar-toggle:hover,
+            .navbar-default .navbar-toggle:focus {
+                background-color: #8AAA9D;
+            }
+
+            .navbar-default .navbar-toggle .icon-bar {
+                background-color: #8AAA9D;
+            }
+
+        /* Borders shown on collapsed menu */
+        .navbar-default .navbar-collapse,
+        .navbar-default .navbar-form {
+            border-color: #cccccc;
+        }
+
+        .navbar-default .navbar-nav > .open > a,
+        .navbar-default .navbar-nav > .open > a:hover,
+        .navbar-default .navbar-nav > .open > a:focus {
+            background-color: #8AAA9D;
+            color: #000000;
+        }
 
 
-/* =========================================================
+    /* =========================================================
    REGION: Sidebar Navigation (Special Nav)
    - Used on sidebar templates (left/right) and some blog pages
    - If you delete those pages later, this becomes removable
    ========================================================= */
 
-/****************************************************************************************
+    /****************************************************************************************
                                      Sidebar special Nav
 *****************************************************************************************/
-.nav-side {
-    font-size: 24px;
-    font-size: 1.5rem;
-    font-weight: 300;
-    margin-top: -0.37em;
-}
-
-    .nav-side > li > a {
-        padding-top: 5px;
-        padding-bottom: 5px;
-        color: #f392b4;
+    .nav-side {
+        font-size: 24px;
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin-top: -0.37em;
     }
 
-        .nav-side > li > a:hover {
-            color: #bd1550;
-            background: none;
+        .nav-side > li > a {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            color: #f392b4;
         }
 
-    .nav-side > li.active > a {
-        color: #bd1550;
-    }
+            .nav-side > li > a:hover {
+                color: #bd1550;
+                background: none;
+            }
+
+        .nav-side > li.active > a {
+            color: #bd1550;
+        }
 
 
-/* =========================================================
+    /* =========================================================
    REGION: Typography
    - Base paragraph/list spacing
    - Headers (h1–h6), links, and helper classes
    ========================================================= */
 
-/*********************************************************************
+    /*********************************************************************
                                 TYPOGRAPHY
 **********************************************************************/
-p {
-    line-height: 1.6em;
-    margin: 0 0 30px 0;
-}
-
-ul,
-ol {
-    line-height: 1.6em;
-    margin: 0 0 30px 0;
-}
-
-blockquote {
-    padding: 10px 20px;
-    margin: 0 0 30px;
-    border-left: 5px solid #eee;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-    font-family: "Open sans", Helvetica, Arial, sans-serif;
-    font-weight: 500;
-    color: #333333;
-}
-
-h1 {
-    font-size: 40px;
-    font-size: 2.5rem;
-}
-
-h2 {
-    font-size: 36px;
-    font-size: 2.25rem;
-}
-
-h3 {
-    font-size: 30px;
-    font-size: 1.875rem;
-}
-
-h4 {
-    font-size: 24px;
-    font-size: 1.5rem;
-}
-
-h5 {
-    font-size: 20px;
-    font-size: 1.25rem;
-}
-
-a {
-    color: #bd1550;
-}
-
-    a:hover {
-        color: #e93675;
+    p {
+        line-height: 1.6em;
+        margin: 0 0 30px 0;
     }
 
-.lead {
-    font-weight: 300;
-    font-size: 21px;
-    font-size: 1.3125rem;
-}
+    ul,
+    ol {
+        line-height: 1.6em;
+        margin: 0 0 30px 0;
+    }
 
-.text-msg {
-    line-height: 1.7em;
-    color: #b3b3b3;
-    font-weight: 300;
-    text-transform: capitalize;
-    margin-top: -0.23em;
-}
-/* Bigger project title (only when you choose to use it) */
-.project-title-big {
-    font-size: 56px;
-    line-height: 1.05;
-    letter-spacing: 1.5px;
-    font-weight: 700;
-}
+    blockquote {
+        padding: 10px 20px;
+        margin: 0 0 30px;
+        border-left: 5px solid #eee;
+    }
 
-@media (max-width: 991px) {
-    .project-title-big {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+        font-family: "Open sans", Helvetica, Arial, sans-serif;
+        font-weight: 500;
+        color: #333333;
+    }
+
+    h1 {
         font-size: 40px;
+        font-size: 2.5rem;
     }
-}
-/* WordPress image size helper classes (template leftovers) */
-.size-auto,
-.size-full,
-.size-large,
-.size-medium,
-.size-thumbnail {
-    max-width: 100%;
-    height: auto;
-}
+
+    h2 {
+        font-size: 36px;
+        font-size: 2.25rem;
+    }
+
+    h3 {
+        font-size: 30px;
+        font-size: 1.875rem;
+    }
+
+    h4 {
+        font-size: 24px;
+        font-size: 1.5rem;
+    }
+
+    h5 {
+        font-size: 20px;
+        font-size: 1.25rem;
+    }
+
+    a {
+        color: #bd1550;
+    }
+
+        a:hover {
+            color: #e93675;
+        }
+
+    .lead {
+        font-weight: 300;
+        font-size: 21px;
+        font-size: 1.3125rem;
+    }
+
+    .text-msg {
+        line-height: 1.7em;
+        color: #b3b3b3;
+        font-weight: 300;
+        text-transform: capitalize;
+        margin-top: -0.23em;
+    }
+    /* Bigger project title (only when you choose to use it) */
+    .project-title-big {
+        font-size: 56px;
+        line-height: 1.05;
+        letter-spacing: 1.5px;
+        font-weight: 700;
+    }
+
+    @media (max-width: 991px) {
+        .project-title-big {
+            font-size: 40px;
+        }
+    }
+    /* WordPress image size helper classes (template leftovers) */
+    .size-auto,
+    .size-full,
+    .size-large,
+    .size-medium,
+    .size-thumbnail {
+        max-width: 100%;
+        height: auto;
+    }
 
 
-/* =========================================================
+    /* =========================================================
    REGION: Header / Hero Area
    - Background image, profile circle, title + tagline
    ========================================================= */
 
-/*********************************************************************
+    /*********************************************************************
                                 HEADER
 **********************************************************************/
-#head {
-    background: #f4f4f4 url(../images/bg_head.jpg) top center;
-    background-size: cover;
-    color: #7C7C7C;
-    padding: 30px 0 35px 0;
-}
-
-    /* Circular avatar in hero */
-    #head img.img-circle {
-        display: block;
-        width: 200px;
-        height: 200px;
-        overflow: hidden;
-        border: 9px solid rgba(0, 0, 0, 0.05);
-        margin: 0 auto;
-    }
-
-    /* Name/title in hero */
-    #head .title {
-        font-family: Alice, Georgia, serif;
-        font-size: 49px;
-        font-size: 3.0625rem;
-    }
-
-        #head .title a {
-            text-decoration: none;
-            color: #333333;
-        }
-
-    /* Subtitle under the name */
-    #head .tagline {
-        display: block;
-        font-size: 14px;
-        font-size: 0.875rem;
-        line-height: 1.2em;
+    #head {
+        background: #f4f4f4 url(../images/bg_head.jpg) top center;
+        background-size: cover;
         color: #7C7C7C;
-        margin: 5px 0 0;
+        padding: 30px 0 35px 0;
     }
 
-        #head .tagline b {
-            font-weight: normal;
+        /* Circular avatar in hero */
+        #head img.img-circle {
+            display: block;
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            border: 9px solid rgba(0, 0, 0, 0.05);
+            margin: 0 auto;
         }
 
-        #head .tagline a {
-            color: #5E5E5E;
+        /* Name/title in hero */
+        #head .title {
+            font-family: Alice, Georgia, serif;
+            font-size: 49px;
+            font-size: 3.0625rem;
         }
 
-/* Home page version of header (more vertical padding) */
-.home #head {
-    padding: 90px 0;
-}
+            #head .title a {
+                text-decoration: none;
+                color: #333333;
+            }
 
-    .home #head .title {
-        font-size: 49px;
-        font-size: 3.0625rem;
+        /* Subtitle under the name */
+        #head .tagline {
+            display: block;
+            font-size: 14px;
+            font-size: 0.875rem;
+            line-height: 1.2em;
+            color: #7C7C7C;
+            margin: 5px 0 0;
+        }
+
+            #head .tagline b {
+                font-weight: normal;
+            }
+
+            #head .tagline a {
+                color: #5E5E5E;
+            }
+
+    /* Home page version of header (more vertical padding) */
+    .home #head {
+        padding: 90px 0;
     }
 
-    .home #head .tagline {
-        font-size: 16px;
-        font-size: 1rem;
-        margin: 15px 0 0;
-    }
+        .home #head .title {
+            font-size: 49px;
+            font-size: 3.0625rem;
+        }
+
+        .home #head .tagline {
+            font-size: 16px;
+            font-size: 1rem;
+            margin: 15px 0 0;
+        }
 
 
-/* =========================================================
+    /* =========================================================
    REGION: Content / Components
    - Images, buttons, panels, section layouts, thumbnails
    ========================================================= */
 
-/*********************************************************************
+    /*********************************************************************
                                 CONTENT
 **********************************************************************/
-img {
-    max-width: 100%;
-}
-
-/* Base button styling used by template */
-.btn {
-    font-size: 12px;
-    font-size: 0.75rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
-    -webkit-border-radius: 0px;
-    -webkit-background-clip: padding-box;
-    -moz-border-radius: 0px;
-    -moz-background-clip: padding;
-    border-radius: 0px;
-    background-clip: padding-box;
-    -webkit-transition-property: all;
-    -moz-transition-property: all;
-    -o-transition-property: all;
-    -ms-transition-property: all;
-    transition-property: all;
-    -webkit-transition-duration: 0.2s;
-    -moz-transition-duration: 0.2s;
-    -o-transition-duration: 0.2s;
-    transition-duration: 0.2s;
-    border: 0 none;
-    padding: 12px 35px;
-    text-shadow: 0 1px 0px #780d33;
-}
-
-.btn-primary {
-    color: #fff;
-    background-color: #bd1550;
-}
-
-    .btn-primary:hover,
-    .btn-primary:focus,
-    .btn-primary:active,
-    .btn-primary.active {
-        color: #fff;
-        background-color: #e61f65;
+    img {
+        max-width: 100%;
     }
 
-/* Outline-style action button */
-.btn-action {
-    font-weight: bold;
-    background: transparent !important;
-    border: 1px solid #333;
-    text-shadow: none;
-}
-
-    .btn-action:hover,
-    .btn-action:focus,
-    .btn-action:active,
-    .btn-action.active {
-        color: #bd1550;
-        border-color: #bd1550;
-    }
-
-.btn-lg {
-    padding: 15px 60px;
-    font-size: 12px;
-    line-height: 1.33;
-    font-weight: bold;
-}
-
-/* CTA panel container */
-.panel-cta {
-    box-shadow: 0 0 0 1px #e1e1e1, 0 0 0 3px #fff, 0 0 0 4px #e1e1e1;
-    background: #E5B9FF;
-    -webkit-border-radius: 0;
-    -webkit-background-clip: padding-box;
-    -moz-border-radius: 0;
-    -moz-background-clip: padding;
-    border-radius: 0;
-    background-clip: padding-box;
-}
-
-    .panel-cta p,
-    .panel-cta h3,
-    .panel-cta h4,
-    .panel-cta h5,
-    .panel-cta h6 {
-        margin: 0;
-    }
-
-.panel-cta {
-    width: 100%;
-}
-
-
-/* ================================
-   SKILLS – ICON NORMALIZATION
-   ================================ */
-/* Section - Featured (Skills/Services cards) */
-.featured {
-    font-size: 13px;
-    font-size: 0.8125rem;
-}
-
-    .featured h3 {
-        font-weight: bold;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-size: 24px;
-        font-size: 1.5rem;
-        text-transform: uppercase;
-        line-height: 1.4em;
-        vertical-align: middle;
-        margin: 0 0 25px 0;
-    }
-
-.skill-icon {
-    /*/display: flex;*/
-    align-items: center;
-    justify-content: center;
-    height: 140px; /* SAME height for all icons */
-    margin-bottom: 15px;
-}
-
-    .skill-icon img {
-        max-width: 100px; /* SAME visual size */
-        max-height: 100px;
-        width: auto;
-        height: auto;
-    }
-
-/* ================================
-   SKILLS ICON REVEAL (on scroll / anchor)
-   ================================ */
-
-#skills .skill-icon img {
-    margin-top: 100px;
-    opacity: 0;
-    transform: translateY(-14px);
-    transition: opacity 600ms ease, transform 600ms ease;
-    will-change: opacity, transform;
-}
-
-    #skills .skill-icon img.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-
-/* Section - Recent works / Projects */
-.thumbnails {
-    padding: 0;
-}
-
-    .thumbnails li {
-        margin-bottom: 30px;
-    }
-
-    .thumbnails .details {
-        display: block;
-        text-align: center;
+    /* Base button styling used by template */
+    .btn {
         font-size: 12px;
         font-size: 0.75rem;
-    }
-
-/* Project card container */
-.thumbnail {
-    display: block;
-    -webkit-border-radius: 0;
-    -webkit-background-clip: padding-box;
-    -moz-border-radius: 0;
-    -moz-background-clip: padding;
-    border-radius: 0;
-    background-clip: padding-box;
-    border: 0 none;
-    margin-bottom: 10px;
-    padding: 0;
-    text-align: center;
-    text-decoration: none;
-    color: #333;
-}
-
-    /* Thumbnail image wrapper (controls cropping/height) */
-    .thumbnail .img {
-        display: block;
-        width: 100%;
-        overflow: hidden;
-        height: 180px;
-        margin: 0 0 20px;
-        position: relative;
-    }
-
-    .thumbnail .title {
+        text-decoration: none;
         text-transform: uppercase;
-        margin: 0 2em;
-        display: block;
-        text-indent: 0;
-    }
-
-    /* Hover cover overlay */
-    .thumbnail .cover {
-        position: absolute;
-        display: block;
-        opacity: 0;
-        width: 100%;
-        height: 180px;
-        background-color: rgba(255, 255, 255, 0.8);
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #333;
+        -webkit-border-radius: 0px;
+        -webkit-background-clip: padding-box;
+        -moz-border-radius: 0px;
+        -moz-background-clip: padding;
+        border-radius: 0px;
+        background-clip: padding-box;
         -webkit-transition-property: all;
         -moz-transition-property: all;
         -o-transition-property: all;
         -ms-transition-property: all;
         transition-property: all;
-        -webkit-transition-duration: 550ms;
-        -moz-transition-duration: 550ms;
-        -o-transition-duration: 550ms;
-        transition-duration: 550ms;
+        -webkit-transition-duration: 0.2s;
+        -moz-transition-duration: 0.2s;
+        -o-transition-duration: 0.2s;
+        transition-duration: 0.2s;
+        border: 0 none;
+        padding: 12px 35px;
+        text-shadow: 0 1px 0px #780d33;
     }
 
-        /* “See details” badge on hover */
-        .thumbnail .cover .more {
-            position: absolute;
-            bottom: 15px;
-            right: 0;
-            height: 32px;
-            line-height: 32px;
-            padding: 0 20px;
-            -webkit-border-radius: 1px 0 0 1px;
-            -webkit-background-clip: padding-box;
-            -moz-border-radius: 1px 0 0 1px;
-            -moz-background-clip: padding;
-            border-radius: 1px 0 0 1px;
-            background-clip: padding-box;
-            font-size: 12px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            text-shadow: 0 1px 0px #780d33;
-            background: #bd1550;
-            color: white;
+    .btn-primary {
+        color: #fff;
+        background-color: #bd1550;
+    }
+
+        .btn-primary:hover,
+        .btn-primary:focus,
+        .btn-primary:active,
+        .btn-primary.active {
+            color: #fff;
+            background-color: #e61f65;
         }
 
-    /* Actual thumbnail image positioning */
-    .thumbnail img {
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
+    /* Outline-style action button */
+    .btn-action {
+        font-weight: bold;
+        background: transparent !important;
+        border: 1px solid #333;
+        text-shadow: none;
     }
 
-    /* Hover behavior: desaturate + show overlay */
-    .thumbnail:hover {
+        .btn-action:hover,
+        .btn-action:focus,
+        .btn-action:active,
+        .btn-action.active {
+            color: #bd1550;
+            border-color: #bd1550;
+        }
+
+    .btn-lg {
+        padding: 15px 60px;
+        font-size: 12px;
+        line-height: 1.33;
+        font-weight: bold;
+    }
+
+    /* CTA panel container */
+    .panel-cta {
+        box-shadow: 0 0 0 1px #e1e1e1, 0 0 0 3px #fff, 0 0 0 4px #e1e1e1;
+        background: #E5B9FF;
+        -webkit-border-radius: 0;
+        -webkit-background-clip: padding-box;
+        -moz-border-radius: 0;
+        -moz-background-clip: padding;
+        border-radius: 0;
+        background-clip: padding-box;
+    }
+
+        .panel-cta p,
+        .panel-cta h3,
+        .panel-cta h4,
+        .panel-cta h5,
+        .panel-cta h6 {
+            margin: 0;
+        }
+
+    .panel-cta {
+        width: 100%;
+    }
+
+
+    /* ================================
+   SKILLS – ICON NORMALIZATION
+   ================================ */
+    /* Section - Featured (Skills/Services cards) */
+    .featured {
+        font-size: 13px;
+        font-size: 0.8125rem;
+    }
+
+        .featured h3 {
+            font-weight: bold;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 24px;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            line-height: 1.4em;
+            vertical-align: middle;
+            margin: 0 0 25px 0;
+        }
+
+    .skill-icon {
+        /*/display: flex;*/
+        align-items: center;
+        justify-content: center;
+        height: 140px; /* SAME height for all icons */
+        margin-bottom: 15px;
+    }
+
+        .skill-icon img {
+            max-width: 100px; /* SAME visual size */
+            max-height: 100px;
+            width: auto;
+            height: auto;
+        }
+
+    /* ================================
+   SKILLS ICON REVEAL (on scroll / anchor)
+   ================================ */
+
+    #skills .skill-icon img {
+        margin-top: 100px;
+        opacity: 0;
+        transform: translateY(-14px);
+        transition: opacity 600ms ease, transform 600ms ease;
+        will-change: opacity, transform;
+    }
+
+        #skills .skill-icon img.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+    /* Section - Recent works / Projects */
+    .thumbnails {
+        padding: 0;
+    }
+
+        .thumbnails li {
+            margin-bottom: 30px;
+        }
+
+        .thumbnails .details {
+            display: block;
+            text-align: center;
+            font-size: 12px;
+            font-size: 0.75rem;
+        }
+
+    /* Project card container */
+    .thumbnail {
+        display: block;
+        -webkit-border-radius: 0;
+        -webkit-background-clip: padding-box;
+        -moz-border-radius: 0;
+        -moz-background-clip: padding;
+        border-radius: 0;
+        background-clip: padding-box;
+        border: 0 none;
+        margin-bottom: 10px;
+        padding: 0;
+        text-align: center;
+        text-decoration: none;
         color: #333;
+    }
+
+        /* Thumbnail image wrapper (controls cropping/height) */
+        .thumbnail .img {
+            display: block;
+            width: 100%;
+            overflow: hidden;
+            height: 180px;
+            margin: 0 0 20px;
+            position: relative;
+        }
+
+        .thumbnail .title {
+            text-transform: uppercase;
+            margin: 0 2em;
+            display: block;
+            text-indent: 0;
+        }
+
+        /* Hover cover overlay */
+        .thumbnail .cover {
+            position: absolute;
+            display: block;
+            opacity: 0;
+            width: 100%;
+            height: 180px;
+            background-color: rgba(255, 255, 255, 0.8);
+            -webkit-transition-property: all;
+            -moz-transition-property: all;
+            -o-transition-property: all;
+            -ms-transition-property: all;
+            transition-property: all;
+            -webkit-transition-duration: 550ms;
+            -moz-transition-duration: 550ms;
+            -o-transition-duration: 550ms;
+            transition-duration: 550ms;
+        }
+
+            /* “See details” badge on hover */
+            .thumbnail .cover .more {
+                position: absolute;
+                bottom: 15px;
+                right: 0;
+                height: 32px;
+                line-height: 32px;
+                padding: 0 20px;
+                -webkit-border-radius: 1px 0 0 1px;
+                -webkit-background-clip: padding-box;
+                -moz-border-radius: 1px 0 0 1px;
+                -moz-background-clip: padding;
+                border-radius: 1px 0 0 1px;
+                background-clip: padding-box;
+                font-size: 12px;
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                text-shadow: 0 1px 0px #780d33;
+                background: #bd1550;
+                color: white;
+            }
+
+        /* Actual thumbnail image positioning */
+        .thumbnail img {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Hover behavior: desaturate + show overlay */
+        .thumbnail:hover {
+            color: #333;
+            text-decoration: none;
+        }
+
+            .thumbnail:hover img {
+                -webkit-filter: saturate(0%);
+            }
+
+            .thumbnail:hover .cover {
+                opacity: 1;
+            }
+
+    /* Pagination styles (mainly blog pages) */
+    .pagination > li > a {
+        color: #808080;
+        border: 0 none;
+        font-size: 20px;
+        font-size: 1.25rem;
+        font-family: Georgia, serif;
+    }
+
+        .pagination > li > a:hover {
+            color: #000000;
+            background: none;
+        }
+
+    .pagination > li.active > a {
+        color: #333333;
+        background: none;
+    }
+
+        .pagination > li.active > a:hover {
+            color: #000000;
+            background: none;
+        }
+
+    /* Inline Steam icon + label */
+    .project-steam-inline {
+        display: inline-flex;
+        align-items: center;
+        /*/gap: 6px;*/
         text-decoration: none;
     }
 
-        .thumbnail:hover img {
-            -webkit-filter: saturate(0%);
+        .project-steam-inline img {
+            height: 18px; /* small + subtle */
+            width: auto;
         }
 
-        .thumbnail:hover .cover {
-            opacity: 1;
-        }
-
-/* Pagination styles (mainly blog pages) */
-.pagination > li > a {
-    color: #808080;
-    border: 0 none;
-    font-size: 20px;
-    font-size: 1.25rem;
-    font-family: Georgia, serif;
-}
-
-    .pagination > li > a:hover {
-        color: #000000;
-        background: none;
+    .project-steam-text {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #666;
     }
 
-.pagination > li.active > a {
-    color: #333333;
-    background: none;
-}
-
-    .pagination > li.active > a:hover {
-        color: #000000;
-        background: none;
+    .project-steam-inline:hover .project-steam-text {
+        color: #000;
     }
 
-/* Inline Steam icon + label */
-.project-steam-inline {
-    display: inline-flex;
-    align-items: center;
-    /*/gap: 6px;*/
-    text-decoration: none;
-}
-
-    .project-steam-inline img {
-        height: 18px; /* small + subtle */
-        width: auto;
-    }
-
-.project-steam-text {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #666;
-}
-
-.project-steam-inline:hover .project-steam-text {
-    color: #000;
-}
-
-/* ================================
+    /* ================================
    PROJECT – Hero Image (Framed)
    ================================ */
 
-.project-hero {
-    margin-bottom: 30px;
-    padding: 12px; /* space between image and frame */
-    border: 1px solid #e0e0e0; /* frame line */
-    background-color: #ffffff; /* keeps it clean on tinted sections */
-    display: inline-block; /* frame wraps tightly */
-}
-
-    .project-hero img {
-        width: 100%;
-        max-width: 900px; /* adjust size here */
-        height: auto;
-        display: block;
+    .project-hero {
+        margin-bottom: 30px;
+        padding: 12px; /* space between image and frame */
+        border: 1px solid #e0e0e0; /* frame line */
+        background-color: #ffffff; /* keeps it clean on tinted sections */
+        display: inline-block; /* frame wraps tightly */
     }
 
-/* Project – Steam icon size (temporary) */
-#projects img[src*="steam"] {
-    max-width: 50px; /* adjust this */
-    height: auto;
-}
+        .project-hero img {
+            width: 100%;
+            max-width: 900px; /* adjust size here */
+            height: auto;
+            display: block;
+        }
 
-/* Narrow project description column */
+    /* Project – Steam icon size (temporary) */
+    #projects img[src*="steam"] {
+        max-width: 50px; /* adjust this */
+        height: auto;
+    }
+
+    /* Narrow project description column */
 
 
 
 
 
-/* =========================================================
+    /* =========================================================
    REGION: Blog Styling (OPTIONAL)
    - Used by blog.html / single.html
    - If you delete those pages, this whole region becomes removable
    ========================================================= */
 
-/*********************************************************************
+    /*********************************************************************
                                  BLOG
 **********************************************************************/
-.section-title,
-.entry-title {
-    display: block;
-    width: 100%;
-    overflow: hidden;
-    margin: 0px 0 25px;
-    text-align: center;
-    font-weight: 300;
-    text-transform: uppercase;
-    font-size: 36px;
-    font-size: 2.25rem;
-    letter-spacing: 1px;
-}
-
-    .section-title a,
-    .entry-title a {
-        color: #333333;
+    .section-title,
+    .entry-title {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        margin: 0px 0 25px;
+        text-align: center;
+        font-weight: 300;
+        text-transform: uppercase;
+        font-size: 36px;
+        font-size: 2.25rem;
+        letter-spacing: 1px;
     }
 
-    .section-title span,
-    .entry-title span {
-        display: inline-block;
-        position: relative;
+        .section-title a,
+        .entry-title a {
+            color: #333333;
+        }
+
+        .section-title span,
+        .entry-title span {
+            display: inline-block;
+            position: relative;
+        }
+
+            .section-title span:before,
+            .entry-title span:before,
+            .section-title span:after,
+            .entry-title span:after {
+                content: "";
+                position: absolute;
+                height: 4px;
+                top: .53em;
+                width: 400%;
+                border-bottom: 1px solid #ccc;
+                border-top: 1px solid #ccc;
+            }
+
+            .section-title span:before,
+            .entry-title span:before {
+                right: 100%;
+                margin-right: 45px;
+            }
+
+            .section-title span:after,
+            .entry-title span:after {
+                left: 100%;
+                margin-left: 45px;
+            }
+
+    */
+
+    .entry-header .entry-meta {
+        text-align: center;
+        font-family: Georgia, serif;
+        font-size: 18px;
+        font-size: 1.125rem;
+        font-style: italic;
+        font-weight: normal;
+        color: #a5a5a5;
+        margin: 0 0 15px 0;
     }
-
-        .section-title span:before,
-        .entry-title span:before,
-        .section-title span:after,
-        .entry-title span:after {
-            content: "";
-            position: absolute;
-            height: 4px;
-            top: .53em;
-            width: 400%;
-            border-bottom: 1px solid #ccc;
-            border-top: 1px solid #ccc;
-        }
-
-        .section-title span:before,
-        .entry-title span:before {
-            right: 100%;
-            margin-right: 45px;
-        }
-
-        .section-title span:after,
-        .entry-title span:after {
-            left: 100%;
-            margin-left: 45px;
-        }*/
-
-.entry-header .entry-meta {
-    text-align: center;
-    font-family: Georgia, serif;
-    font-size: 18px;
-    font-size: 1.125rem;
-    font-style: italic;
-    font-weight: normal;
-    color: #a5a5a5;
-    margin: 0 0 15px 0;
-}
 
     .entry-header .entry-meta a {
         color: #a5a5a5;
     }
 
-.entry-content {
-    margin: 0 0 60px 0;
-}
-
-    .entry-content h2 {
-        line-height: 1.2;
-        font-size: 30px;
-        font-size: 1.875rem;
-        padding-top: 20px;
-        margin-bottom: 20px;
+    .entry-content {
+        margin: 0 0 60px 0;
     }
 
-.meta-nav,
-.more-link {
-    font-family: Georgia, serif;
-    font-style: italic;
-    font-weight: bold;
-    color: #666666;
-    text-decoration: none;
-}
-
-    .meta-nav:hover,
-    .more-link:hover {
-        color: #333333;
-        text-decoration: underline;
-    }
-
-.more-link {
-    display: block;
-    width: 100%;
-    text-align: right;
-}
-
-/* Posts navigation arrows (blog pages) */
-#nav-below {
-    position: fixed;
-    top: 48%;
-}
-
-    #nav-below .meta-nav {
-        display: block;
-        padding: 27px 7px;
-        background: #444;
-        color: #fff;
-        -webkit-border-radius: 3px;
-        -webkit-background-clip: padding-box;
-        -moz-border-radius: 3px;
-        -moz-background-clip: padding;
-        border-radius: 3px;
-        background-clip: padding-box;
-        font-family: "Open sans", Helvetica, Arial, sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        text-decoration: none;
-        opacity: 0.2;
-    }
-
-        #nav-below .meta-nav:hover {
-            text-decoration: none;
-            color: #333;
+        .entry-content h2 {
+            line-height: 1.2;
+            font-size: 30px;
+            font-size: 1.875rem;
+            padding-top: 20px;
+            margin-bottom: 20px;
         }
 
-    #nav-below .nav-next {
+    .meta-nav,
+    .more-link {
+        font-family: Georgia, serif;
+        font-style: italic;
+        font-weight: bold;
+        color: #666666;
+        text-decoration: none;
+    }
+
+        .meta-nav:hover,
+        .more-link:hover {
+            color: #333333;
+            text-decoration: underline;
+        }
+
+    .more-link {
+        display: block;
+        width: 100%;
+        text-align: right;
+    }
+
+    /* Posts navigation arrows (blog pages) */
+    #nav-below {
         position: fixed;
-        right: -3px;
+        top: 48%;
     }
 
-    #nav-below .nav-previous {
-        position: fixed;
-        left: -3px;
-    }
+        #nav-below .meta-nav {
+            display: block;
+            padding: 27px 7px;
+            background: #444;
+            color: #fff;
+            -webkit-border-radius: 3px;
+            -webkit-background-clip: padding-box;
+            -moz-border-radius: 3px;
+            -moz-background-clip: padding;
+            border-radius: 3px;
+            background-clip: padding-box;
+            font-family: "Open sans", Helvetica, Arial, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            opacity: 0.2;
+        }
 
-    #nav-below b {
-        display: none;
-    }
+            #nav-below .meta-nav:hover {
+                text-decoration: none;
+                color: #333;
+            }
 
-footer.entry-meta {
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    margin: 0 0 35px 0;
-    padding: 2px 0;
-    color: #888888;
-    font-size: 12px;
-    font-size: 0.75rem;
-}
+        #nav-below .nav-next {
+            position: fixed;
+            right: -3px;
+        }
 
-    footer.entry-meta a {
-        color: #333333;
-    }
+        #nav-below .nav-previous {
+            position: fixed;
+            left: -3px;
+        }
 
-    footer.entry-meta .meta-in {
+        #nav-below b {
+            display: none;
+        }
+
+    footer.entry-meta {
         border-top: 1px solid #ccc;
         border-bottom: 1px solid #ccc;
-        padding: 10px 0;
+        margin: 0 0 35px 0;
+        padding: 2px 0;
+        color: #888888;
+        font-size: 12px;
+        font-size: 0.75rem;
     }
 
-.page-header {
-    padding-bottom: 0;
-    margin: 0;
-    border-bottom: none;
-    text-align: left;
-}
+        footer.entry-meta a {
+            color: #333333;
+        }
 
-    .page-header .page-title {
-        margin-top: 0;
-        margin-bottom: 30px;
+        footer.entry-meta .meta-in {
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+
+    .page-header {
+        padding-bottom: 0;
+        margin: 0;
+        border-bottom: none;
+        text-align: left;
     }
 
+        .page-header .page-title {
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
 
-/* =========================================================
+
+    /* =========================================================
    REGION: Comments Styling (OPTIONAL)
    - Used by blog post comment UI (single.html)
    - If you delete blog pages, this region is removable
    ========================================================= */
 
-/*********************************************************************
+    /*********************************************************************
                                 COMMENTS
 **********************************************************************/
-#comments {
-    font-size: 13px;
-    font-size: 0.8125rem;
-}
-
-    #comments .comments-title {
-        margin: 0 0 5px 0;
+    #comments {
+        font-size: 13px;
+        font-size: 0.8125rem;
     }
 
-    #comments .leave-comment {
-        display: block;
-        margin: 0 0 40px 0;
-    }
-
-    #comments ul,
-    #comments ol {
-        margin: 0;
-        padding: 0;
-    }
-
-    #comments .comment {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        clear: both;
-    }
-
-    #comments .comments-title {
-        text-shadow: none;
-        margin-bottom: 0;
-    }
-
-    #comments .avatar {
-        float: left;
-        width: 70px;
-        height: 70px;
-        margin-bottom: 30px;
-        border: 5px solid #eeeeee;
-        -webkit-border-radius: 50%;
-        -webkit-background-clip: padding-box;
-        -moz-border-radius: 50%;
-        -moz-background-clip: padding;
-        border-radius: 50%;
-        background-clip: padding-box;
-    }
-
-    #comments .children {
-        margin: 0 0 0 90px;
-    }
-
-    #comments .comment-meta {
-        margin: 0 0 0 90px;
-    }
-
-        #comments .comment-meta a {
-            color: #333333;
+        #comments .comments-title {
+            margin: 0 0 5px 0;
         }
 
-            #comments .comment-meta a:hover {
-                color: #bd1550;
+        #comments .leave-comment {
+            display: block;
+            margin: 0 0 40px 0;
+        }
+
+        #comments ul,
+        #comments ol {
+            margin: 0;
+            padding: 0;
+        }
+
+        #comments .comment {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            clear: both;
+        }
+
+        #comments .comments-title {
+            text-shadow: none;
+            margin-bottom: 0;
+        }
+
+        #comments .avatar {
+            float: left;
+            width: 70px;
+            height: 70px;
+            margin-bottom: 30px;
+            border: 5px solid #eeeeee;
+            -webkit-border-radius: 50%;
+            -webkit-background-clip: padding-box;
+            -moz-border-radius: 50%;
+            -moz-background-clip: padding;
+            border-radius: 50%;
+            background-clip: padding-box;
+        }
+
+        #comments .children {
+            margin: 0 0 0 90px;
+        }
+
+        #comments .comment-meta {
+            margin: 0 0 0 90px;
+        }
+
+            #comments .comment-meta a {
+                color: #333333;
             }
 
-        #comments .comment-meta .author {
-            margin: 0 20px 0 0;
-            font-weight: bold;
-        }
+                #comments .comment-meta a:hover {
+                    color: #bd1550;
+                }
 
-        #comments .comment-meta .date {
-            margin: 0 20px 0 0;
-        }
-
-            #comments .comment-meta .date a {
-                color: #666666;
+            #comments .comment-meta .author {
+                margin: 0 20px 0 0;
+                font-weight: bold;
             }
 
-        #comments .comment-meta .reply {
-            float: right;
+            #comments .comment-meta .date {
+                margin: 0 20px 0 0;
+            }
+
+                #comments .comment-meta .date a {
+                    color: #666666;
+                }
+
+            #comments .comment-meta .reply {
+                float: right;
+            }
+
+        #comments .comment-body {
+            margin: 0 0 35px 90px;
         }
 
-    #comments .comment-body {
-        margin: 0 0 35px 90px;
-    }
-
-.comment-navigation {
-    width: 100%;
-    border-top: 1px solid #ccc;
-    padding: 2px 0 0 0;
-}
-
-    .comment-navigation .nav-content {
-        border-top: 1px solid #ccc;
+    .comment-navigation {
         width: 100%;
-        padding: 10px 0 0 0;
+        border-top: 1px solid #ccc;
+        padding: 2px 0 0 0;
     }
 
-    .comment-navigation .nav-previous {
-        float: left;
-        width: 50%;
+        .comment-navigation .nav-content {
+            border-top: 1px solid #ccc;
+            width: 100%;
+            padding: 10px 0 0 0;
+        }
+
+        .comment-navigation .nav-previous {
+            float: left;
+            width: 50%;
+        }
+
+        .comment-navigation .nav-next {
+            float: right;
+            width: 50%;
+            text-align: right;
+        }
+
+    #respond {
+        margin: 55px 0 0 0;
     }
 
-    .comment-navigation .nav-next {
-        float: right;
-        width: 50%;
-        text-align: right;
-    }
 
-#respond {
-    margin: 55px 0 0 0;
-}
-
-
-/* =========================================================
+    /* =========================================================
    REGION: Footer
    - Styles footer + underfooter and icon row
    ========================================================= */
 
-/*********************************************************************
+    /*********************************************************************
                                 FOOTER
 **********************************************************************/
-#footer {
-    background: #232323;
-    padding: 30px 0 0 0;
-    font-size: 12px;
-    color: #999;
-}
-
-    #footer a {
-        color: #ccc;
+    #footer {
+        background: #232323;
+        padding: 30px 0 0 0;
+        font-size: 12px;
+        color: #999;
     }
 
-        #footer a:hover {
-            color: #fff;
+        #footer a {
+            color: #ccc;
         }
 
-    #footer h3.widget-title {
-        font-size: 15px;
-        font-size: 0.9375rem;
-        text-transform: uppercase;
-        color: #ccc;
-        margin: 0 0 20px;
-    }
+            #footer a:hover {
+                color: #fff;
+            }
 
-#underfooter {
-    background: #191919;
-    padding: 15px 0;
-    color: #777;
-    font-size: 12px;
-}
-
-    #underfooter a {
-        color: #aaa;
-    }
-
-        #underfooter a:hover {
-            color: #fff;
+        #footer h3.widget-title {
+            font-size: 15px;
+            font-size: 0.9375rem;
+            text-transform: uppercase;
+            color: #ccc;
+            margin: 0 0 20px;
         }
 
-    #underfooter p {
-        margin: 0;
+    #underfooter {
+        background: #191919;
+        padding: 15px 0;
+        color: #777;
+        font-size: 12px;
     }
 
-.follow-me-icons {
-    font-size: 30px;
-}
+        #underfooter a {
+            color: #aaa;
+        }
 
-    .follow-me-icons i {
-        float: left;
-        margin: 0 10px 0 0;
+            #underfooter a:hover {
+                color: #fff;
+            }
+
+        #underfooter p {
+            margin: 0;
+        }
+
+    .follow-me-icons {
+        font-size: 30px;
     }
 
-/* ================================
+        .follow-me-icons i {
+            float: left;
+            margin: 0 10px 0 0;
+        }
+
+    /* ================================
    SYSTEMS – Alternating Rows Layout
    ================================ */
-
-.systems-list {
-    margin-top: 30px;
-}
-
-.system-row {
-    padding: 35px 0;
-    border-top: 1px solid #e6e6e6;
-}
-
-    .system-row:last-child {
-        border-bottom: 1px solid #e6e6e6;
+    @media (min-width: 992px) {
+        .system-row-right .row {
+            display: flex;
+            align-items: center;
+        }
     }
 
-/* Image wrapper */
-.system-media {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 26px;
-}
+    /* MOBILE: remove the alternating padding so it doesn't feel broken */
+    @media (max-width: 991px) {
+        .system-row-right .col-md-5,
+        .system-row-right .col-md-7 {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+    .systems-list {
+        margin-top: 30px;
+    }
 
-    .system-media img {
+    .system-row {
+        padding: 35px 0;
+        border-top: 1px solid #e6e6e6;
+    }
+
+        .system-row:last-child {
+            border-bottom: 1px solid #e6e6e6;
+        }
+
+    /* Image wrapper */
+    .system-media {
         width: 100%;
-        max-width: 500px; /* ← adjust this */
-        height: auto;
-        border-radius: 26px; /* match Project image */
-        display: block;
+        overflow: hidden;
+        border-radius: 26px;
     }
 
-/* Text wrapper */
-.system-content {
-    padding-top: 10px; /* helps align vertically with image */
-}
+        .system-media img {
+            width: 100%;
+            max-width: 500px; /* ← adjust this */
+            height: auto;
+            border-radius: 26px; /* match Project image */
+            display: block;
+        }
 
-/* Title: make it feel like your Project title (big + clean) */
-.system-title {
-    font-family: "Open sans", Helvetica, Arial, sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 0 0 15px 0;
-    font-size: 24px;
-    font-weight: 400;
-    color: #333333;
-}
-
-.system-text {
-    font-size: 15px; /* try 15–18px */
-    line-height: 1.5;
-    margin: 0;
-    line-height: 1.7em;
-    color: #666666;
-}
-
-/* Alternating layout (Row 2, Row 4...) */
-.system-row-right .row {
-    /*/display: flex;*/
-    flex-wrap: wrap;
-}
-
-.system-row-right .col-md-5 {
-    padding-left: 40px; /* space on image side */
-    order: 2; /* image moves right */
-}
-
-.system-row-right .col-md-7 {
-    padding-right: 40px; /* space on image side */
-    order: 1; /* text moves left */
-}
-
-/* Mobile: stack naturally and keep it clean */
-@media (max-width: 991px) {
+    /* Text wrapper */
     .system-content {
-        padding-top: 18px;
+        padding-top: 10px; /* helps align vertically with image */
     }
-}
 
-/* =========================================================
+    /* Title: make it feel like your Project title (big + clean) */
+    .system-title {
+        font-family: "Open sans", Helvetica, Arial, sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 0 0 15px 0;
+        font-size: 24px;
+        font-weight: 400;
+        color: #333333;
+    }
+
+    .system-text {
+        font-size: 15px; /* try 15–18px */
+        line-height: 1.5;
+        margin: 0;
+        line-height: 1.7em;
+        color: #666666;
+    }
+
+    /* Alternating layout (Row 2, Row 4...) */
+    .system-row-right .row {
+        /*/display: flex;*/
+        flex-wrap: wrap;
+    }
+
+    .system-row-right .col-md-5 {
+        padding-left: 40px; /* space on image side */
+        order: 2; /* image moves right */
+    }
+
+    .system-row-right .col-md-7 {
+        padding-right: 40px; /* space on image side */
+        order: 1; /* text moves left */
+    }
+
+    /* Mobile: stack naturally and keep it clean */
+    @media (max-width: 991px) {
+        .system-content {
+            padding-top: 18px;
+        }
+    }
+
+    /* =========================================================
    REGION: Responsive / Layout Constraints
    - Limits container width on very large screens
    ========================================================= */
 
-/* Max page width */
-@media (min-width: 1200px) {
-    .container {
-        max-width: 1080px;
+    /* Max page width */
+    @media (min-width: 1200px) {
+        .container {
+            max-width: 1080px;
+        }
     }
-}
 
-/* DEBUG: show all layout boxes */
-* {
-    outline: 
-    0px solid black !important;
-}
+    /* DEBUG: show all layout boxes */
+    * {
+        outline: 0px solid black !important;
+    }
 
