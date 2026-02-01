@@ -29,6 +29,7 @@
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 	<!-- Fonts (FIXED: you had Bootstrap here by mistake) -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alice|Open+Sans:400,300,700">
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
 	<!-- =========================================================
 	  REGION: Custom Template Styles
@@ -54,58 +55,56 @@
 	  - Profile image + name + short tagline shown in hero
 	========================================================== -->
 	<header id="header">
-		<!-- Anchor target for "Home" -->
 		<a id="top"></a>
 
 		<div id="head" class="parallax" parallax-speed="2">
-			<h1 id="logo" class="text-center">
-				<img class="img-circle" src="assets/images/guy.jpg" alt="Profile photo">
-				<span class="title">Mohsen Parchami</span>
-				<span class="tagline">
-					Game Developer<br>
-					<!-- TODO: replace with a real email link -->
-					<a href="mailto:Mohsen.parchami@gmail.com">Mohsen.parchami@gmail.com</a>
-				</span>
-			</h1>
-			<header id="header">
+			<span class="title">MOHSEN PARCHAMI</span>
 		</div>
+	</header>
 
-		<!-- =========================================================
-		  REGION: Navigation (Single Page Anchors)
-		  - Uses Bootstrap navbar
-		  - template.js adds/removes "stick" class to make it sticky on scroll
-		  - Links now point to anchors on THIS page (no more extra HTML pages)
-		========================================================== -->
-		<nav class="navbar navbar-default navbar-sticky">
-			<div class="container-fluid">
+	<!-- =========================================================
+	  REGION: Navigation (Single Page Anchors)
+	  - Uses Bootstrap navbar
+	  - template.js adds/removes "stick" class to make it sticky on scroll
+	  - Links now point to anchors on THIS page (no more extra HTML pages)
+	========================================================== -->
+	<nav class="navbar navbar-default navbar-sticky">
+		<div class="container-fluid">
 
-				<!-- Mobile hamburger button -->
-				<div class="navbar-header">
-					<button type="button"
-							class="navbar-toggle"
-							data-toggle="collapse"
-							data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-				</div>
-
-				<!-- Collapsible nav content -->
-				<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="#top">Home</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#skills">Skills</a></li>
-						<li><a href="#projects">Project</a></li>
-						<li><a href="#systems">Systems</a></li>
-						<li><a href="#contact">Contact</a></li>
-					</ul>
-				</div><!-- /.nav-collapse -->
-
+			<!-- Mobile hamburger button -->
+			<div class="navbar-header">
+				<button type="button"
+						class="navbar-toggle"
+						data-toggle="collapse"
+						data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
 			</div>
-		</nav>
+
+			<!-- Collapsible nav content -->
+			<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<div><class="nav-indicator"></div>
+					<li><a href="#top">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#skills">Skills</a></li>
+					<li><a href="#projects">Project</a></li>
+					<li><a href="#systems">Systems</a></li>
+					<li>
+						<a href="assets/cv/Mohsen_Parchami_CV.pdf"
+						   target="_blank"
+						   rel="noopener noreferrer">
+							CV
+						</a>
+					</li>
+				</ul>
+			</div><!-- /.nav-collapse -->
+
+		</div>
+	</nav>
 	</header>
 
 	<!-- =========================================================
@@ -130,17 +129,49 @@
 
 				<div class="col-md-6">
 					<p class="lead text-muted">
-						I’m a Game Development student at Södertörn University with a lifelong passion for games, driven by a curiosity for how story, systems, and emotion come together to create memorable experiences.
-					</p>
-				</div>
-
-				<div class="col-md-6">
-					<p class="lead text-muted">
+						Game Development student at Södertörn University with a lifelong passion for games, driven by a curiosity for how story, systems, and emotion come together to create memorable experiences.
+						<br />
 						I work well in teams, communicate clearly, and bring a calm, solutions-focused mindset shaped by collaborative projects and my background as an assistant engineer. My lifelong passion for games drives me to create thoughtful, polished work built with care.
 					</p>
 				</div>
 
-			</div>
+				<div class="col-md-6 about-icons">
+					<h3 class="about-links-title">"It's dangerous to go alone!<br /> Take this"</h3>
+					<div class="about-row">
+						<a href="assets/cv/Mohsen_Parchami_CV.pdf"
+						   class="about-icon-btn sketch-button steam-sketch"
+						   target="_blank"
+						   rel="noopener">
+							<img src="assets/icons/cv.png" alt="">
+						</a>
+						<div class="about-row-text">My CV</div>
+					</div>
+
+
+					<div class="about-row">
+						<a href="mailto:Mohsen.parchami@gmail.com"
+						   class="about-icon-btn sketch-button steam-sketch">
+							<img src="assets/icons/mail.png" alt="">
+						</a>
+						<div class="about-row-text">Email me</div>
+					</div>
+
+					<div class="about-row">
+						<a href="https://www.linkedin.com/in/mohsen-parchami-4b0344238/"
+						   class="about-icon-btn sketch-button steam-sketch"
+						   target="_blank"
+						   rel="noopener">
+							<img src="assets/icons/linkedin.png" alt="">
+						</a>
+						<div class="about-row-text">LinkedIn</div>
+
+					</div>
+
+					</div>
+
+				</div>
+
+
 
 			<!-- /About -->
 			<!-- =========================================================
@@ -211,13 +242,14 @@
 									This Unity project was developed as a final-semester collaboration with a multidisciplinary
 									team of developers and artists. <br />My contributions spanned level design, narrative, sound and
 									voice-over integration, lighting, and VFX. I was fully responsible for the conception,
-									design, and implementation of the game’s core chase sequence, owning the feature end-to-end.<br>The game is live on
-									<a href="https://store.steampowered.com/app/4187020/Murmurs_of_the_Mist/"
+									design, and implementation of the game’s core chase sequence.<br>The game is live on
+									<a class="sketch-button steam-sketch"
+									   href="https://store.steampowered.com/app/4187020/Murmurs_of_the_Mist/"
 									   target="_blank"
-									   rel="noopener noreferrer"
-									   class="steam-link">
-										<strong>STEAM</strong>
-									</a>.
+									   rel="noopener noreferrer">
+										STEAM
+									</a>
+
 								</p>
 							</div>
 						</div>
@@ -225,6 +257,7 @@
 					</div>
 				</div>
 			</div>
+
 
 
 			<!-- =========================================================
@@ -235,129 +268,121 @@
 	========================================================== -->
 			<div id="systems" class="row section topspace">
 
-				<h2 class="section-title"><span>Systems</span></h2>
+				<!-- =========================================================
+		  REGION: Systems (Tabs + Carousel)
+		========================================================== -->
+				<div id="systems" class="row section topspace">
 
-				<!-- SYSTEM ROWS (alternating layout) -->
-				<div class="systems-list">
+					<h2 class="section-title"><span>Systems</span></h2>
 
-					<!-- System Row 1: image LEFT, text RIGHT -->
-					<div class="system-row system-row-left">
-						<div class="row">
+					<div class="systems-carousel" data-systems-carousel>
 
-							<!-- Image -->
-							<div class="col-xs-12 col-md-6">
-								<div class="system-media">
-									<!-- Use your current image for now (replace later) -->
-									<img src="assets/gifs/camera.gif" alt="dynamic camera movement">
-								</div>
-							</div>
-
-							<!-- Text -->
-							<div class="col-xs-12 col-md-6">
-								<div class="system-content">
-									<h3 class="system-title">Camera</h3>
-
-									<p class="system-text">
-										A dynamic camera system built to heighten tension and guide player focus through shifting perspectives.
-										Multiple camera angles are used to emphasize pressure, reveal threats, and shape moment-to-moment gameplay,
-										while smooth transitions create cinematic flow and allow camera behavior to adapt to different level layouts and pacing needs.
-									</p>
-								</div>
-							</div>
-
-
-
+						<!-- Tabs (top) -->
+						<div class="systems-tabs" role="tablist" aria-label="Systems tabs">
+							<button class="systems-tab is-active" role="tab" aria-selected="true" data-sys-tab="camera">CAM</button>
+							<button class="systems-tab" role="tab" aria-selected="false" data-sys-tab="movement">MOVE</button>
+							<button class="systems-tab" role="tab" aria-selected="false" data-sys-tab="shaders">SHADE</button>
+							<button class="systems-tab" role="tab" aria-selected="false" data-sys-tab="lighting">LIGHT</button>
 						</div>
-					</div>
 
-					<!-- System Row 2: image RIGHT, text LEFT -->
-					<div class="system-row system-row-right">
-						<div class="row">
+						<!-- Arrows -->
+						<button class="systems-arrow systems-arrow-left" type="button" aria-label="Previous system" data-sys-prev>
+							‹
+						</button>
+						<button class="systems-arrow systems-arrow-right" type="button" aria-label="Next system" data-sys-next>
+							›
+						</button>
 
-							<!-- Text -->
-							<div class="col-xs-12 col-md-6">
-								<div class="system-content">
-									<h3 class="system-title">Movement Mechanics</h3>
+						<!-- Viewport + Track -->
+						<div class="systems-viewport" data-sys-viewport>
+							<div class="systems-track" data-sys-track>
 
-									<p class="system-text">
-										A responsive traversal system built to support fast pacing and player control.
-										The mechanic combines a directional dash so the player can quickly reposition, clear gaps, and maintain momentum during high-pressure moments.
-										Designed to feel snappy, and consistent, with clean tuning points for speed, timing, and cooldown with visual cues to fit level design needs.
-									</p>
-								</div>
+								<!-- Slide 1 -->
+								<article class="systems-slide" data-sys-slide="camera">
+									<div class="systems-panel">
+										<div class="systems-media">
+											<img src="assets/gifs/camera.gif" alt="dynamic camera movement">
+										</div>
+
+										<div class="systems-content">
+											<h3 class="system-title">Camera</h3>
+											<p class="system-text">
+												A dynamic camera system built to heighten tension and guide player focus through shifting perspectives.
+												Multiple camera angles are used to emphasize pressure, reveal threats, and shape moment-to-moment gameplay,
+												while smooth transitions create cinematic flow and allow camera behavior to adapt to different level layouts and pacing needs.
+											</p>
+										</div>
+									</div>
+								</article>
+
+								<!-- Slide 2 -->
+								<article class="systems-slide" data-sys-slide="movement">
+									<div class="systems-panel">
+										<div class="systems-media">
+											<img src="assets/gifs/dashing.gif" alt="Dashing and Jumping system screenshot">
+										</div>
+
+										<div class="systems-content">
+											<h3 class="system-title">Movement Mechanics</h3>
+											<p class="system-text">
+												A responsive traversal system built to support fast pacing and player control.
+												The mechanic combines a directional dash so the player can quickly reposition, clear gaps, and maintain momentum during high-pressure moments.
+												Designed to feel snappy, and consistent, with clean tuning points for speed, timing, and cooldown with visual cues to fit level design needs.
+											</p>
+										</div>
+									</div>
+								</article>
+
+								<!-- Slide 3 -->
+								<article class="systems-slide" data-sys-slide="shaders">
+									<div class="systems-panel">
+										<div class="systems-media">
+											<img src="assets/gifs/shaders.gif" alt="Display of shaders in Unity">
+										</div>
+
+										<div class="systems-content">
+											<h3 class="system-title">Shaders</h3>
+											<p class="system-text">
+												Shaders that are used for cooldown indicators to provide visual feedback without traditinal UI.
+												Reflective and refractive multi-colored materials that distort the surrounding environment based on object shape.
+												Dynamic ripple effects that respond to player movement through liquid surfaces.
+												Additional effects handle camera-based fading and  materials to maintain clarity, readability.
+											</p>
+										</div>
+									</div>
+								</article>
+
+								<!-- Slide 4 -->
+								<article class="systems-slide" data-sys-slide="lighting">
+									<div class="systems-panel">
+										<div class="systems-media">
+											<img src="assets/gifs/lights.gif" alt="Lighting and post production">
+										</div>
+
+										<div class="systems-content">
+											<h3 class="system-title">Lights  &amp; Post Production</h3>
+											<p class="system-text">
+												A lighting and post-processing setup built to support visual storytelling and mood through controlled use of light, shadow, and color.
+												Lighting is used to guide player focus and emphasize tension,
+												while post-processing effects such as color grading, exposure, and bloom are applied to refine atmosphere, depth, and overall visual realism.
+											</p>
+										</div>
+									</div>
+								</article>
+
 							</div>
-
-							<!-- Image -->
-							<div class="col-xs-12 col-md-6">
-								<div class="system-media">
-									<!-- Use your current image for now (replace later) -->
-									<img src="assets/gifs/dashing.gif" alt="Dashing and Jumping system screenshot">
-								</div>
-							</div>
-
-
-
 						</div>
+
 					</div>
-
-					<!-- System Row 3: image LEFT, text RIGHT -->
-					<div class="system-row system-row-left">
-						<div class="row">
-
-							<!-- Image -->
-							<div class="col-xs-12 col-md-6">
-								<div class="system-media">
-									<!-- Use your current image for now (replace later) -->
-									<img src="assets/gifs/shaders.gif" alt="Display of shaders in Unity">
-								</div>
-							</div>
-
-							<!-- Text -->
-							<div class="col-xs-12 col-md-6">
-								<div class="system-content">
-									<h3 class="system-title">Shaders</h3>
-
-									<p class="system-text">
-										Shaders that are used for cooldown indicators to provide visual feedback without traditinal UI.
-										Reflective and refractive multi-colored materials that distort the surrounding environment based on object shape.
-										Dynamic ripple effects that respond to player movement through liquid surfaces.
-										Additional effects handle camera-based fading and  materials to maintain clarity, readability.
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- System Row 4: image RIGHT, text LEFT -->
-					<div class="system-row system-row-right">
-						<div class="row">
-
-							<!-- Text -->
-							<div class="col-xs-12 col-md-6">
-								<div class="system-content">
-									<h3 class="system-title">Lights  &amp; Post Production</h3>
-
-									<p class="system-text">
-										A lighting and post-processing setup built to support visual storytelling and mood through controlled use of light, shadow, and color.
-										Lighting is used to guide player focus and emphasize tension,
-										while post-processing effects such as color grading, exposure, and bloom are applied to refine atmosphere, depth, and overall visual realism.
-									</p>
-								</div>
-							</div>
-
-							<!-- Image -->
-							<div class="col-xs-12 col-md-6">
-								<div class="system-media">
-									<!-- Use your current image for now (replace later) -->
-									<img src="assets/gifs/lights.gif" alt="Lighting and post production">
-								</div>
-							</div>
+				</div>
+				<!-- /Systems -->
 
 
 
-						</div>
-					</div>
-				</div><!-- /systems-list -->
+
+
+
+
 			</div><!-- /Systems -->
 			<!-- =========================================================
 	  REGION: contact
@@ -365,23 +390,7 @@
 	  - Keeps the design but makes it about YOU
 	========================================================== -->
 			<div class="row section topspace">
-				<div class="panel panel-cta">
-					<div class="panel-body">
-						<div class="col-lg-8">
-							<p>
-								<h5>"It's dangerous to go alone! Take this."</h5>
-							</p>
-						</div>
-						<div class="col-lg-3 text-right">
-							<a href="assets/cv/Mohsen_Parchami_CV.pdf"
-							   class="btn btn-primary btn-lg"
-							   target="_blank"
-							   rel="noopener noreferrer">
-								View CV (PDF)
-							</a>
-						</div>
-					</div>
-				</div>
+
 			</div><!-- /CTA -->
 
 </main>
@@ -414,11 +423,19 @@
 					<h3 class="widget-title">Follow me</h3>
 					<div class="widget-body">
 						<p class="follow-me-icons">
-							<!-- TODO: Replace # with your real profile links -->
-							<a href="#"><i class="fa fa-github fa-2"></i></a>
-							<a href="#"><i class="fa fa-linkedin fa-2"></i></a>
+							<a href="https://github.com/Mohjo13"
+							   target="_blank"
+							   rel="noopener noreferrer">
+								<i class="fa fa-github fa-2"></i>
+							</a>
 
+							<a href="https://www.linkedin.com/in/mohsen-parchami-4b0344238/"
+							   target="_blank"
+							   rel="noopener noreferrer">
+								<i class="fa fa-linkedin fa-2"></i>
+							</a>
 						</p>
+
 					</div>
 				</div>
 
@@ -485,4 +502,5 @@
 	</script>
 
 </body>
+
 </html>
