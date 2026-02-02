@@ -2,58 +2,37 @@
 <html lang="en">
 <head>
 	<!-- =========================================================
-	  REGION: Document Metadata + External Dependencies
-	  - Sets encoding and responsive viewport
-	  - Loads Bootstrap (layout), Font Awesome (icons), Google Fonts (typography)
-	  - Loads your template's custom CSS last so it can override Bootstrap defaults
-	========================================================== -->
+		 HEAD: Metadata + External Dependencies
+	========================================================= -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="Sergey Pozhilov (GetTemplate.com)">
 
 	<title>Mohsen Parchami | Portfolio</title>
-
-	<!-- Favicon shown in browser tab -->
 	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
 
 	<!-- =========================================================
-	  REGION: CSS Libraries
-	  - Bootstrap provides responsive grid + base components
-	  - Font Awesome provides social icons in footer
-	  - Google Fonts loads Alice + Open Sans (template typography)
-	========================================================== -->
-	<!-- Bootstrap -->
+		 STYLESHEETS
+	========================================================= -->
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css">
-	<!-- Icons -->
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-	<!-- Fonts (FIXED: you had Bootstrap here by mistake) -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alice|Open+Sans:400,300,700">
-	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap">
 
-	<!-- =========================================================
-	  REGION: Custom Template Styles
-	  - Your site’s main styling
-	  - Should load AFTER Bootstrap so it can override it
-	========================================================== -->
 	<link rel="stylesheet" href="assets/css/styles.css">
 
 	<!-- =========================================================
-	  REGION: Legacy Browser Support
-	  - html5shiv is only for very old IE browsers (IE < 9)
-	  - Safe to keep or remove later (doesn't affect modern browsers)
-	========================================================== -->
+		 LEGACY SUPPORT
+	========================================================= -->
 	<!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <![endif]-->
 </head>
 
 <body class="home">
 
 	<!-- =========================================================
-	  REGION: Header / Hero (Top of page)
-	  - "top" anchor is the landing target for Home link
-	  - Parallax background is handled by template.js + CSS
-	  - Profile image + name + short tagline shown in hero
-	========================================================== -->
+		 HEADER / HERO
+	========================================================= -->
 	<header id="header">
 		<a id="top"></a>
 
@@ -63,15 +42,11 @@
 	</header>
 
 	<!-- =========================================================
-	  REGION: Navigation (Single Page Anchors)
-	  - Uses Bootstrap navbar
-	  - template.js adds/removes "stick" class to make it sticky on scroll
-	  - Links now point to anchors on THIS page (no more extra HTML pages)
-	========================================================== -->
+		 NAVBAR
+	========================================================= -->
 	<nav class="navbar navbar-default navbar-sticky">
 		<div class="container-fluid">
 
-			<!-- Mobile hamburger button -->
 			<div class="navbar-header">
 				<button type="button"
 						class="navbar-toggle"
@@ -84,10 +59,8 @@
 				</button>
 			</div>
 
-			<!-- Collapsible nav content -->
 			<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<div><class="nav-indicator"></div>
 					<li><a href="#top">Home</a></li>
 					<li><a href="#about">About</a></li>
 					<li><a href="#skills">Skills</a></li>
@@ -96,62 +69,52 @@
 					<li>
 						<a href="assets/cv/Mohsen_Parchami_CV.pdf"
 						   target="_blank"
-						   rel="noopener noreferrer">
-							CV
-						</a>
+						   rel="noopener noreferrer">CV</a>
 					</li>
 				</ul>
-			</div><!-- /.nav-collapse -->
+			</div>
 
 		</div>
 	</nav>
-	</header>
 
 	<!-- =========================================================
-	  REGION: Main Page Content
-	  - Contains all single-page sections
-	  - Each section has an id used by the navbar anchors
-	========================================================== -->
+		 MAIN CONTENT
+	========================================================= -->
 	<main id="main">
-
 		<div class="container">
 
 			<!-- =========================================================
-	  REGION: About Section
-	  - Short intro paragraph / pitch
-	  - Removed links to deleted pages (about.html / sidebar-right.html)
-	========================================================== -->
-			<div id="about" class="row section topspace">
+				 ABOUT
+			========================================================= -->
+			<section id="about" class="row section topspace">
 
-				<h2 class="section-title">
-					<span>About</span>
-				</h2>
+				<h2 class="section-title"><span>About</span></h2>
 
 				<div class="col-md-6">
 					<p class="lead text-muted">
 						Game Development student at Södertörn University with a lifelong passion for games, driven by a curiosity for how story, systems, and emotion come together to create memorable experiences.
-						<br />
+						<br>
 						I work well in teams, communicate clearly, and bring a calm, solutions-focused mindset shaped by collaborative projects and my background as an assistant engineer. My lifelong passion for games drives me to create thoughtful, polished work built with care.
 					</p>
 				</div>
 
 				<div class="col-md-6 about-icons">
-					<h3 class="about-links-title">"It's dangerous to go alone!<br /> Take this"</h3>
+					<h3 class="about-links-title">"It's dangerous to go alone!<br> Take this"</h3>
+
 					<div class="about-row">
 						<a href="assets/cv/Mohsen_Parchami_CV.pdf"
 						   class="about-icon-btn sketch-button steam-sketch"
 						   target="_blank"
 						   rel="noopener">
-							<img src="assets/icons/cv.png" alt="">
+							<img src="assets/icons/cv.png" alt="CV">
 						</a>
 						<div class="about-row-text">My CV</div>
 					</div>
 
-
 					<div class="about-row">
 						<a href="mailto:Mohsen.parchami@gmail.com"
 						   class="about-icon-btn sketch-button steam-sketch">
-							<img src="assets/icons/mail.png" alt="">
+							<img src="assets/icons/mail.png" alt="Email">
 						</a>
 						<div class="about-row-text">Email me</div>
 					</div>
@@ -161,264 +124,209 @@
 						   class="about-icon-btn sketch-button steam-sketch"
 						   target="_blank"
 						   rel="noopener">
-							<img src="assets/icons/linkedin.png" alt="">
+							<img src="assets/icons/linkedin.png" alt="LinkedIn">
 						</a>
 						<div class="about-row-text">LinkedIn</div>
-
 					</div>
-
-					</div>
-
 				</div>
 
+			</section>
 
-
-			<!-- /About -->
 			<!-- =========================================================
-	  REGION: Skills Section (formerly "Services")
-	  - Template uses 4 columns; we keep structure but will rename content
-	  - Added id="skills" so nav anchor works
-	========================================================== -->
-			<div id="skills" class="row section featured topspace">
+				 SKILLS
+			========================================================= -->
+			<section id="skills" class="row section featured topspace">
+
 				<h2 class="section-title"><span>Skills</span></h2>
 
 				<div class="row">
-
-					<!-- Skill Card 1 -->
 					<div class="col-sm-6 col-md-3">
 						<div class="text-center skill-icon">
 							<img src="assets/icons/unity.png" alt="Unity icon">
 						</div>
 					</div>
 
-
-					<!-- Skill Card 2 -->
 					<div class="col-sm-6 col-md-3">
 						<div class="text-center skill-icon">
 							<img src="assets/icons/code.png" alt="C# icon">
 						</div>
 					</div>
 
-
-
-					<!-- Skill Card 3 -->
 					<div class="col-sm-6 col-md-3">
 						<div class="text-center skill-icon">
 							<img src="assets/icons/unreal.png" alt="Unreal icon">
 						</div>
 					</div>
 
-
-
-					<!-- Skill Card 4 -->
 					<div class="col-sm-6 col-md-3">
 						<div class="text-center skill-icon">
 							<img src="assets/icons/git.png" alt="GitHub icon">
 						</div>
 					</div>
-				</div><!-- /Skills -->
-				<!-- =========================================================
-		  REGION: Project Section (NEW)
-		  - Placed between Skills and Systems
-		========================================================== -->
-
-				<div id="projects" class="row section topspace">
-					<h2 class="section-title"><span>Project</span></h2>
-					<div class="project-spacer"></div>
-					<div class="row">
-
-						<!-- LEFT: IMAGE -->
-						<div class="col-xs-12 col-md-7">
-							<div class="project-media">
-								<img src="assets/images/murmurs.png" alt="Murmurs of the Mist">
-							</div>
-						</div>
-
-						<!-- RIGHT: TEXT -->
-						<div class="col-xs-12 col-md-5">
-							<div class="project-info">
-								<h1 class="project-title project-title-big">MURMURS OF THE MIST</h1>
-								<p class="project-desc">
-									This Unity project was developed as a final-semester collaboration with a multidisciplinary
-									team of developers and artists. <br />My contributions spanned level design, narrative, sound and
-									voice-over integration, lighting, and VFX. I was fully responsible for the conception,
-									design, and implementation of the game’s core chase sequence.<br>The game is live on
-									<a class="sketch-button steam-sketch"
-									   href="https://store.steampowered.com/app/4187020/Murmurs_of_the_Mist/"
-									   target="_blank"
-									   rel="noopener noreferrer">
-										STEAM
-									</a>
-
-								</p>
-							</div>
-						</div>
-
-					</div>
 				</div>
-			</div>
 
-
+			</section>
 
 			<!-- =========================================================
-	  REGION: Systems
-	  - Added id="projects" so nav anchor works
-	  - Removed links to deleted pages (sidebar-right.html)
-	  - For now, project cards link to #projects (placeholder)
-	========================================================== -->
-			<div id="systems" class="row section topspace">
+				 PROJECT
+			========================================================= -->
+			<section id="projects" class="row section topspace">
 
-				<!-- =========================================================
-		  REGION: Systems (Tabs + Carousel)
-		========================================================== -->
-				<div id="systems" class="row section topspace">
+				<h2 class="section-title"><span>Project</span></h2>
+				<div class="project-spacer"></div>
 
-					<h2 class="section-title"><span>Systems</span></h2>
-
-					<div class="systems-carousel" data-systems-carousel>
-
-						<!-- Tabs (top) -->
-						<div class="systems-tabs" role="tablist" aria-label="Systems tabs">
-							<button class="systems-tab is-active" role="tab" aria-selected="true" data-sys-tab="camera">CAM</button>
-							<button class="systems-tab" role="tab" aria-selected="false" data-sys-tab="movement">MOVE</button>
-							<button class="systems-tab" role="tab" aria-selected="false" data-sys-tab="shaders">SHADE</button>
-							<button class="systems-tab" role="tab" aria-selected="false" data-sys-tab="lighting">LIGHT</button>
+				<div class="row">
+					<div class="col-xs-12 col-md-7">
+						<div class="project-media">
+							<img src="assets/images/murmurs.png" alt="Murmurs of the Mist">
 						</div>
+					</div>
 
-						<!-- Arrows -->
-						<button class="systems-arrow systems-arrow-left" type="button" aria-label="Previous system" data-sys-prev>
-							‹
-						</button>
-						<button class="systems-arrow systems-arrow-right" type="button" aria-label="Next system" data-sys-next>
-							›
-						</button>
+					<div class="col-xs-12 col-md-5">
+						<div class="project-info">
+							<h1 class="project-title project-title-big">MURMURS OF THE MIST</h1>
 
-						<!-- Viewport + Track -->
-						<div class="systems-viewport" data-sys-viewport>
-							<div class="systems-track" data-sys-track>
+							<p class="project-desc">
+								This Unity project was developed as a final-semester collaboration with a multidisciplinary
+								team of developers and artists.
+								<br>
+								My contributions spanned level design, narrative, sound and voice-over integration, lighting, and VFX.
+								I was fully responsible for the conception, design, and implementation of the game’s core chase sequence.
+								<br>
+								The game is live on
+								<a class="sketch-button steam-sketch"
+								   href="https://store.steampowered.com/app/4187020/Murmurs_of_the_Mist/"
+								   target="_blank"
+								   rel="noopener noreferrer">STEAM</a>
+							</p>
 
-								<!-- Slide 1 -->
-								<article class="systems-slide" data-sys-slide="camera">
-									<div class="systems-panel">
-										<div class="systems-media">
-											<img src="assets/gifs/camera.gif" alt="dynamic camera movement">
-										</div>
-
-										<div class="systems-content">
-											<h3 class="system-title">Camera</h3>
-											<p class="system-text">
-												A dynamic camera system built to heighten tension and guide player focus through shifting perspectives.
-												Multiple camera angles are used to emphasize pressure, reveal threats, and shape moment-to-moment gameplay,
-												while smooth transitions create cinematic flow and allow camera behavior to adapt to different level layouts and pacing needs.
-											</p>
-										</div>
-									</div>
-								</article>
-
-								<!-- Slide 2 -->
-								<article class="systems-slide" data-sys-slide="movement">
-									<div class="systems-panel">
-										<div class="systems-media">
-											<img src="assets/gifs/dashing.gif" alt="Dashing and Jumping system screenshot">
-										</div>
-
-										<div class="systems-content">
-											<h3 class="system-title">Movement Mechanics</h3>
-											<p class="system-text">
-												A responsive traversal system built to support fast pacing and player control.
-												The mechanic combines a directional dash so the player can quickly reposition, clear gaps, and maintain momentum during high-pressure moments.
-												Designed to feel snappy, and consistent, with clean tuning points for speed, timing, and cooldown with visual cues to fit level design needs.
-											</p>
-										</div>
-									</div>
-								</article>
-
-								<!-- Slide 3 -->
-								<article class="systems-slide" data-sys-slide="shaders">
-									<div class="systems-panel">
-										<div class="systems-media">
-											<img src="assets/gifs/shaders.gif" alt="Display of shaders in Unity">
-										</div>
-
-										<div class="systems-content">
-											<h3 class="system-title">Shaders</h3>
-											<p class="system-text">
-												Shaders that are used for cooldown indicators to provide visual feedback without traditinal UI.
-												Reflective and refractive multi-colored materials that distort the surrounding environment based on object shape.
-												Dynamic ripple effects that respond to player movement through liquid surfaces.
-												Additional effects handle camera-based fading and  materials to maintain clarity, readability.
-											</p>
-										</div>
-									</div>
-								</article>
-
-								<!-- Slide 4 -->
-								<article class="systems-slide" data-sys-slide="lighting">
-									<div class="systems-panel">
-										<div class="systems-media">
-											<img src="assets/gifs/lights.gif" alt="Lighting and post production">
-										</div>
-
-										<div class="systems-content">
-											<h3 class="system-title">Lights  &amp; Post Production</h3>
-											<p class="system-text">
-												A lighting and post-processing setup built to support visual storytelling and mood through controlled use of light, shadow, and color.
-												Lighting is used to guide player focus and emphasize tension,
-												while post-processing effects such as color grading, exposure, and bloom are applied to refine atmosphere, depth, and overall visual realism.
-											</p>
-										</div>
-									</div>
-								</article>
-
-							</div>
 						</div>
-
 					</div>
 				</div>
-				<!-- /Systems -->
 
+			</section>
 
-
-
-
-
-
-			</div><!-- /Systems -->
 			<!-- =========================================================
-	  REGION: contact
-	  - Changed external "Download template" link to internal Contact anchor
-	  - Keeps the design but makes it about YOU
-	========================================================== -->
-			<div class="row section topspace">
+				 SYSTEMS (Option C: Tabs + Carousel)
+			========================================================= -->
+			<section id="systems" class="row section topspace">
 
-			</div><!-- /CTA -->
+				<h2 class="section-title"><span>Systems</span></h2>
 
-</main>
+				<div class="systems-carousel" data-systems-carousel>
+
+					<div class="systems-tabs" role="tablist" aria-label="Systems tabs">
+						<button class="systems-tab is-active" role="tab" aria-selected="true" data-sys-tab="camera">CAM</button>
+						<button class="systems-tab" role="tab" aria-selected="false" data-sys-tab="movement">MOVE</button>
+						<button class="systems-tab" role="tab" aria-selected="false" data-sys-tab="shaders">SHADE</button>
+						<button class="systems-tab" role="tab" aria-selected="false" data-sys-tab="lighting">LIGHT</button>
+					</div>
+
+					<button class="systems-arrow systems-arrow-left" type="button" aria-label="Previous system" data-sys-prev>‹</button>
+					<button class="systems-arrow systems-arrow-right" type="button" aria-label="Next system" data-sys-next>›</button>
+
+					<div class="systems-viewport" data-sys-viewport>
+						<div class="systems-track" data-sys-track>
+
+							<article class="systems-slide" data-sys-slide="camera">
+								<div class="systems-panel">
+									<div class="systems-media">
+										<img src="assets/gifs/camera.gif" alt="Dynamic camera movement">
+									</div>
+									<div class="systems-content">
+										<h3 class="system-title">Camera</h3>
+										<p class="system-text">
+											A dynamic camera system built to heighten tension and guide player focus through shifting perspectives.
+											Multiple camera angles are used to emphasize pressure, reveal threats, and shape moment-to-moment gameplay,
+											while smooth transitions create cinematic flow and allow camera behavior to adapt to different level layouts and pacing needs.
+										</p>
+									</div>
+								</div>
+							</article>
+
+							<article class="systems-slide" data-sys-slide="movement">
+								<div class="systems-panel">
+									<div class="systems-media">
+										<img src="assets/gifs/dashing.gif" alt="Dashing and jumping system">
+									</div>
+									<div class="systems-content">
+										<h3 class="system-title">Movement Mechanics</h3>
+										<p class="system-text">
+											A responsive traversal system built to support fast pacing and player control.
+											The mechanic combines a directional dash so the player can quickly reposition, clear gaps, and maintain momentum during high-pressure moments.
+											Designed to feel snappy and consistent, with clean tuning points for speed, timing, and cooldown with visual cues to fit level design needs.
+										</p>
+									</div>
+								</div>
+							</article>
+
+							<article class="systems-slide" data-sys-slide="shaders">
+								<div class="systems-panel">
+									<div class="systems-media">
+										<img src="assets/gifs/shaders.gif" alt="Shader effects in Unity">
+									</div>
+									<div class="systems-content">
+										<h3 class="system-title">Shaders</h3>
+										<p class="system-text">
+											Shaders used for cooldown indicators to provide visual feedback without traditional UI.
+											Reflective and refractive multi-colored materials that distort the surrounding environment based on object shape.
+											Dynamic ripple effects that respond to player movement through liquid surfaces.
+											Additional effects handle camera-based fading and materials to maintain clarity and readability.
+										</p>
+									</div>
+								</div>
+							</article>
+
+							<article class="systems-slide" data-sys-slide="lighting">
+								<div class="systems-panel">
+									<div class="systems-media">
+										<img src="assets/gifs/lights.gif" alt="Lighting and post processing">
+									</div>
+									<div class="systems-content">
+										<h3 class="system-title">Lights &amp; Post Production</h3>
+										<p class="system-text">
+											A lighting and post-processing setup built to support visual storytelling and mood through controlled use of light, shadow, and color.
+											Lighting is used to guide player focus and emphasize tension,
+											while post-processing effects such as color grading, exposure, and bloom are applied to refine atmosphere, depth, and overall visual realism.
+										</p>
+									</div>
+								</div>
+							</article>
+
+						</div>
+					</div>
+
+				</div>
+
+			</section>
+
+			<!-- =========================================================
+				 (Optional) CTA / spacer row (kept)
+			========================================================= -->
+			<div class="row section topspace"></div>
+
+		</div>
+	</main>
 
 	<!-- =========================================================
-	  REGION: Footer (Contact + Socials)
-	  - Added id="contact" anchor so nav jumps here
-	  - You can remove extra widgets later (Text widget / Form widget)
-	========================================================== -->
+		 FOOTER
+	========================================================= -->
 	<footer id="footer">
 		<a id="contact"></a>
 
 		<div class="container">
 			<div class="row">
 
-				<!-- Contact Block -->
 				<div class="col-md-3 widget">
 					<h3 class="widget-title">Contact</h3>
 					<div class="widget-body">
 						<p>
-							<!-- TODO: Replace with your real contact details -->
 							<a href="mailto:Mohsen.parchami@gmail.com">Mohsen.parchami@gmail.com</a><br>
 							Stockholm, Sweden
 						</p>
 					</div>
 				</div>
 
-				<!-- Social Block -->
 				<div class="col-md-3 widget">
 					<h3 class="widget-title">Follow me</h3>
 					<div class="widget-body">
@@ -435,11 +343,9 @@
 								<i class="fa fa-linkedin fa-2"></i>
 							</a>
 						</p>
-
 					</div>
 				</div>
 
-				<!-- Optional Widget (can delete later) -->
 				<div class="col-md-3 widget">
 					<h3 class="widget-title">About this site</h3>
 					<div class="widget-body">
@@ -450,21 +356,20 @@
 					</div>
 				</div>
 
-				<!-- Optional Widget (can delete later) -->
 				<div class="col-md-3 widget">
 					<h3 class="widget-title">Status</h3>
 					<div class="widget-body">
-						<p>
-							Available for internships / junior roles / collaborations.
-						</p>
+						<p>Available for internships / junior roles / collaborations.</p>
 					</div>
 				</div>
 
-			</div><!-- /row -->
+			</div>
 		</div>
 	</footer>
 
-	<!-- Underfooter -->
+	<!-- =========================================================
+		 UNDERFOOTER
+	========================================================= -->
 	<footer id="underfooter">
 		<div class="container">
 			<div class="row">
@@ -477,9 +382,7 @@
 
 				<div class="col-md-6 widget">
 					<div class="widget-body">
-						<p class="text-right">
-
-						</p>
+						<p class="text-right"></p>
 					</div>
 				</div>
 
@@ -488,19 +391,15 @@
 	</footer>
 
 	<!-- =========================================================
-	  REGION: JavaScript (loaded at end for faster page load)
-	  - jQuery required by Bootstrap 3 + template.js
-	  - template.js handles sticky navbar + parallax scroll
-	========================================================== -->
+		 SCRIPTS
+	========================================================= -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	<script src="assets/js/template.js"></script>
 
-	<!-- Small helper to keep the year current -->
 	<script>
 		document.getElementById('year').textContent = new Date().getFullYear();
 	</script>
 
 </body>
-
 </html>
