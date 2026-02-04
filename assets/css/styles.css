@@ -585,7 +585,7 @@ a {
 ========================================================= */
 
 .navbar {
-    border-width: 1px 0;
+    border-width: 0px 0;
     -webkit-border-radius: 0;
     -webkit-background-clip: padding-box;
     -moz-border-radius: 0;
