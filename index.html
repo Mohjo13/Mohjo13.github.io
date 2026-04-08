@@ -1,418 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<!-- =========================================================
-		 HEAD: Metadata + External Dependencies
-	========================================================= -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="Sergey Pozhilov (GetTemplate.com)">
-
-	<title>Mohsen Parchami | Portfolio</title>
-
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://mohjo13.github.io/">
-	<meta property="og:title" content="Mohsen Parchami | Portfolio">
-	<meta property="og:description" content="Game Development student (Unity/C#). Portfolio, systems, and projects.">
-	<meta property="og:image" content="https://mohjo13.github.io/assets/images/bg_head.jpg">
-	<meta property="og:image:width" content="1200">
-	<meta property="og:image:height" content="627">
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Mohsen Parchami | Portfolio">
-	<meta name="twitter:description" content="Game Development student (Unity/C#). Portfolio, systems, and projects.">
-	<meta name="twitter:image" content="https://mohjo13.github.io/assets/images/bg_head.jpg">
-	<meta name="description" content="Mohsen Parchami — Game Development student. Unity/C#, systems work, and projects.">
-	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
-
-	<!-- =========================================================
-		 STYLESHEETS
-	========================================================= -->
-	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css">
-	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alice|Open+Sans:400,300,700">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap">
-
-	<link rel="stylesheet" href="assets/css/styles.css">
-
-	<!-- =========================================================
-		 LEGACY SUPPORT
-	========================================================= -->
-	<!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <![endif]-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohsen Parchami | Game Developer & Designer</title>
+    <meta name="description" content="Mohsen Parchami — Game Developer & Designer. Unity, C#, Unreal. Based in Stockholm, Sweden.">
+    <meta name="author" content="Mohsen Parchami">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mohjo13.github.io/">
+    <meta property="og:title" content="Mohsen Parchami | Game Developer & Designer">
+    <meta property="og:description" content="Game Developer & Designer — Unity, C#, Unreal. Based in Stockholm, Sweden.">
+    <meta property="og:image" content="https://mohjo13.github.io/assets/images/guy.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="shortcut icon" href="assets/images/gt_favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/easter-egg.css">
 </head>
+<body>
 
-<body class="home">
+    <div id="scrollBar"></div>
 
-	<!-- =========================================================
-		 HEADER / HERO
-	========================================================= -->
-	<header id="header">
-		<a id="top"></a>
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">MP</a>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link" data-section="hero">Home</a></li>
+                <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">Project</a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+                <li><a href="#systems" class="nav-link" data-section="systems">Systems</a></li>
+                <li><a href="assets/cv/Mohsen_Parchami_CV.pdf" target="_blank" rel="noopener" class="nav-link nav-cv">CV</a></li>
+            </ul>
+            <button class="nav-burger" aria-label="Toggle menu" id="navBurger">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="nav-mobile" id="navMobile">
+            <a href="#hero" class="nav-mobile-link">Home</a>
+            <a href="#about" class="nav-mobile-link">About</a>
+            <a href="#projects" class="nav-mobile-link">Project</a>
+            <a href="#skills" class="nav-mobile-link">Skills</a>
+            <a href="#systems" class="nav-mobile-link">Systems</a>
+            <a href="assets/cv/Mohsen_Parchami_CV.pdf" target="_blank" class="nav-mobile-link">CV</a>
+        </div>
+    </nav>
 
-		<div id="head" class="parallax" parallax-speed="2">
-			<span class="title">MOHSEN PARCHAMI</span>
-		</div>
-	</header>
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-bg">
+            <div class="hero-glow hero-glow-1" data-parallax="0.04"></div>
+            <div class="hero-glow hero-glow-2" data-parallax="0.07"></div>
+            <div class="hero-grid" data-parallax="0.02"></div>
+        </div>
+        <div class="hero-inner">
+            <div class="hero-content">
+                <p class="hero-eyebrow">
+                    <span class="eyebrow-dot"></span>
+                    Game Developer &nbsp;&middot;&nbsp; Designer &nbsp;&middot;&nbsp; Stockholm, Sweden
+                </p>
+                <h1 class="hero-name">
+                    <span class="hero-name-line" id="heroLine1">MOHSEN</span>
+                    <span class="hero-name-line accent" id="heroLine2">PARCHAMI</span>
+                </h1>
+                <p class="hero-tagline hero-tagline--type">
+                    <span id="typewriter"></span><span class="type-cursor">|</span>
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="assets/cv/Mohsen_Parchami_CV.pdf" target="_blank" rel="noopener" class="btn btn-outline">Download CV</a>
+                </div>
+                <p class="hero-scroll-hint">&#8595; &nbsp;Scroll to explore</p>
+            </div>
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <div class="badge-text">
+                    <strong>Available</strong>
+                    <span>Internships &amp; Junior Roles</span>
+                    <span>Stockholm / Remote</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	<!-- =========================================================
-		 NAVBAR
-	========================================================= -->
-	<nav class="navbar navbar-default navbar-sticky">
-		<div class="container-fluid">
+    <!-- ABOUT -->
+    <section id="about" class="section reveal">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-bar"></span>
+                <h2 class="section-title">About Me</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-photo-wrap reveal-child">
+                    <div class="about-photo-frame">
+                        <img src="assets/images/guy.jpg" alt="Mohsen Parchami" class="about-photo">
+                    </div>
+                    <div class="about-photo-glow"></div>
+                </div>
+                <div class="about-content reveal-child">
+                    <div class="zelda-quote">
+                        <span class="zelda-mark">&ldquo;</span>
+                        <div>
+                            <p class="zelda-text">It's dangerous to go alone! Take this.</p>
+                            <p class="zelda-credit">— The Legend of Zelda &nbsp;|&nbsp; A developer who speaks the language of games.</p>
+                        </div>
+                    </div>
+                    <p class="about-body">
+                        Game Development student at Södertörn University with a lifelong passion for games,
+                        driven by a curiosity for how story, systems, and emotion come together to create
+                        memorable experiences.
+                    </p>
+                    <p class="about-body">
+                        I work at the intersection of design and engineering — comfortable with both pixel-perfect
+                        UI and deep systems work. My background as an assistant engineer shaped a calm,
+                        solutions-focused mindset built for collaborative teams.
+                    </p>
+                    <div class="about-links">
+                        <a href="assets/cv/Mohsen_Parchami_CV.pdf" target="_blank" rel="noopener" class="btn btn-link">
+                            <img src="assets/icons/cv.png" alt="CV"> My CV
+                        </a>
+                        <a href="mailto:Mohsen.parchami@gmail.com" class="btn btn-link">
+                            <img src="assets/icons/mail.png" alt="Email"> Email me
+                        </a>
+                        <a href="https://www.linkedin.com/in/mohsen-parchami-4b0344238/" target="_blank" rel="noopener" class="btn btn-link">
+                            <img src="assets/icons/linkedin.png" alt="LinkedIn"> LinkedIn
+                        </a>
+                        <a href="https://github.com/Mohjo13" target="_blank" rel="noopener" class="btn btn-link">
+                            <img src="assets/icons/git.png" alt="GitHub"> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-			<div class="navbar-header">
-				<button type="button"
-						class="navbar-toggle"
-						data-toggle="collapse"
-						data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-			</div>
+    <!-- FEATURED PROJECT -->
+    <section id="projects" class="section reveal">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-bar"></span>
+                <h2 class="section-title">Featured Project</h2>
+                <span class="section-sub">A shipped Steam title</span>
+            </div>
+            <div class="project-card reveal-child" id="projectCard">
+                <div class="project-media">
+                    <img src="assets/images/murmurs.png" alt="Murmurs of the Mist" class="project-img">
+                    <a href="https://store.steampowered.com/app/4187020/Murmurs_of_the_Mist/"
+                       target="_blank" rel="noopener" class="project-steam-badge">
+                        <img src="assets/icons/steam.png" alt="Steam"> Live on Steam
+                    </a>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">MURMURS OF THE MIST</h3>
+                    <p class="project-meta">Unity &nbsp;&middot;&nbsp; Final Semester &nbsp;&middot;&nbsp; Multidisciplinary Team</p>
+                    <div class="project-tags">
+                        <span class="tag">Level Design</span>
+                        <span class="tag">Narrative</span>
+                        <span class="tag">VFX</span>
+                        <span class="tag">Lighting</span>
+                        <span class="tag">Sound</span>
+                    </div>
+                    <p class="project-desc">
+                        Developed as a final-semester collaboration with a multidisciplinary team of developers
+                        and artists. A shipped, playable experience on Steam — not a student prototype.
+                    </p>
+                    <div class="project-contributions">
+                        <p class="contrib-label">My contributions</p>
+                        <ul class="contrib-list">
+                            <li>Level Design &amp; Layout</li>
+                            <li>Core Chase Sequence — conception to implementation</li>
+                            <li>Voice-Over &amp; Sound Integration</li>
+                            <li>Lighting &amp; Post-Processing</li>
+                            <li>VFX &amp; Shader Work</li>
+                        </ul>
+                    </div>
+                    <a href="https://store.steampowered.com/app/4187020/Murmurs_of_the_Mist/"
+                       target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                        View on Steam &#8594;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-			<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li><a href="#top">Home</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#skills">Skills</a></li>
-					<li><a href="#projects">Project</a></li>
-					<li><a href="#systems">Systems</a></li>
-					<li>
-						<a href="assets/cv/Mohsen_Parchami_CV.pdf"
-						   target="_blank"
-						   rel="noopener noreferrer">CV</a>
-					</li>
-				</ul>
-			</div>
+    <!-- SKILLS -->
+    <section id="skills" class="section reveal">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-bar"></span>
+                <h2 class="section-title">Skills &amp; Tools</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card reveal-child">
+                    <img src="assets/icons/unity.png" alt="Unity" class="skill-icon">
+                    <div class="skill-info"><span class="skill-name">Unity</span><span class="skill-tag">Engine</span></div>
+                </div>
+                <div class="skill-card reveal-child">
+                    <img src="assets/icons/code.png" alt="C#" class="skill-icon">
+                    <div class="skill-info"><span class="skill-name">C#</span><span class="skill-tag">Language</span></div>
+                </div>
+                <div class="skill-card reveal-child">
+                    <img src="assets/icons/unreal.png" alt="Unreal Engine" class="skill-icon">
+                    <div class="skill-info"><span class="skill-name">Unreal Engine</span><span class="skill-tag">Engine</span></div>
+                </div>
+                <div class="skill-card reveal-child">
+                    <img src="assets/icons/git.png" alt="Git / GitHub" class="skill-icon">
+                    <div class="skill-info"><span class="skill-name">Git / GitHub</span><span class="skill-tag">Version Control</span></div>
+                </div>
+                <div class="skill-card reveal-child skill-card--text">
+                    <div class="skill-dot"></div>
+                    <div class="skill-info"><span class="skill-name">Level Design</span><span class="skill-tag">Discipline</span></div>
+                </div>
+                <div class="skill-card reveal-child skill-card--text">
+                    <div class="skill-dot skill-dot--violet"></div>
+                    <div class="skill-info"><span class="skill-name">VFX &amp; Shaders</span><span class="skill-tag">Visual</span></div>
+                </div>
+                <div class="skill-card reveal-child skill-card--text">
+                    <div class="skill-dot skill-dot--gold"></div>
+                    <div class="skill-info"><span class="skill-name">Lighting &amp; Post-FX</span><span class="skill-tag">Visual</span></div>
+                </div>
+                <div class="skill-card reveal-child skill-card--text">
+                    <div class="skill-dot skill-dot--violet"></div>
+                    <div class="skill-info"><span class="skill-name">Narrative Design</span><span class="skill-tag">Design</span></div>
+                </div>
+                <div class="skill-card reveal-child skill-card--text">
+                    <div class="skill-dot"></div>
+                    <div class="skill-info"><span class="skill-name">Sound &amp; Voice-Over</span><span class="skill-tag">Audio</span></div>
+                </div>
+                <div class="skill-card reveal-child skill-card--text">
+                    <div class="skill-dot skill-dot--gold"></div>
+                    <div class="skill-info"><span class="skill-name">UI / UX Design</span><span class="skill-tag">Design</span></div>
+                </div>
+                <div class="skill-card reveal-child skill-card--text">
+                    <div class="skill-dot"></div>
+                    <div class="skill-info"><span class="skill-name">OO Architecture</span><span class="skill-tag">C# / Design Patterns</span></div>
+                </div>
+                <div class="skill-card reveal-child skill-card--text">
+                    <div class="skill-dot skill-dot--violet"></div>
+                    <div class="skill-info"><span class="skill-name"> Combat Systems</span><span class="skill-tag">Gameplay Programming</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-		</div>
-	</nav>
+    <!-- SYSTEMS -->
+    <section id="systems" class="section reveal">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-bar"></span>
+                <h2 class="section-title">Technical Systems</h2>
+                <span class="section-sub">Code &amp; craft — built from scratch</span>
+            </div>
+            <div class="systems-wrap reveal-child">
+                <div class="sys-tabs" role="tablist">
+                    <button class="sys-tab active" data-tab="camera" role="tab" aria-selected="true">Camera</button>
+                    <button class="sys-tab" data-tab="movement" role="tab" aria-selected="false">Movement</button>
+                    <button class="sys-tab" data-tab="shaders" role="tab" aria-selected="false">Shaders</button>
+                    <button class="sys-tab" data-tab="lighting" role="tab" aria-selected="false">Lighting</button>
+                </div>
+                <div class="sys-panels">
+                    <div class="sys-panel active" data-panel="camera">
+                        <div class="sys-media">
+                            <img src="assets/gifs/camera.gif" alt="Dynamic camera system" class="lazy-gif" data-loaded="true">
+                        </div>
+                        <div class="sys-content">
+                            <h3 class="sys-title">Camera System</h3>
+                            <p class="sys-desc">A dynamic camera system built to heighten tension and guide player focus through shifting perspectives. Multiple camera angles emphasize pressure, reveal threats, and shape moment-to-moment gameplay, while smooth transitions create cinematic flow and allow camera behavior to adapt to different level layouts and pacing needs.</p>
+                        </div>
+                    </div>
+                    <div class="sys-panel" data-panel="movement">
+                        <div class="sys-media">
+                            <img data-src="assets/gifs/dashing.gif" alt="Movement and dash system" class="lazy-gif">
+                        </div>
+                        <div class="sys-content">
+                            <h3 class="sys-title">Movement Mechanics</h3>
+                            <p class="sys-desc">A responsive traversal system built to support fast pacing and player control. Combines a directional dash so the player can quickly reposition, clear gaps, and maintain momentum during high-pressure moments. Designed to feel snappy and consistent, with clean tuning points for speed, timing, and cooldown.</p>
+                        </div>
+                    </div>
+                    <div class="sys-panel" data-panel="shaders">
+                        <div class="sys-media">
+                            <img data-src="assets/gifs/shaders.gif" alt="Shader effects" class="lazy-gif">
+                        </div>
+                        <div class="sys-content">
+                            <h3 class="sys-title">Shaders</h3>
+                            <p class="sys-desc">Shaders used for cooldown indicators to provide visual feedback without traditional UI. Reflective and refractive multi-colored materials that distort the surrounding environment based on object shape. Dynamic ripple effects that respond to player movement through liquid surfaces.</p>
+                        </div>
+                    </div>
+                    <div class="sys-panel" data-panel="lighting">
+                        <div class="sys-media">
+                            <img data-src="assets/gifs/lights.gif" alt="Lighting and post processing" class="lazy-gif">
+                        </div>
+                        <div class="sys-content">
+                            <h3 class="sys-title">Lights &amp; Post Production</h3>
+                            <p class="sys-desc">A lighting and post-processing setup built to support visual storytelling and mood through controlled use of light, shadow, and color. Post-processing effects including color grading, exposure, and bloom are applied to refine atmosphere, depth, and overall visual realism.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	<!-- =========================================================
-		 MAIN CONTENT
-	========================================================= -->
-	<main id="main">
-		<div class="container">
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="footer-glow"></div>
+        <div class="container">
+            <div class="footer-inner reveal">
+                <h2 class="footer-title">Let's Build Something</h2>
+                <p class="footer-sub">Open to opportunities in the Swedish games industry</p>
+                <div class="footer-links">
+                    <a href="mailto:Mohsen.parchami@gmail.com" class="btn btn-link">
+                        <span class="footer-link-icon">&#9993;</span>
+                        Mohsen.parchami@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/mohsen-parchami-4b0344238/" target="_blank" rel="noopener" class="btn btn-link">
+                        <span class="footer-link-icon">in</span>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/Mohjo13" target="_blank" rel="noopener" class="btn btn-link">
+                        <span class="footer-link-icon">&#10022;</span>
+                        GitHub
+                    </a>
+                </div>
+                <div class="footer-status">
+                    <span class="status-dot"></span>
+                    Available for internships, junior roles &amp; collaborations &nbsp;&middot;&nbsp; Stockholm / Remote
+                </div>
+                <p class="footer-copy">&copy; <span id="year"></span> Mohsen Parchami &nbsp;&middot;&nbsp; Built with GitHub Pages</p>
+            </div>
+        </div>
+    </footer>
 
-			<!-- =========================================================
-				 ABOUT
-			========================================================= -->
-			<section id="about" class="row section topspace">
-
-				<h2 class="section-title"><span>About</span></h2>
-
-				<div class="col-md-6">
-					<p class="lead text-muted">
-						Game Development student at Södertörn University with a lifelong passion for games, driven by a curiosity for how story, systems, and emotion come together to create memorable experiences.
-						<br>
-						I work well in teams, communicate clearly, and bring a calm, solutions-focused mindset shaped by collaborative projects and my background as an assistant engineer. My lifelong passion for games drives me to create thoughtful, polished work built with care.
-					</p>
-				</div>
-
-				<div class="col-md-6 about-icons">
-					<h3 class="about-links-title">"It's dangerous to go alone!<br> Take this"</h3>
-
-					<div class="about-row">
-						<a href="assets/cv/Mohsen_Parchami_CV.pdf"
-						   class="about-icon-btn sketch-button steam-sketch"
-						   target="_blank"
-						   rel="noopener">
-							<img src="assets/icons/cv.png" alt="CV">
-						</a>
-						<div class="about-row-text">My CV</div>
-					</div>
-
-					<div class="about-row">
-						<a href="mailto:Mohsen.parchami@gmail.com"
-						   class="about-icon-btn sketch-button steam-sketch">
-							<img src="assets/icons/mail.png" alt="Email">
-						</a>
-						<div class="about-row-text">Email me</div>
-					</div>
-
-					<div class="about-row">
-						<a href="https://www.linkedin.com/in/mohsen-parchami-4b0344238/"
-						   class="about-icon-btn sketch-button steam-sketch"
-						   target="_blank"
-						   rel="noopener">
-							<img src="assets/icons/linkedin.png" alt="LinkedIn">
-						</a>
-						<div class="about-row-text">LinkedIn</div>
-					</div>
-				</div>
-
-			</section>
-
-			<!-- =========================================================
-				 SKILLS
-			========================================================= -->
-			<section id="skills" class="row section featured topspace">
-
-				<h2 class="section-title"><span>Skills</span></h2>
-
-				<div class="row">
-					<div class="col-sm-6 col-md-3">
-						<div class="text-center skill-icon">
-							<img src="assets/icons/unity.png" alt="Unity icon">
-						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-3">
-						<div class="text-center skill-icon">
-							<img src="assets/icons/code.png" alt="C# icon">
-						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-3">
-						<div class="text-center skill-icon">
-							<img src="assets/icons/unreal.png" alt="Unreal icon">
-						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-3">
-						<div class="text-center skill-icon">
-							<img src="assets/icons/git.png" alt="GitHub icon">
-						</div>
-					</div>
-				</div>
-
-			</section>
-
-			<!-- =========================================================
-				 PROJECT
-			========================================================= -->
-			<section id="projects" class="row section topspace">
-
-				<h2 class="section-title"><span>Project</span></h2>
-				<div class="project-spacer"></div>
-
-				<div class="row">
-					<div class="col-xs-12 col-md-7">
-						<div class="project-media">
-							<img src="assets/images/murmurs.png" alt="Murmurs of the Mist">
-						</div>
-					</div>
-
-					<div class="col-xs-12 col-md-5">
-						<div class="project-info">
-							<h1 class="project-title project-title-big">MURMURS OF THE MIST</h1>
-
-							<p class="project-desc">
-								This Unity project was developed as a final-semester collaboration with a multidisciplinary
-								team of developers and artists.
-								<br>
-								My contributions spanned level design, narrative, sound and voice-over integration, lighting, and VFX.
-								I was fully responsible for the conception, design, and implementation of the game’s core chase sequence.
-								<br>
-								The game is live on
-								<a class="sketch-button steam-sketch"
-								   href="https://store.steampowered.com/app/4187020/Murmurs_of_the_Mist/"
-								   target="_blank"
-								   rel="noopener noreferrer">STEAM</a>
-							</p>
-
-						</div>
-					</div>
-				</div>
-
-			</section>
-
-			<!-- =========================================================
-				 SYSTEMS (Option C: Tabs + Carousel)
-			========================================================= -->
-			<section id="systems" class="row section topspace">
-
-				<h2 class="section-title"><span>Systems</span></h2>
-
-				<div class="systems-carousel" data-systems-carousel>
-
-					<div class="systems-tabs" role="tablist" aria-label="Systems tabs">
-						<button class="systems-tab is-active" role="tab" aria-selected="true" data-sys-tab="camera">CAM</button>
-						<button class="systems-tab" role="tab" aria-selected="false" data-sys-tab="movement">MOVE</button>
-						<button class="systems-tab" role="tab" aria-selected="false" data-sys-tab="shaders">SHADE</button>
-						<button class="systems-tab" role="tab" aria-selected="false" data-sys-tab="lighting">LIGHT</button>
-					</div>
-
-					<button class="systems-arrow systems-arrow-left" type="button" aria-label="Previous system" data-sys-prev>‹</button>
-					<button class="systems-arrow systems-arrow-right" type="button" aria-label="Next system" data-sys-next>›</button>
-
-					<div class="systems-viewport" data-sys-viewport>
-						<div class="systems-track" data-sys-track>
-
-							<article class="systems-slide" data-sys-slide="camera">
-								<div class="systems-panel">
-									<div class="systems-media">
-										<img src="assets/gifs/camera.gif" alt="Dynamic camera movement">
-									</div>
-									<div class="systems-content">
-										<h3 class="system-title">Camera</h3>
-										<p class="system-text">
-											A dynamic camera system built to heighten tension and guide player focus through shifting perspectives.
-											Multiple camera angles are used to emphasize pressure, reveal threats, and shape moment-to-moment gameplay,
-											while smooth transitions create cinematic flow and allow camera behavior to adapt to different level layouts and pacing needs.
-										</p>
-									</div>
-								</div>
-							</article>
-
-							<article class="systems-slide" data-sys-slide="movement">
-								<div class="systems-panel">
-									<div class="systems-media">
-										<img src="assets/gifs/dashing.gif" alt="Dashing and jumping system">
-									</div>
-									<div class="systems-content">
-										<h3 class="system-title">Movement Mechanics</h3>
-										<p class="system-text">
-											A responsive traversal system built to support fast pacing and player control.
-											The mechanic combines a directional dash so the player can quickly reposition, clear gaps, and maintain momentum during high-pressure moments.
-											Designed to feel snappy and consistent, with clean tuning points for speed, timing, and cooldown with visual cues to fit level design needs.
-										</p>
-									</div>
-								</div>
-							</article>
-
-							<article class="systems-slide" data-sys-slide="shaders">
-								<div class="systems-panel">
-									<div class="systems-media">
-										<img src="assets/gifs/shaders.gif" alt="Shader effects in Unity">
-									</div>
-									<div class="systems-content">
-										<h3 class="system-title">Shaders</h3>
-										<p class="system-text">
-											Shaders used for cooldown indicators to provide visual feedback without traditional UI.
-											Reflective and refractive multi-colored materials that distort the surrounding environment based on object shape.
-											Dynamic ripple effects that respond to player movement through liquid surfaces.
-											Additional effects handle camera-based fading and materials to maintain clarity and readability.
-										</p>
-									</div>
-								</div>
-							</article>
-
-							<article class="systems-slide" data-sys-slide="lighting">
-								<div class="systems-panel">
-									<div class="systems-media">
-										<img src="assets/gifs/lights.gif" alt="Lighting and post processing">
-									</div>
-									<div class="systems-content">
-										<h3 class="system-title">Lights &amp; Post Production</h3>
-										<p class="system-text">
-											A lighting and post-processing setup built to support visual storytelling and mood through controlled use of light, shadow, and color.
-											Lighting is used to guide player focus and emphasize tension,
-											while post-processing effects such as color grading, exposure, and bloom are applied to refine atmosphere, depth, and overall visual realism.
-										</p>
-									</div>
-								</div>
-							</article>
-
-						</div>
-					</div>
-
-				</div>
-
-			</section>
-
-			<!-- =========================================================
-				 (Optional) CTA / spacer row (kept)
-			========================================================= -->
-			<div class="row section topspace"></div>
-
-		</div>
-	</main>
-
-	<!-- =========================================================
-		 FOOTER
-	========================================================= -->
-	<footer id="footer">
-		<a id="contact"></a>
-
-		<div class="container">
-			<div class="row">
-
-				<div class="col-md-3 widget">
-					<h3 class="widget-title">Contact</h3>
-					<div class="widget-body">
-						<p>
-							<a href="mailto:Mohsen.parchami@gmail.com">Mohsen.parchami@gmail.com</a><br>
-							Stockholm, Sweden
-						</p>
-					</div>
-				</div>
-
-				<div class="col-md-3 widget">
-					<h3 class="widget-title">Follow me</h3>
-					<div class="widget-body">
-						<p class="follow-me-icons">
-							<a href="https://github.com/Mohjo13"
-							   target="_blank"
-							   rel="noopener noreferrer">
-								<i class="fa fa-github fa-2"></i>
-							</a>
-
-							<a href="https://www.linkedin.com/in/mohsen-parchami-4b0344238/"
-							   target="_blank"
-							   rel="noopener noreferrer">
-								<i class="fa fa-linkedin fa-2"></i>
-							</a>
-						</p>
-					</div>
-				</div>
-
-				<div class="col-md-3 widget">
-					<h3 class="widget-title">About this site</h3>
-					<div class="widget-body">
-						<p>
-							Built with GitHub Pages<br>
-							html/ css/ js
-						</p>
-					</div>
-				</div>
-
-				<div class="col-md-3 widget">
-					<h3 class="widget-title">Status</h3>
-					<div class="widget-body">
-						<p>Available for internships / junior roles / collaborations.</p>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</footer>
-
-	<!-- =========================================================
-		 UNDERFOOTER
-	========================================================= -->
-	<footer id="underfooter">
-		<div class="container">
-			<div class="row">
-
-				<div class="col-md-6 widget">
-					<div class="widget-body">
-						<p>© <span id="year"></span> Mohsen Parchami</p>
-					</div>
-				</div>
-
-				<div class="col-md-6 widget">
-					<div class="widget-body">
-						<p class="text-right"></p>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</footer>
-
-	<!-- =========================================================
-		 SCRIPTS
-	========================================================= -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	<script src="assets/js/template.js"></script>
-
-	<script>
-		document.getElementById('year').textContent = new Date().getFullYear();
-	</script>
-
+    <script src="assets/js/script.js"></script>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script src="assets/js/easter-egg.js"></script>
 </body>
 </html>

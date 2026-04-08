@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+  <!-- ROCKET — vertical, nose up, classic shape -->
+
+  <!-- exhaust flame — gold/cyan flicker -->
+  <rect x="6" y="14" width="1" height="1" fill="rgba(0,229,255,0.5)"/>
+  <rect x="9" y="14" width="1" height="1" fill="rgba(0,229,255,0.5)"/>
+  <rect x="6" y="13" width="4" height="1" fill="rgba(255,209,102,0.6)"/>
+  <rect x="7" y="14" width="2" height="1" fill="#FFD166"/>
+  <rect x="7" y="15" width="2" height="1" fill="rgba(255,209,102,0.35)"/>
+
+  <!-- fins -->
+  <rect x="4" y="11" width="2" height="2" fill="#7B61FF"/>
+  <rect x="4" y="10" width="1" height="1" fill="#5A44CC"/>
+  <rect x="10" y="11" width="2" height="2" fill="#7B61FF"/>
+  <rect x="11" y="10" width="1" height="1" fill="#5A44CC"/>
+
+  <!-- body -->
+  <rect x="6" y="10" width="4" height="3" fill="#00c8e0"/>
+  <rect x="6" y="7"  width="4" height="3" fill="#00d4f0"/>
+  <rect x="6" y="5"  width="4" height="2" fill="#00E5FF"/>
+
+  <!-- body shading -->
+  <rect x="6" y="5"  width="1" height="8" fill="rgba(0,0,0,0.12)"/>
+  <rect x="9" y="5"  width="1" height="8" fill="rgba(255,255,255,0.08)"/>
+
+  <!-- body detail stripe -->
+  <rect x="6" y="10" width="4" height="1" fill="#00b0c8"/>
+
+  <!-- nose cone -->
+  <rect x="6" y="4"  width="4" height="1" fill="#9B84FF"/>
+  <rect x="7" y="3"  width="2" height="1" fill="#b0a0ff"/>
+  <rect x="7" y="2"  width="2" height="1" fill="#c4b8ff"/>
+  <rect x="8" y="1"  width="1" height="1" fill="#ffffff"/>
+
+  <!-- window -->
+  <rect x="7" y="7"  width="2" height="2" fill="#ffffff"/>
+  <rect x="7" y="7"  width="1" height="1" fill="#e0f8ff"/>
+  <rect x="8" y="8"  width="1" height="1" fill="#7B61FF"/>
+
+  <!-- window rim -->
+  <rect x="6" y="7"  width="1" height="2" fill="#00a8c0"/>
+  <rect x="9" y="7"  width="1" height="2" fill="#00a8c0"/>
+  <rect x="7" y="6"  width="2" height="1" fill="#00a8c0"/>
+  <rect x="7" y="9"  width="2" height="1" fill="#00a8c0"/>
+
+</svg>

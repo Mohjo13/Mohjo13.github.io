@@ -1,0 +1,56 @@
+/* ═══════════════════════════════════════════════════════════
+   EASTER EGG — add to bottom of assets/css/styles.css
+═══════════════════════════════════════════════════════════ */
+
+/* ── STAR CANVAS ───────────────────────────────────────── */
+#starCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    will-change: transform;
+}
+
+
+
+/* ── HUD COUNTER — top-right navbar area ───────────────── */
+#starHud {
+    position: fixed;
+    top: 14px;
+    right: 24px;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(10, 12, 16, 0.82);
+    border: 1px solid rgba(255, 209, 102, 0.28);
+    border-radius: 5px;
+    padding: 5px 11px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+    user-select: none;
+}
+
+#starHud.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#starHudIcon {
+    font-size: 13px;
+    line-height: 1;
+    text-shadow: 0 0 8px var(--gold);
+}
+
+/* ── REWARD OVERLAY ─────────────────────────────────────── */
+#starReward {
+    pointer-events: all;
+}
