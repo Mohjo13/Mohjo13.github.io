@@ -241,7 +241,7 @@
         var y = (e.clientY - r.top) / r.height - 0.5;
         card.style.transition = 'transform 0.1s ease';
         card.style.transform =
-            'perspective(900px) rotateY(' + (x * MAX * 0.5) + 'deg) rotateX(' + (-y * MAX) + 'deg) scale(1.015)';
+            'perspective(900px) rotateY(' + (x * MAX * 2) + 'deg) rotateX(' + (-y * MAX) + 'deg) scale(1.015)';
     });
 
     card.addEventListener('mouseleave', function () {
