@@ -233,7 +233,7 @@
     if (!card) return;
     if (window.matchMedia('(hover: none)').matches) return;
 
-    var MAX = 6;
+    var MAX = 3;
 
     card.addEventListener('mousemove', function (e) {
         var r = card.getBoundingClientRect();
