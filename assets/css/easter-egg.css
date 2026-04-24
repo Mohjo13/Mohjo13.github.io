@@ -37,11 +37,47 @@
     transition: opacity 0.4s ease, transform 0.4s ease;
     pointer-events: none;
     user-select: none;
+    overflow: hidden;
+    animation: hudShine 12s ease-in-out infinite;
 }
 
 #starHud.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* sweep layer */
+#starHud::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+    transform: skewX(-15deg);
+    pointer-events: none;
+    animation: hudSweep 12s ease-in-out infinite;
+}
+
+@keyframes hudSweep {
+    0%, 85%  { left: -80%;  opacity: 0; }
+    87%      { opacity: 1; }
+    93%      { left: 160%; opacity: 1; }
+    95%, 100% { left: 160%; opacity: 0; }
+}
+
+@keyframes hudShine {
+    0%, 85%  { box-shadow: none; border-color: rgba(255, 209, 102, 0.28); }
+    90%      { box-shadow: 0 0 10px rgba(255, 209, 102, 0.45), 0 0 22px rgba(255, 209, 102, 0.2); border-color: rgba(255, 209, 102, 0.65); }
+    95%, 100% { box-shadow: none; border-color: rgba(255, 209, 102, 0.28); }
+}
+
+/* ── MOBILE FIX — don't overlap burger ─────────────────── */
+@media (max-width: 700px) {
+    #starHud {
+        right: 52px;
+    }
 }
 
 #starHudIcon {
