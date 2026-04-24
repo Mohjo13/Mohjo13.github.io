@@ -38,7 +38,7 @@
     pointer-events: none;
     user-select: none;
     overflow: hidden;
-    animation: hudShine 12s ease-in-out infinite;
+    animation: hudShine 8s ease-in-out infinite;
 }
 
 #starHud.visible {
@@ -47,30 +47,70 @@
 }
 
 /* sweep layer */
-#starHud::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 60%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
-    transform: skewX(-15deg);
-    pointer-events: none;
-    animation: hudSweep 12s ease-in-out infinite;
-}
+    #starHud::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), /* stronger core */
+        rgba(255, 255, 255, 0.75), /* hot center */
+        rgba(255, 255, 255, 0.55), transparent);
+        transform: skewX(-15deg);
+        pointer-events: none;
+        animation: hudSweep 8s ease-in-out infinite;
+    }
 
 @keyframes hudSweep {
-    0%, 85%  { left: -80%;  opacity: 0; }
-    87%      { opacity: 1; }
-    93%      { left: 160%; opacity: 1; }
-    95%, 100% { left: 160%; opacity: 0; }
+    0% {
+        left: -80%;
+        opacity: 0;
+    }
+
+    82% {
+        left: -80%;
+        opacity: 0;
+    }
+
+    86% {
+        opacity: 0.4; /* starts appearing */
+    }
+
+    90% {
+        opacity: 0.7;
+    }
+
+    94% {
+        left: 120%;
+        opacity: 1; /* brightest near the end */
+    }
+
+    100% {
+        left: 160%;
+        opacity: 0;
+    }
 }
 
 @keyframes hudShine {
-    0%, 85%  { box-shadow: none; border-color: rgba(255, 209, 102, 0.28); }
-    90%      { box-shadow: 0 0 10px rgba(255, 209, 102, 0.45), 0 0 22px rgba(255, 209, 102, 0.2); border-color: rgba(255, 209, 102, 0.65); }
-    95%, 100% { box-shadow: none; border-color: rgba(255, 209, 102, 0.28); }
+    0%, 80% {
+        box-shadow: none;
+        border-color: rgba(255, 209, 102, 0.28);
+    }
+
+    88% {
+        box-shadow: 0 0 14px rgba(255, 209, 102, 0.7), 0 0 32px rgba(255, 209, 102, 0.45), 0 0 60px rgba(255, 209, 102, 0.25);
+        border-color: rgba(255, 209, 102, 0.9);
+    }
+
+    94% {
+        box-shadow: 0 0 20px rgba(255, 230, 150, 0.9), 0 0 50px rgba(255, 209, 102, 0.6), 0 0 90px rgba(255, 209, 102, 0.35);
+    }
+
+    100% {
+        box-shadow: none;
+        border-color: rgba(255, 209, 102, 0.28);
+    }
 }
 
 /* ── MOBILE FIX — don't overlap burger ─────────────────── */
