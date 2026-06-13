@@ -1001,6 +1001,69 @@ ul {
     line-height: 1.75;
 }
 
+/* ── More Work grid ── */
+.section-header--sub {
+    margin-top: 72px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 28px;
+}
+
+.mini-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 24px;
+    transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+    .mini-card:hover {
+        border-color: rgba(0,229,255,0.2);
+        box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+        transform: translateY(-4px);
+    }
+
+.mini-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    line-height: 1.15;
+}
+
+.mini-meta {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+}
+
+.mini-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+    flex: 1;
+}
+
+.mini-link {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    transition: var(--transition);
+}
+
+.mini-card:hover .mini-link {
+    letter-spacing: 0.1em;
+}
+
 .contrib-label {
     font-family: var(--font-mono);
     font-size: 10px;
@@ -1215,7 +1278,8 @@ ul {
     justify-content: center;
 }
 
-    .sys-media img {
+    .sys-media img,
+    .sys-media video {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -1432,6 +1496,10 @@ ul {
     }
 
     .project-card {
+        grid-template-columns: 1fr;
+    }
+
+    .project-grid {
         grid-template-columns: 1fr;
     }
 

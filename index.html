@@ -10,7 +10,7 @@
     <meta property="og:url" content="https://mohjo13.github.io/">
     <meta property="og:title" content="Mohsen Parchami | Game Developer & Designer">
     <meta property="og:description" content="Game Developer & Designer — Unity, C#, Unreal. Based in Stockholm, Sweden.">
-    <meta property="og:image" content="https://mohjo13.github.io/assets/images/guy.png">
+    <meta property="og:image" content="https://mohjo13.github.io/assets/images/guy.webp">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="shortcut icon" href="assets/images/gt_favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,7 @@
             <ul class="nav-links">
                 <li><a href="#hero" class="nav-link" data-section="hero">Home</a></li>
                 <li><a href="#about" class="nav-link" data-section="about">About</a></li>
-                <li><a href="#projects" class="nav-link" data-section="projects">Project</a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
                 <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
                 <li><a href="#systems" class="nav-link" data-section="systems">Systems</a></li>
                 <li><a href="assets/cv/CV_Mohsen_Parchami.pdf" target="_blank" rel="noopener" class="nav-link nav-cv">CV</a></li>
@@ -41,7 +41,7 @@
         <div class="nav-mobile" id="navMobile">
             <a href="#hero" class="nav-mobile-link">Home</a>
             <a href="#about" class="nav-mobile-link">About</a>
-            <a href="#projects" class="nav-mobile-link">Project</a>
+            <a href="#projects" class="nav-mobile-link">Projects</a>
             <a href="#skills" class="nav-mobile-link">Skills</a>
             <a href="#systems" class="nav-mobile-link">Systems</a>
             <a href="assets/cv/CV_Mohsen_Parchami.pdf" target="_blank" class="nav-mobile-link">CV</a>
@@ -70,7 +70,7 @@
                 </p>
                 <div class="hero-actions">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="assets/cv/Mohsen_Parchami_CV.pdf" target="_blank" rel="noopener" class="btn btn-outline">Download CV</a>
+                    <a href="assets/cv/CV_Mohsen_Parchami.pdf" target="_blank" rel="noopener" class="btn btn-outline">Download CV</a>
                 </div>
                 <p class="hero-scroll-hint">&#8595; &nbsp;Scroll to explore</p>
             </div>
@@ -95,7 +95,7 @@
             <div class="about-grid">
                 <div class="about-photo-wrap reveal-child">
                     <div class="about-photo-frame">
-                        <img src="assets/images/guy.png" alt="Mohsen Parchami" class="about-photo">
+                        <img src="assets/images/guy.webp" alt="Mohsen Parchami" class="about-photo">
                     </div>
                     <div class="about-photo-glow"></div>
                 </div>
@@ -182,6 +182,53 @@
                     </a>
                 </div>
             </div>
+
+            <div class="section-header section-header--sub reveal-child">
+                <span class="section-bar"></span>
+                <h2 class="section-title">More Work</h2>
+                <span class="section-sub">Selected projects</span>
+            </div>
+            <div class="project-grid">
+                <a href="https://github.com/Mohjo13/streets-of-belonging" target="_blank" rel="noopener" class="mini-card reveal-child">
+                    <h3 class="mini-title">Streets of Belonging</h3>
+                    <p class="mini-meta">Unity &middot; Team Project</p>
+                    <div class="project-tags">
+                        <span class="tag">UI / UX</span>
+                        <span class="tag">Narrative</span>
+                    </div>
+                    <p class="mini-desc">
+                        Narrative-driven experience built with a collaborative team. Owned UI/UX
+                        and integrated narrative beats into the moment-to-moment flow.
+                    </p>
+                    <span class="mini-link">View on GitHub &#8594;</span>
+                </a>
+                <a href="https://github.com/Mohjo13/Monopoly" target="_blank" rel="noopener" class="mini-card reveal-child">
+                    <h3 class="mini-title">Monopoly AI</h3>
+                    <p class="mini-meta">C# &middot; Solo</p>
+                    <div class="project-tags">
+                        <span class="tag">Minimax AI</span>
+                        <span class="tag">OO Architecture</span>
+                    </div>
+                    <p class="mini-desc">
+                        Full Monopoly implementation with a Minimax-based AI opponent. Modular
+                        C# OOP with clean separation between game state, rules, and decision logic.
+                    </p>
+                    <span class="mini-link">View on GitHub &#8594;</span>
+                </a>
+                <a href="https://github.com/Mohjo13/Cannonier" target="_blank" rel="noopener" class="mini-card reveal-child">
+                    <h3 class="mini-title">Cannoneer</h3>
+                    <p class="mini-meta">MonoGame &middot; Solo</p>
+                    <div class="project-tags">
+                        <span class="tag">2D Physics</span>
+                        <span class="tag">Gameplay</span>
+                    </div>
+                    <p class="mini-desc">
+                        A 2D physics game built in MonoGame. Projectile trajectories, collision
+                        response, and tuned game feel implemented from scratch.
+                    </p>
+                    <span class="mini-link">View on GitHub &#8594;</span>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -263,7 +310,7 @@
                 <div class="sys-panels">
                     <div class="sys-panel active" data-panel="camera">
                         <div class="sys-media">
-                            <img src="assets/gifs/camera.gif" alt="Dynamic camera system" class="lazy-gif" data-loaded="true">
+                            <video src="assets/gifs/camera.webm" class="lazy-gif" autoplay muted loop playsinline data-loaded="true" aria-label="Dynamic camera system"></video>
                         </div>
                         <div class="sys-content">
                             <h3 class="sys-title">Camera System</h3>
@@ -272,7 +319,7 @@
                     </div>
                     <div class="sys-panel" data-panel="movement">
                         <div class="sys-media">
-                            <img data-src="assets/gifs/dashing.gif" alt="Movement and dash system" class="lazy-gif">
+                            <video data-src="assets/gifs/dashing.webm" class="lazy-gif" autoplay muted loop playsinline aria-label="Movement and dash system"></video>
                         </div>
                         <div class="sys-content">
                             <h3 class="sys-title">Movement Mechanics</h3>
@@ -281,7 +328,7 @@
                     </div>
                     <div class="sys-panel" data-panel="shaders">
                         <div class="sys-media">
-                            <img data-src="assets/gifs/shaders.gif" alt="Shader effects" class="lazy-gif">
+                            <video data-src="assets/gifs/shaders.webm" class="lazy-gif" autoplay muted loop playsinline aria-label="Shader effects"></video>
                         </div>
                         <div class="sys-content">
                             <h3 class="sys-title">Shaders</h3>
@@ -290,7 +337,7 @@
                     </div>
                     <div class="sys-panel" data-panel="lighting">
                         <div class="sys-media">
-                            <img data-src="assets/gifs/lights.gif" alt="Lighting and post processing" class="lazy-gif">
+                            <video data-src="assets/gifs/lights.webm" class="lazy-gif" autoplay muted loop playsinline aria-label="Lighting and post processing"></video>
                         </div>
                         <div class="sys-content">
                             <h3 class="sys-title">Lights &amp; Post Production</h3>

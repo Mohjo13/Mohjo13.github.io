@@ -121,9 +121,14 @@
     function loadGif(panelName) {
         var panel = document.querySelector('.sys-panel[data-panel="' + panelName + '"]');
         if (!panel) return;
-        panel.querySelectorAll('.lazy-gif[data-src]').forEach(function (img) {
-            img.src = img.dataset.src;
-            img.removeAttribute('data-src');
+        panel.querySelectorAll('.lazy-gif[data-src]').forEach(function (el) {
+            el.src = el.dataset.src;
+            el.removeAttribute('data-src');
+            if (el.tagName === 'VIDEO') {
+                el.load();
+                var p = el.play();
+                if (p && p.catch) p.catch(function () {});
+            }
         });
     }
 
