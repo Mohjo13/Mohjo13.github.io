@@ -15,10 +15,10 @@
     <link rel="shortcut icon" href="assets/images/gt_favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Fonts loaded async (non-render-blocking) -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+    <!-- Fonts loaded async (non-render-blocking). display=optional avoids late font swap = no CLS -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=optional">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=optional" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=optional"></noscript>
     <!-- Critical CSS blocks render; decorative easter-egg CSS deferred -->
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/easter-egg.css" media="print" onload="this.media='all'">
@@ -124,16 +124,16 @@
                     </p>
                     <div class="about-links">
                         <a href="assets/cv/CV_Mohsen_Parchami.pdf" target="_blank" rel="noopener" class="btn btn-link">
-                            <img src="assets/icons/cv.png" alt="CV" loading="lazy" decoding="async"> My CV
+                            <img src="assets/icons/cv.webp" alt="CV" loading="lazy" decoding="async"> My CV
                         </a>
                         <a href="mailto:Mohsen.parchami@gmail.com" class="btn btn-link">
-                            <img src="assets/icons/mail.png" alt="Email" loading="lazy" decoding="async"> Email me
+                            <img src="assets/icons/mail.webp" alt="Email" loading="lazy" decoding="async"> Email me
                         </a>
                         <a href="https://www.linkedin.com/in/mohsen-parchami-4b0344238/" target="_blank" rel="noopener" class="btn btn-link">
-                            <img src="assets/icons/linkedin.png" alt="LinkedIn" loading="lazy" decoding="async"> LinkedIn
+                            <img src="assets/icons/linkedin.webp" alt="LinkedIn" loading="lazy" decoding="async"> LinkedIn
                         </a>
                         <a href="https://github.com/Mohjo13" target="_blank" rel="noopener" class="btn btn-link">
-                            <img src="assets/icons/git.png" alt="GitHub" loading="lazy" decoding="async"> GitHub
+                            <img src="assets/icons/git.webp" alt="GitHub" loading="lazy" decoding="async"> GitHub
                         </a>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                     <img src="assets/images/murmurs.webp" alt="Murmurs of the Mist" class="project-img" loading="lazy" decoding="async">
                     <a href="https://store.steampowered.com/app/4187020/Murmurs_of_the_Mist/"
                        target="_blank" rel="noopener" class="project-steam-badge">
-                        <img src="assets/icons/steam.png" alt="Steam" loading="lazy" decoding="async"> Live on Steam
+                        <img src="assets/icons/steam.webp" alt="Steam" loading="lazy" decoding="async"> Live on Steam
                     </a>
                 </div>
                 <div class="project-info">
@@ -246,19 +246,19 @@
             </div>
             <div class="skills-grid">
                 <div class="skill-card reveal-child">
-                    <img src="assets/icons/unity.png" alt="Unity" class="skill-icon">
+                    <img src="assets/icons/unity.webp" alt="Unity" class="skill-icon" width="32" height="32" loading="lazy" decoding="async">
                     <div class="skill-info"><span class="skill-name">Unity</span><span class="skill-tag">Engine</span></div>
                 </div>
                 <div class="skill-card reveal-child">
-                    <img src="assets/icons/code.png" alt="C#" class="skill-icon">
+                    <img src="assets/icons/code.webp" alt="C#" class="skill-icon" width="32" height="32" loading="lazy" decoding="async">
                     <div class="skill-info"><span class="skill-name">C#</span><span class="skill-tag">Language</span></div>
                 </div>
                 <div class="skill-card reveal-child">
-                    <img src="assets/icons/unreal.png" alt="Unreal Engine" class="skill-icon">
+                    <img src="assets/icons/unreal.webp" alt="Unreal Engine" class="skill-icon" width="32" height="32" loading="lazy" decoding="async">
                     <div class="skill-info"><span class="skill-name">Unreal Engine</span><span class="skill-tag">Engine</span></div>
                 </div>
                 <div class="skill-card reveal-child">
-                    <img src="assets/icons/git.png" alt="Git / GitHub" class="skill-icon">
+                    <img src="assets/icons/git.webp" alt="Git / GitHub" class="skill-icon" width="32" height="32" loading="lazy" decoding="async">
                     <div class="skill-info"><span class="skill-name">Git / GitHub</span><span class="skill-tag">Version Control</span></div>
                 </div>
                 <div class="skill-card reveal-child skill-card--text">
