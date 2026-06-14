@@ -9,14 +9,28 @@
     var bar = document.getElementById('scrollBar');
     if (!bar) return;
 
-    function update() {
-        var scrolled = window.scrollY;
-        var total = document.documentElement.scrollHeight - window.innerHeight;
-        bar.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + '%';
+    var total = 0;          // cached: avoids scrollHeight read on every scroll
+    var ticking = false;
+
+    function measure() {
+        total = document.documentElement.scrollHeight - window.innerHeight;
     }
 
-    window.addEventListener('scroll', update, { passive: true });
-    update();
+    function render() {
+        ticking = false;
+        var ratio = total > 0 ? window.scrollY / total : 0;
+        bar.style.transform = 'scaleX(' + Math.min(ratio, 1) + ')';   // composited
+    }
+
+    function onScroll() {
+        if (!ticking) { ticking = true; requestAnimationFrame(render); }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', function () { measure(); render(); }, { passive: true });
+    window.addEventListener('load', function () { measure(); render(); });
+    measure();
+    render();
 })();
 
 /* ── 2. NAV: active spy + background ───────────────────── */
@@ -27,10 +41,20 @@
     }).filter(Boolean);
     var navbar = document.getElementById('navbar');
 
-    function onScroll() {
+    var offsets = [];       // cached: avoids offsetTop read on every scroll
+    var ticking = false;
+
+    function measure() {
+        offsets = sections.map(function (s) { return s.offsetTop; });
+    }
+
+    function render() {
+        ticking = false;
         var sy = window.scrollY + 80;
         var current = sections[0];
-        sections.forEach(function (s) { if (s && s.offsetTop <= sy) current = s; });
+        for (var i = 0; i < sections.length; i++) {
+            if (offsets[i] <= sy) current = sections[i];
+        }
         links.forEach(function (l) {
             l.classList.toggle('active', l.dataset.section === (current && current.id));
         });
@@ -41,8 +65,15 @@
         }
     }
 
+    function onScroll() {
+        if (!ticking) { ticking = true; requestAnimationFrame(render); }
+    }
+
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    window.addEventListener('resize', function () { measure(); render(); }, { passive: true });
+    window.addEventListener('load', measure);
+    measure();
+    render();
 })();
 
 /* ── 3. MOBILE BURGER ───────────────────────────────────── */
@@ -163,7 +194,7 @@
     if (sys) {
         var preloadObs = new IntersectionObserver(function (entries) {
             if (entries[0].isIntersecting) {
-                ['movement', 'shaders', 'lighting'].forEach(loadGif);
+                ['camera', 'movement', 'shaders', 'lighting'].forEach(loadGif);
                 preloadObs.disconnect();
             }
         }, { threshold: 0.15 });

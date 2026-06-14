@@ -15,9 +15,14 @@
     <link rel="shortcut icon" href="assets/images/gt_favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Fonts loaded async (non-render-blocking) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+    <!-- Critical CSS blocks render; decorative easter-egg CSS deferred -->
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/easter-egg.css">
+    <link rel="stylesheet" href="assets/css/easter-egg.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="assets/css/easter-egg.css"></noscript>
 </head>
 <body>
 
@@ -95,7 +100,7 @@
             <div class="about-grid">
                 <div class="about-photo-wrap reveal-child">
                     <div class="about-photo-frame">
-                        <img src="assets/images/guy.webp" alt="Mohsen Parchami" class="about-photo">
+                        <img src="assets/images/guy.webp" alt="Mohsen Parchami" class="about-photo" loading="lazy" decoding="async">
                     </div>
                     <div class="about-photo-glow"></div>
                 </div>
@@ -119,16 +124,16 @@
                     </p>
                     <div class="about-links">
                         <a href="assets/cv/CV_Mohsen_Parchami.pdf" target="_blank" rel="noopener" class="btn btn-link">
-                            <img src="assets/icons/cv.png" alt="CV"> My CV
+                            <img src="assets/icons/cv.png" alt="CV" loading="lazy" decoding="async"> My CV
                         </a>
                         <a href="mailto:Mohsen.parchami@gmail.com" class="btn btn-link">
-                            <img src="assets/icons/mail.png" alt="Email"> Email me
+                            <img src="assets/icons/mail.png" alt="Email" loading="lazy" decoding="async"> Email me
                         </a>
                         <a href="https://www.linkedin.com/in/mohsen-parchami-4b0344238/" target="_blank" rel="noopener" class="btn btn-link">
-                            <img src="assets/icons/linkedin.png" alt="LinkedIn"> LinkedIn
+                            <img src="assets/icons/linkedin.png" alt="LinkedIn" loading="lazy" decoding="async"> LinkedIn
                         </a>
                         <a href="https://github.com/Mohjo13" target="_blank" rel="noopener" class="btn btn-link">
-                            <img src="assets/icons/git.png" alt="GitHub"> GitHub
+                            <img src="assets/icons/git.png" alt="GitHub" loading="lazy" decoding="async"> GitHub
                         </a>
                     </div>
                 </div>
@@ -146,10 +151,10 @@
             </div>
             <div class="project-card reveal-child" id="projectCard">
                 <div class="project-media">
-                    <img src="assets/images/murmurs.png" alt="Murmurs of the Mist" class="project-img">
+                    <img src="assets/images/murmurs.png" alt="Murmurs of the Mist" class="project-img" loading="lazy" decoding="async">
                     <a href="https://store.steampowered.com/app/4187020/Murmurs_of_the_Mist/"
                        target="_blank" rel="noopener" class="project-steam-badge">
-                        <img src="assets/icons/steam.png" alt="Steam"> Live on Steam
+                        <img src="assets/icons/steam.png" alt="Steam" loading="lazy" decoding="async"> Live on Steam
                     </a>
                 </div>
                 <div class="project-info">
@@ -310,7 +315,7 @@
                 <div class="sys-panels">
                     <div class="sys-panel active" data-panel="camera">
                         <div class="sys-media">
-                            <video src="assets/gifs/camera.webm" class="lazy-gif" autoplay muted loop playsinline data-loaded="true" aria-label="Dynamic camera system"></video>
+                            <video data-src="assets/gifs/camera.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Dynamic camera system"></video>
                         </div>
                         <div class="sys-content">
                             <h3 class="sys-title">Camera System</h3>
@@ -319,7 +324,7 @@
                     </div>
                     <div class="sys-panel" data-panel="movement">
                         <div class="sys-media">
-                            <video data-src="assets/gifs/dashing.webm" class="lazy-gif" autoplay muted loop playsinline aria-label="Movement and dash system"></video>
+                            <video data-src="assets/gifs/dashing.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Movement and dash system"></video>
                         </div>
                         <div class="sys-content">
                             <h3 class="sys-title">Movement Mechanics</h3>
@@ -328,7 +333,7 @@
                     </div>
                     <div class="sys-panel" data-panel="shaders">
                         <div class="sys-media">
-                            <video data-src="assets/gifs/shaders.webm" class="lazy-gif" autoplay muted loop playsinline aria-label="Shader effects"></video>
+                            <video data-src="assets/gifs/shaders.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Shader effects"></video>
                         </div>
                         <div class="sys-content">
                             <h3 class="sys-title">Shaders</h3>
@@ -337,7 +342,7 @@
                     </div>
                     <div class="sys-panel" data-panel="lighting">
                         <div class="sys-media">
-                            <video data-src="assets/gifs/lights.webm" class="lazy-gif" autoplay muted loop playsinline aria-label="Lighting and post processing"></video>
+                            <video data-src="assets/gifs/lights.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Lighting and post processing"></video>
                         </div>
                         <div class="sys-content">
                             <h3 class="sys-title">Lights &amp; Post Production</h3>
@@ -379,8 +384,8 @@
         </div>
     </footer>
 
-    <script src="assets/js/script.js"></script>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-    <script src="assets/js/easter-egg.js"></script>
+    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/easter-egg.js" defer></script>
+    <script>window.addEventListener('DOMContentLoaded',function(){document.getElementById('year').textContent=new Date().getFullYear();});</script>
 </body>
 </html>
