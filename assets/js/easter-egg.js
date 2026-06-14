@@ -181,14 +181,33 @@
     var raf = null;
     var tick = 0;
     var allDone = false;
+    var rectCache = {};   /* cached section bounds (doc space) — avoids per-frame layout reads */
 
     function init() {
         buildCanvas();
         buildHUD();
+        measureRects();
+        window.addEventListener('resize', measureRects, { passive: true });
+        window.addEventListener('load', measureRects);
         loadSprite(function () {
             spawnStars();
             bindClick();
             loop();
+        });
+    }
+
+    /* Measure once per resize/load instead of every animation frame.
+       Values stored in document space so they stay valid while scrolling. */
+    function measureRects() {
+        STARS.forEach(function (cfg) {
+            var el = document.getElementById(cfg.section);
+            if (!el) return;
+            var r = el.getBoundingClientRect();
+            rectCache[cfg.section] = {
+                left: r.left, right: r.right, width: r.width,
+                top: r.top + window.scrollY, bottom: r.bottom + window.scrollY,
+                height: r.height
+            };
         });
     }
 
@@ -256,26 +275,20 @@
     }
 
     function placeStar(s) {
-        var el = document.getElementById(s.cfg.section);
-        if (!el) return;
-        var r = el.getBoundingClientRect();
-        if (r.width === 0) return;
-        s.x = r.left + r.width * (0.1 + Math.random() * 0.4);
-        s.y = r.top + window.scrollY + r.height * (0.15 + Math.random() * 0.7);
+        var rc = rectCache[s.cfg.section];
+        if (!rc || rc.width === 0) return;
+        s.x = rc.left + rc.width * (0.1 + Math.random() * 0.4);
+        s.y = rc.top + rc.height * (0.15 + Math.random() * 0.7);
         s.placed = true;
     }
 
     function wrapStar(s) {
-        var el = document.getElementById(s.cfg.section);
-        if (!el) return;
-        var r = el.getBoundingClientRect();
-        var sy = window.scrollY;
+        var rc = rectCache[s.cfg.section];
+        if (!rc) return;
         var pad = 20;
-        var top = r.top + sy;
-        var bottom = r.bottom + sy;
-        if (s.x > r.right + pad || s.x < r.left - pad || s.y > bottom + pad || s.y < top - pad) {
-            s.x = r.left + pad;
-            s.y = top + r.height * (0.15 + Math.random() * 0.7);
+        if (s.x > rc.right + pad || s.x < rc.left - pad || s.y > rc.bottom + pad || s.y < rc.top - pad) {
+            s.x = rc.left + pad;
+            s.y = rc.top + rc.height * (0.15 + Math.random() * 0.7);
             s.sparkles = [];
         }
     }
