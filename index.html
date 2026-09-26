@@ -34,26 +34,25 @@
 
     <nav id="navbar">
         <div class="nav-inner">
-            <a href="#hero" class="nav-logo">MP</a>
+            <a href="#hero" class="nav-logo" aria-label="Mohsen Parchami, back to top">MP<span class="nav-logo-dot">.</span></a>
             <ul class="nav-links">
-                <li><a href="#hero" class="nav-link" data-section="hero">Home</a></li>
-                <li><a href="#about" class="nav-link" data-section="about">About</a></li>
-                <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
-                <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
                 <li><a href="#systems" class="nav-link" data-section="systems">Systems</a></li>
-                <li><a href="assets/cv/CV_Mohsen_Parchami.pdf" target="_blank" rel="noopener" class="nav-link nav-cv">CV</a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+                <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
             </ul>
-            <button class="nav-burger" aria-label="Toggle menu" id="navBurger">
-                <span></span><span></span><span></span>
-            </button>
+            <div class="nav-actions">
+                <a href="assets/cv/CV_Mohsen_Parchami.pdf" target="_blank" rel="noopener" class="nav-cv">CV &darr;</a>
+                <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMobile" id="navBurger">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
         <div class="nav-mobile" id="navMobile">
-            <a href="#hero" class="nav-mobile-link">Home</a>
-            <a href="#about" class="nav-mobile-link">About</a>
-            <a href="#projects" class="nav-mobile-link">Projects</a>
-            <a href="#skills" class="nav-mobile-link">Skills</a>
             <a href="#systems" class="nav-mobile-link">Systems</a>
-            <a href="assets/cv/CV_Mohsen_Parchami.pdf" target="_blank" rel="noopener" class="nav-mobile-link">CV</a>
+            <a href="#projects" class="nav-mobile-link">Projects</a>
+            <a href="#about" class="nav-mobile-link">About</a>
+            <a href="#contact" class="nav-mobile-link">Contact</a>
         </div>
     </nav>
 
@@ -88,50 +87,109 @@
         </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section reveal">
+    <!-- SYSTEMS -->
+    <section id="systems" class="section reveal">
         <div class="container">
             <div class="section-header">
                 <span class="section-bar"></span>
-                <h2 class="section-title">About Me</h2>
+                <h2 class="section-title">Technical Systems</h2>
+                <span class="section-sub">Code &amp; craft — built from scratch</span>
             </div>
-            <div class="about-grid">
-                <div class="about-photo-wrap reveal-child">
-                    <div class="about-photo-frame">
-                        <img src="assets/images/guy.webp" alt="Mohsen Parchami" class="about-photo" loading="lazy" decoding="async">
-                    </div>
+            <div class="systems-wrap reveal-child">
+                <!-- Project picker -->
+                <div class="sys-project-picker">
+                    <button class="sys-project-btn active" data-project="murmurs">Murmurs of the Mist</button>
+                    <button class="sys-project-btn" data-project="pizza">Pizza to Hell</button>
                 </div>
-                <div class="about-content reveal-child">
-                    <div class="zelda-quote">
-                        <span class="zelda-mark">&ldquo;</span>
-                        <div>
-                            <p class="zelda-text">It's dangerous to go alone! Take this.</p>
-                            <p class="zelda-credit">— The Legend of Zelda &nbsp;|&nbsp; A developer who speaks the language of games.</p>
+                <!-- Murmurs tabs -->
+                <div class="sys-tabs" role="tablist" data-project-tabs="murmurs">
+                    <button class="sys-tab active" data-tab="camera" role="tab" aria-selected="true">Camera</button>
+                    <button class="sys-tab" data-tab="movement" role="tab" aria-selected="false">Movement</button>
+                    <button class="sys-tab" data-tab="shaders" role="tab" aria-selected="false">Shaders</button>
+                    <button class="sys-tab" data-tab="lighting" role="tab" aria-selected="false">Lighting</button>
+                </div>
+                <!-- Pizza to Hell tabs -->
+                <div class="sys-tabs sys-hidden" role="tablist" data-project-tabs="pizza">
+                    <button class="sys-tab active" data-tab="combat" role="tab" aria-selected="true">Combat</button>
+                    <button class="sys-tab" data-tab="parry" role="tab" aria-selected="false">Parry</button>
+                    <button class="sys-tab" data-tab="editor" role="tab" aria-selected="false">Editor Tool</button>
+                    <button class="sys-tab" data-tab="vfx" role="tab" aria-selected="false">VFX</button>
+                </div>
+                <div class="sys-panels" data-project-panels="murmurs">
+                    <div class="sys-panel active" data-panel="camera">
+                        <div class="sys-media">
+                            <video data-src="assets/gifs/camera.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Dynamic camera system"></video>
+                        </div>
+                        <div class="sys-content">
+                            <h3 class="sys-title">Camera System</h3>
+                            <p class="sys-desc">A dynamic camera system built to heighten tension and guide player focus through shifting perspectives. Multiple camera angles emphasize pressure, reveal threats, and shape moment-to-moment gameplay, while smooth transitions create cinematic flow and allow camera behavior to adapt to different level layouts and pacing needs.</p>
                         </div>
                     </div>
-                    <p class="about-body">
-                        Game Development student at Södertörn University with a lifelong passion for games,
-                        driven by a curiosity for how story, systems, and emotion come together to create
-                        memorable experiences.
-                    </p>
-                    <p class="about-body">
-                        I work at the intersection of design and engineering — comfortable with both pixel-perfect
-                        UI and deep systems work. My background as an assistant engineer shaped a calm,
-                        solutions-focused mindset built for collaborative teams.
-                    </p>
-                    <div class="about-links">
-                        <a href="assets/cv/CV_Mohsen_Parchami.pdf" target="_blank" rel="noopener" class="btn btn-link">
-                            <img src="assets/icons/cv.webp" alt="CV" loading="lazy" decoding="async"> My CV
-                        </a>
-                        <a href="mailto:Mohsen.parchami@gmail.com" class="btn btn-link">
-                            <img src="assets/icons/mail.webp" alt="Email" loading="lazy" decoding="async"> Email me
-                        </a>
-                        <a href="https://www.linkedin.com/in/mohsen-parchami-4b0344238/" target="_blank" rel="noopener" class="btn btn-link">
-                            <img src="assets/icons/linkedin.webp" alt="LinkedIn" loading="lazy" decoding="async"> LinkedIn
-                        </a>
-                        <a href="https://github.com/Mohjo13" target="_blank" rel="noopener" class="btn btn-link">
-                            <img src="assets/icons/git.webp" alt="GitHub" loading="lazy" decoding="async"> GitHub
-                        </a>
+                    <div class="sys-panel" data-panel="movement">
+                        <div class="sys-media">
+                            <video data-src="assets/gifs/dashing.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Movement and dash system"></video>
+                        </div>
+                        <div class="sys-content">
+                            <h3 class="sys-title">Movement Mechanics</h3>
+                            <p class="sys-desc">A responsive traversal system built to support fast pacing and player control. Combines a directional dash so the player can quickly reposition, clear gaps, and maintain momentum during high-pressure moments. Designed to feel snappy and consistent, with clean tuning points for speed, timing, and cooldown.</p>
+                        </div>
+                    </div>
+                    <div class="sys-panel" data-panel="shaders">
+                        <div class="sys-media">
+                            <video data-src="assets/gifs/shaders.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Shader effects"></video>
+                        </div>
+                        <div class="sys-content">
+                            <h3 class="sys-title">Shaders</h3>
+                            <p class="sys-desc">Shaders used for cooldown indicators to provide visual feedback without traditional UI. Reflective and refractive multi-colored materials that distort the surrounding environment based on object shape. Dynamic ripple effects that respond to player movement through liquid surfaces.</p>
+                        </div>
+                    </div>
+                    <div class="sys-panel" data-panel="lighting">
+                        <div class="sys-media">
+                            <video data-src="assets/gifs/lights.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Lighting and post processing"></video>
+                        </div>
+                        <div class="sys-content">
+                            <h3 class="sys-title">Lights &amp; Post Production</h3>
+                            <p class="sys-desc">A lighting and post-processing setup built to support visual storytelling and mood through controlled use of light, shadow, and color. Post-processing effects including color grading, exposure, and bloom are applied to refine atmosphere, depth, and overall visual realism.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pizza to Hell panels -->
+                <div class="sys-panels sys-hidden" data-project-panels="pizza">
+                    <div class="sys-panel active" data-panel="combat">
+                        <div class="sys-media">
+                            <video data-src="assets/gifs/pth-combat.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Melee combat system"></video>
+                        </div>
+                        <div class="sys-content">
+                            <h3 class="sys-title">Combat System</h3>
+                            <p class="sys-desc">A data-driven melee combat system with light attacks, heavy attacks, combos, and dodge integration. Every attack is a ScriptableObject &mdash; timing windows, hitbox phases, and animation are all tuned without touching code. Input buffering ensures combos feel responsive even during active animations.</p>
+                        </div>
+                    </div>
+                    <div class="sys-panel" data-panel="parry">
+                        <div class="sys-media">
+                            <video data-src="assets/gifs/pth-parry.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Parry system"></video>
+                        </div>
+                        <div class="sys-content">
+                            <h3 class="sys-title">Parry System</h3>
+                            <p class="sys-desc">A tight, timing-based parry that triggers spark particle feedback and pushes the enemy into a dedicated staggered state. The parry window is data-driven, letting designers tune startup and recovery per weapon without any code changes.</p>
+                        </div>
+                    </div>
+                    <div class="sys-panel" data-panel="editor">
+                        <div class="sys-media">
+                            <video data-src="assets/gifs/pth-editor.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Custom editor tooling"></video>
+                        </div>
+                        <div class="sys-content">
+                            <h3 class="sys-title">Custom Editor Tool</h3>
+                            <p class="sys-desc">A bespoke Unity EditorWindow for authoring weapons and attacks. Designers drag phase markers on a visual timeline, preview hitbox gizmos live in the scene, and tune combo sequences &mdash; all without writing code. Built to keep the combat system accessible to the whole team.</p>
+                        </div>
+                    </div>
+                    <div class="sys-panel" data-panel="vfx">
+                        <div class="sys-media">
+                            <video data-src="assets/gifs/pth-streak.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Streak HUD and VFX"></video>
+                        </div>
+                        <div class="sys-content">
+                            <h3 class="sys-title">Streak HUD &amp; Shaders</h3>
+                            <p class="sys-desc">A combo streak HUD where attack icons fly into a row and combo names dissolve away using a custom TMP SDF dissolve shader written in HLSL. The panel glow is also a custom shader &mdash; HDRP blocks Shader Graph on Canvas, so it was hand-written from scratch.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -272,6 +330,56 @@
         </div>
     </section>
 
+    <!-- ABOUT -->
+    <section id="about" class="section reveal">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-bar"></span>
+                <h2 class="section-title">About Me</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-photo-wrap reveal-child">
+                    <div class="about-photo-frame">
+                        <img src="assets/images/guy.webp" alt="Mohsen Parchami" class="about-photo" loading="lazy" decoding="async">
+                    </div>
+                </div>
+                <div class="about-content reveal-child">
+                    <div class="zelda-quote">
+                        <span class="zelda-mark">&ldquo;</span>
+                        <div>
+                            <p class="zelda-text">It's dangerous to go alone! Take this.</p>
+                            <p class="zelda-credit">— The Legend of Zelda &nbsp;|&nbsp; A developer who speaks the language of games.</p>
+                        </div>
+                    </div>
+                    <p class="about-body">
+                        Game Development student at Södertörn University with a lifelong passion for games,
+                        driven by a curiosity for how story, systems, and emotion come together to create
+                        memorable experiences.
+                    </p>
+                    <p class="about-body">
+                        I work at the intersection of design and engineering — comfortable with both pixel-perfect
+                        UI and deep systems work. My background as an assistant engineer shaped a calm,
+                        solutions-focused mindset built for collaborative teams.
+                    </p>
+                    <div class="about-links">
+                        <a href="assets/cv/CV_Mohsen_Parchami.pdf" target="_blank" rel="noopener" class="btn btn-link">
+                            <img src="assets/icons/cv.webp" alt="CV" loading="lazy" decoding="async"> My CV
+                        </a>
+                        <a href="mailto:Mohsen.parchami@gmail.com" class="btn btn-link">
+                            <img src="assets/icons/mail.webp" alt="Email" loading="lazy" decoding="async"> Email me
+                        </a>
+                        <a href="https://www.linkedin.com/in/mohsen-parchami-4b0344238/" target="_blank" rel="noopener" class="btn btn-link">
+                            <img src="assets/icons/linkedin.webp" alt="LinkedIn" loading="lazy" decoding="async"> LinkedIn
+                        </a>
+                        <a href="https://github.com/Mohjo13" target="_blank" rel="noopener" class="btn btn-link">
+                            <img src="assets/icons/git.webp" alt="GitHub" loading="lazy" decoding="async"> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- SKILLS -->
     <section id="skills" class="section reveal">
         <div class="container">
@@ -327,115 +435,6 @@
                 <div class="skill-card reveal-child skill-card--text">
                     <div class="skill-dot"></div>
                     <div class="skill-info"><span class="skill-name"> Combat Systems</span><span class="skill-tag">Gameplay Programming</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SYSTEMS -->
-    <section id="systems" class="section reveal">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-bar"></span>
-                <h2 class="section-title">Technical Systems</h2>
-                <span class="section-sub">Code &amp; craft — built from scratch</span>
-            </div>
-            <div class="systems-wrap reveal-child">
-                <!-- Project picker -->
-                <div class="sys-project-picker">
-                    <button class="sys-project-btn active" data-project="murmurs">Murmurs of the Mist</button>
-                    <button class="sys-project-btn" data-project="pizza">Pizza to Hell</button>
-                </div>
-                <!-- Murmurs tabs -->
-                <div class="sys-tabs" role="tablist" data-project-tabs="murmurs">
-                    <button class="sys-tab active" data-tab="camera" role="tab" aria-selected="true">Camera</button>
-                    <button class="sys-tab" data-tab="movement" role="tab" aria-selected="false">Movement</button>
-                    <button class="sys-tab" data-tab="shaders" role="tab" aria-selected="false">Shaders</button>
-                    <button class="sys-tab" data-tab="lighting" role="tab" aria-selected="false">Lighting</button>
-                </div>
-                <!-- Pizza to Hell tabs -->
-                <div class="sys-tabs sys-hidden" role="tablist" data-project-tabs="pizza">
-                    <button class="sys-tab active" data-tab="combat" role="tab" aria-selected="true">Combat</button>
-                    <button class="sys-tab" data-tab="parry" role="tab" aria-selected="false">Parry</button>
-                    <button class="sys-tab" data-tab="editor" role="tab" aria-selected="false">Editor Tool</button>
-                    <button class="sys-tab" data-tab="vfx" role="tab" aria-selected="false">VFX</button>
-                </div>
-                <div class="sys-panels" data-project-panels="murmurs">
-                    <div class="sys-panel active" data-panel="camera">
-                        <div class="sys-media">
-                            <video data-src="assets/gifs/camera.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Dynamic camera system"></video>
-                        </div>
-                        <div class="sys-content">
-                            <h3 class="sys-title">Camera System</h3>
-                            <p class="sys-desc">A dynamic camera system built to heighten tension and guide player focus through shifting perspectives. Multiple camera angles emphasize pressure, reveal threats, and shape moment-to-moment gameplay, while smooth transitions create cinematic flow and allow camera behavior to adapt to different level layouts and pacing needs.</p>
-                        </div>
-                    </div>
-                    <div class="sys-panel" data-panel="movement">
-                        <div class="sys-media">
-                            <video data-src="assets/gifs/dashing.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Movement and dash system"></video>
-                        </div>
-                        <div class="sys-content">
-                            <h3 class="sys-title">Movement Mechanics</h3>
-                            <p class="sys-desc">A responsive traversal system built to support fast pacing and player control. Combines a directional dash so the player can quickly reposition, clear gaps, and maintain momentum during high-pressure moments. Designed to feel snappy and consistent, with clean tuning points for speed, timing, and cooldown.</p>
-                        </div>
-                    </div>
-                    <div class="sys-panel" data-panel="shaders">
-                        <div class="sys-media">
-                            <video data-src="assets/gifs/shaders.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Shader effects"></video>
-                        </div>
-                        <div class="sys-content">
-                            <h3 class="sys-title">Shaders</h3>
-                            <p class="sys-desc">Shaders used for cooldown indicators to provide visual feedback without traditional UI. Reflective and refractive multi-colored materials that distort the surrounding environment based on object shape. Dynamic ripple effects that respond to player movement through liquid surfaces.</p>
-                        </div>
-                    </div>
-                    <div class="sys-panel" data-panel="lighting">
-                        <div class="sys-media">
-                            <video data-src="assets/gifs/lights.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Lighting and post processing"></video>
-                        </div>
-                        <div class="sys-content">
-                            <h3 class="sys-title">Lights &amp; Post Production</h3>
-                            <p class="sys-desc">A lighting and post-processing setup built to support visual storytelling and mood through controlled use of light, shadow, and color. Post-processing effects including color grading, exposure, and bloom are applied to refine atmosphere, depth, and overall visual realism.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Pizza to Hell panels -->
-                <div class="sys-panels sys-hidden" data-project-panels="pizza">
-                    <div class="sys-panel active" data-panel="combat">
-                        <div class="sys-media">
-                            <video data-src="assets/gifs/pth-combat.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Melee combat system"></video>
-                        </div>
-                        <div class="sys-content">
-                            <h3 class="sys-title">Combat System</h3>
-                            <p class="sys-desc">A data-driven melee combat system with light attacks, heavy attacks, combos, and dodge integration. Every attack is a ScriptableObject &mdash; timing windows, hitbox phases, and animation are all tuned without touching code. Input buffering ensures combos feel responsive even during active animations.</p>
-                        </div>
-                    </div>
-                    <div class="sys-panel" data-panel="parry">
-                        <div class="sys-media">
-                            <video data-src="assets/gifs/pth-parry.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Parry system"></video>
-                        </div>
-                        <div class="sys-content">
-                            <h3 class="sys-title">Parry System</h3>
-                            <p class="sys-desc">A tight, timing-based parry that triggers spark particle feedback and pushes the enemy into a dedicated staggered state. The parry window is data-driven, letting designers tune startup and recovery per weapon without any code changes.</p>
-                        </div>
-                    </div>
-                    <div class="sys-panel" data-panel="editor">
-                        <div class="sys-media">
-                            <video data-src="assets/gifs/pth-editor.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Custom editor tooling"></video>
-                        </div>
-                        <div class="sys-content">
-                            <h3 class="sys-title">Custom Editor Tool</h3>
-                            <p class="sys-desc">A bespoke Unity EditorWindow for authoring weapons and attacks. Designers drag phase markers on a visual timeline, preview hitbox gizmos live in the scene, and tune combo sequences &mdash; all without writing code. Built to keep the combat system accessible to the whole team.</p>
-                        </div>
-                    </div>
-                    <div class="sys-panel" data-panel="vfx">
-                        <div class="sys-media">
-                            <video data-src="assets/gifs/pth-streak.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Streak HUD and VFX"></video>
-                        </div>
-                        <div class="sys-content">
-                            <h3 class="sys-title">Streak HUD &amp; Shaders</h3>
-                            <p class="sys-desc">A combo streak HUD where attack icons fly into a row and combo names dissolve away using a custom TMP SDF dissolve shader written in HLSL. The panel glow is also a custom shader &mdash; HDRP blocks Shader Graph on Canvas, so it was hand-written from scratch.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

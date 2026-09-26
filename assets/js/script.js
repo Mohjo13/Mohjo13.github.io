@@ -48,8 +48,8 @@
 
     function render() {
         ticking = false;
-        var sy = window.scrollY + 80;
-        var current = sections[0];
+        var sy = window.scrollY + 120;
+        var current = null;     // nothing active while on the hero
         for (var i = 0; i < sections.length; i++) {
             if (offsets[i] <= sy) current = sections[i];
         }
