@@ -118,30 +118,6 @@
     document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
 })();
 
-/* ── 6. TYPEWRITER ──────────────────────────────────────── */
-(function initTypewriter() {
-    var el = document.getElementById('typewriter');
-    if (!el) return;
-
-    var text = 'Building gameplay that feels, stories that linger, and worlds that pull you in deeper than you meant to go.';
-    var startAt = 1100;  /* ms — after hero name finishes animating */
-    var charMs = 40;
-    var i = 0;
-
-    /* reduced motion — show full line immediately, no typing */
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        el.textContent = text;
-        return;
-    }
-
-    setTimeout(function () {
-        var iv = setInterval(function () {
-            el.textContent = text.slice(0, ++i);
-            if (i >= text.length) clearInterval(iv);
-        }, charMs);
-    }, startAt);
-})();
-
 /* ── 7. SYSTEMS TABS + LAZY GIFs ────────────────────────── */
 /* Shared helper: swap data-src → src and start playback (Safari-safe).
    Used by the preloader below and the tab controller in initSystemsPicker. */

@@ -420,132 +420,163 @@ ul {
         background: var(--paper-2);
     }
 
-/* ── HERO ─────────────────────────────────────────────────── */
-#hero {
+/* ── MEDIA PANEL (hero, systems) ──────────────────────────── */
+.media-panel {
     position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
+    margin: 0;
+    padding: var(--sp-5);
+    background: var(--ink);
 }
 
-.hero-inner {
-    position: relative;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 32px;
-    width: 100%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 32px;
-}
-
-.hero-content {
-    max-width: 640px;
-}
-
-.hero-eyebrow {
-    font-family: var(--font-mono);
-    font-size: var(--fs-label);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 20px;
-}
-
-.hero-name {
-    display: flex;
-    flex-direction: column;
-    font-family: var(--font-display);
-    font-size: clamp(56px, 10vw, 96px);
-    font-weight: 700;
-    line-height: 0.92;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-}
-
-.hero-name-line {
-    display: block;
-}
-
-/* typewriter */
-.hero-tagline {
-    font-size: var(--fs-body);
-    color: var(--text-body);
-    margin-bottom: 36px;
-    min-height: 28px;
-}
-
-.type-cursor {
-    color: var(--accent-ink);
-    animation: blink 0.8s step-end infinite;
-    font-weight: 300;
-}
-
-@keyframes blink {
-    0%, 100% {
-        opacity: 1;
+    .media-panel video,
+    .media-panel img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
-    50% {
-        opacity: 0;
-    }
-}
-
-.hero-actions {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-bottom: 32px;
-}
-
-.hero-scroll-hint {
+.media-caption,
+.media-meta {
+    position: absolute;
+    left: var(--sp-5);
+    padding: 6px 10px;
+    background: var(--ink);
     font-family: var(--font-mono);
     font-size: var(--fs-label);
     letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.media-caption {
+    top: var(--sp-5);
+    color: var(--text-on-ink);
+}
+
+.media-meta {
+    bottom: var(--sp-5);
+    color: var(--text-on-ink-muted);
+}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+#hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding-top: var(--nav-h);
+    display: flex;
+    align-items: center;
+}
+
+.hero-inner {
+    width: 100%;
+    max-width: calc(var(--content-max) + 2 * var(--gutter));
+    margin: 0 auto;
+    padding: var(--sp-12) var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.hero-eyebrow {
+    font-family: var(--font-body);
+    font-size: clamp(12px, 1.25vw, 18px);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--text-muted);
 }
 
-.hero-badge {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    background: var(--paper-2);
-    border: 1px solid var(--line);
-    padding: 16px 20px;
-    min-width: 200px;
-    margin-bottom: 8px;
+.hero-name {
+    font-family: var(--font-display);
+    font-size: var(--fs-hero);
+    font-weight: 800;
+    line-height: 0.86;
+    letter-spacing: -0.035em;
+    color: var(--text);
 }
 
-.badge-dot {
-    width: 8px;
-    height: 8px;
-    background: var(--accent);
-    flex-shrink: 0;
-    margin-top: 6px;
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.25fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "intro   proof media"
+        "actions proof media";
+    column-gap: var(--sp-12);
+    row-gap: var(--sp-8);
 }
 
-.badge-text {
+.hero-intro {
+    grid-area: intro;
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: var(--sp-4);
 }
 
-    .badge-text strong {
-        font-family: var(--font-mono);
-        font-size: var(--fs-label);
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--text);
+.hero-role {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+}
+
+.hero-lead {
+    color: var(--text-body);
+}
+
+.hero-actions {
+    grid-area: actions;
+    align-self: start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+}
+
+.hero-proof {
+    grid-area: proof;
+    display: flex;
+    flex-direction: column;
+}
+
+.proof-item {
+    padding: var(--sp-4) 0;
+    border-top: 1px solid var(--line);
+}
+
+    .proof-item:last-child {
+        border-bottom: 1px solid var(--line);
     }
 
-    .badge-text span {
-        font-size: var(--fs-caption);
-        color: var(--text-muted);
-        line-height: 1.4;
-    }
+.proof-num,
+.proof-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--sp-2);
+}
+
+.proof-num {
+    font-size: 44px;
+    color: var(--accent-ink);
+}
+
+.proof-title {
+    font-size: 28px;
+}
+
+.proof-text {
+    font-size: var(--fs-small);
+    color: var(--text-body);
+    line-height: 1.5;
+}
+
+.hero-media {
+    grid-area: media;
+    height: 280px;
+}
 
 /* ── ABOUT ────────────────────────────────────────────────── */
 .about-grid {
@@ -1098,12 +1129,35 @@ ul {
         transition-delay: 0.16s;
     }
 
-.accent {
-    color: var(--accent-ink);
-}
-
 /* ── RESPONSIVE ───────────────────────────────────────────── */
 @media (max-width: 900px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        grid-template-areas:
+            "intro"
+            "proof"
+            "media"
+            "actions";
+    }
+
+    .hero-proof {
+        flex-direction: row;
+        gap: var(--sp-6);
+    }
+
+        .proof-item {
+            flex: 1;
+        }
+
+            .proof-item:last-child {
+                border-bottom: none;
+            }
+
+    .hero-media {
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
     .about-grid {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -1129,15 +1183,6 @@ ul {
     .sys-panel.active {
         grid-template-columns: 1fr;
     }
-
-    .hero-inner {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .hero-badge {
-        margin-top: 0;
-    }
 }
 
 @media (max-width: 700px) {
@@ -1150,6 +1195,75 @@ ul {
         display: none;
     }
 
+    /* Hero: fill the first screen, buttons pinned to its bottom */
+    #hero {
+        align-items: stretch;
+    }
+
+    .hero-inner {
+        padding: var(--sp-5) var(--gutter) 0;
+        gap: var(--sp-4);
+    }
+
+    .hero-grid {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: var(--sp-4);
+    }
+
+    .hero-role {
+        font-size: 21px;
+    }
+
+    .proof-num {
+        font-size: 34px;
+    }
+
+    .proof-title {
+        font-size: 24px;
+    }
+
+    .proof-item {
+        padding: var(--sp-3) 0 0;
+    }
+
+    .hero-media {
+        padding: var(--sp-3);
+    }
+
+        .hero-media .media-caption,
+        .hero-media .media-meta {
+            left: var(--sp-3);
+        }
+
+        .hero-media .media-caption {
+            top: var(--sp-3);
+        }
+
+        .hero-media .media-meta {
+            bottom: var(--sp-3);
+        }
+
+    /* sticky: stays at the bottom of the screen while the hero is in view */
+    .hero-actions {
+        align-self: stretch;
+        margin-top: auto;
+        flex-direction: column;
+        gap: var(--sp-2);
+        position: sticky;
+        bottom: 0;
+        z-index: 5;
+        margin-inline: calc(-1 * var(--gutter));
+        padding: var(--sp-3) var(--gutter) calc(var(--sp-3) + env(safe-area-inset-bottom));
+        background: var(--paper);
+        border-top: 1px solid var(--line);
+    }
+
+        .hero-actions .btn {
+            width: 100%;
+        }
+
     .nav-burger {
         display: flex;
     }
@@ -1160,14 +1274,6 @@ ul {
 
     .container {
         padding: 0 20px;
-    }
-
-    .hero-inner {
-        padding: 0 20px;
-    }
-
-    .hero-name {
-        font-size: clamp(44px, 14vw, 72px);
     }
 
     .skills-grid {
@@ -1199,10 +1305,6 @@ ul {
 @media (max-width: 420px) {
     .skills-grid {
         grid-template-columns: 1fr;
-    }
-
-    .hero-actions {
-        flex-direction: column;
     }
 }
 
