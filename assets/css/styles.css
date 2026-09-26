@@ -92,7 +92,6 @@ ul {
     background: linear-gradient(90deg, var(--accent), var(--violet));
     z-index: 99;
     box-shadow: 0 0 10px var(--accent), 0 0 20px rgba(0,229,255,0.3);
-    transition: transform 0.08s linear;
     pointer-events: none;
 }
 
@@ -1192,6 +1191,101 @@ ul {
     color: var(--muted);
 }
 
+/* ── SYSTEMS PROJECT PICKER ──────────────────────────────── */
+.sys-project-picker {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+}
+
+.sys-project-btn {
+    flex: 1;
+    padding: 14px 20px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: var(--transition);
+    position: relative;
+    margin-bottom: -1px;
+}
+
+    .sys-project-btn:hover {
+        color: var(--text);
+        background: rgba(255,255,255,0.02);
+    }
+
+    .sys-project-btn.active {
+        color: var(--text);
+        border-bottom-color: var(--accent);
+    }
+
+    .sys-project-btn[data-project="pizza"].active {
+        border-bottom-color: var(--violet);
+    }
+
+/* ── PROJECT WIP BADGE ────────────────────────────────────── */
+.project-wip-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(19,22,30,0.9);
+    border: 1px solid rgba(123,97,255,0.45);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--violet);
+}
+
+    .project-wip-badge::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--violet);
+        box-shadow: 0 0 8px var(--violet);
+        animation: pulseAccent 2s ease-in-out infinite;
+        flex-shrink: 0;
+    }
+
+/* ── PROJECT CARD VIOLET ACCENT (Pizza to Hell) ───────────── */
+.project-card--alt:hover {
+    border-color: rgba(123,97,255,0.25) !important;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+}
+
+.project-card--alt .project-img:not([src]) {
+    min-height: 320px;
+    background: linear-gradient(135deg, var(--panel) 0%, rgba(123,97,255,0.08) 100%);
+}
+
+/* violet tags */
+.tag--violet {
+    color: var(--violet);
+    background: rgba(123,97,255,0.08);
+    border-color: rgba(123,97,255,0.3);
+}
+
+/* project card actions row */
+.project-card-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
 /* ── SYSTEMS ──────────────────────────────────────────────── */
 .systems-wrap {
     background: var(--panel);
@@ -1591,4 +1685,26 @@ ul {
         .hero-actions .btn {
             justify-content: center;
         }
+}
+
+/* ── LAYOUT HELPERS (moved from inline styles) ────────────── */
+.project-card--alt {
+    margin-top: 28px;
+}
+
+.sys-hidden {
+    display: none;
+}
+
+/* ── REDUCED MOTION ───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
 }

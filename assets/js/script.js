@@ -135,6 +135,12 @@
     var charMs = 40;
     var i = 0;
 
+    /* reduced motion — show full line immediately, no typing */
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        el.textContent = text;
+        return;
+    }
+
     setTimeout(function () {
         var iv = setInterval(function () {
             el.textContent = text.slice(0, ++i);
@@ -144,62 +150,30 @@
 })();
 
 /* ── 7. SYSTEMS TABS + LAZY GIFs ────────────────────────── */
-(function initSysTabs() {
-    var tabs = Array.from(document.querySelectorAll('.sys-tab'));
-    var panels = Array.from(document.querySelectorAll('.sys-panel'));
-    if (!tabs.length) return;
-
-    function loadGif(panelName) {
-        var panel = document.querySelector('.sys-panel[data-panel="' + panelName + '"]');
-        if (!panel) return;
-        panel.querySelectorAll('.lazy-gif[data-src]').forEach(function (el) {
-            el.src = el.dataset.src;
-            el.removeAttribute('data-src');
-            if (el.tagName === 'VIDEO') {
-                el.load();
-                var p = el.play();
-                if (p && p.catch) p.catch(function () {});
-            }
-        });
+/* Shared helper: swap data-src → src and start playback (Safari-safe).
+   Used by the preloader below and the tab controller in initSystemsPicker. */
+function loadVideo(el) {
+    if (!el || !el.dataset || !el.dataset.src) return;
+    el.src = el.dataset.src;
+    el.removeAttribute('data-src');
+    if (el.tagName === 'VIDEO') {
+        el.load();
+        var p = el.play();
+        if (p && p.catch) p.catch(function () {});
     }
+}
 
-    function activate(name) {
-        tabs.forEach(function (t) {
-            var on = t.dataset.tab === name;
-            t.classList.toggle('active', on);
-            t.setAttribute('aria-selected', on);
-        });
-        panels.forEach(function (p) {
-            p.classList.toggle('active', p.dataset.panel === name);
-        });
-        loadGif(name);
-    }
-
-    tabs.forEach(function (tab, i) {
-        tab.addEventListener('click', function () { activate(tab.dataset.tab); });
-        tab.addEventListener('keydown', function (e) {
-            if (e.key === 'ArrowRight') {
-                var next = tabs[(i + 1) % tabs.length];
-                next.focus(); activate(next.dataset.tab);
-            }
-            if (e.key === 'ArrowLeft') {
-                var prev = tabs[(i - 1 + tabs.length) % tabs.length];
-                prev.focus(); activate(prev.dataset.tab);
-            }
-        });
-    });
-
-    /* preload remaining GIFs when section comes into view */
+(function initSysPreload() {
     var sys = document.getElementById('systems');
-    if (sys) {
-        var preloadObs = new IntersectionObserver(function (entries) {
-            if (entries[0].isIntersecting) {
-                ['camera', 'movement', 'shaders', 'lighting'].forEach(loadGif);
-                preloadObs.disconnect();
-            }
-        }, { threshold: 0.15 });
-        preloadObs.observe(sys);
-    }
+    if (!sys) return;
+    var preloadObs = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+            var group = document.querySelector('[data-project-panels="murmurs"]');
+            if (group) group.querySelectorAll('.lazy-gif[data-src]').forEach(loadVideo);
+            preloadObs.disconnect();
+        }
+    }, { threshold: 0.15 });
+    preloadObs.observe(sys);
 })();
 
 /* ── 9. SKETCH BUTTON GLOW RIM ──────────────────────────── */
@@ -283,5 +257,88 @@
     card.addEventListener('mouseleave', function () {
         card.style.transition = 'transform 0.5s ease';
         card.style.transform = 'perspective(900px) rotateY(0deg) rotateX(0deg) scale(1)';
+    });
+})();
+
+/* SYSTEMS: single tab + project controller.
+   Sole owner of picker buttons, tab rows (click + arrow keys),
+   panel switching, and lazy video loading for BOTH projects. */
+(function initSystemsPicker() {
+    var picker = document.querySelector('.sys-project-picker');
+    if (!picker) return;
+
+    var projectBtns = picker.querySelectorAll('.sys-project-btn');
+
+    function switchProject(project) {
+        // update picker buttons
+        projectBtns.forEach(function (btn) {
+            btn.classList.toggle('active', btn.dataset.project === project);
+        });
+
+        // show/hide tab rows, reset active tab to first
+        document.querySelectorAll('[data-project-tabs]').forEach(function (el) {
+            var on = el.dataset.projectTabs === project;
+            el.classList.toggle('sys-hidden', !on);
+            if (on) {
+                el.querySelectorAll('.sys-tab').forEach(function (t, i) {
+                    t.classList.toggle('active', i === 0);
+                    t.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+                });
+            }
+        });
+
+        // show/hide panel groups, reset active panel to first
+        document.querySelectorAll('[data-project-panels]').forEach(function (el) {
+            var on = el.dataset.projectPanels === project;
+            el.classList.toggle('sys-hidden', !on);
+            if (on) {
+                el.querySelectorAll('.sys-panel').forEach(function (p, i) { p.classList.toggle('active', i === 0); });
+                loadVideo(el.querySelector('.sys-panel.active .lazy-gif'));
+            }
+        });
+    }
+
+    projectBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () { switchProject(btn.dataset.project); });
+    });
+
+    // wire tabs (click + arrow-key nav) inside each project tab group
+    document.querySelectorAll('[data-project-tabs]').forEach(function (tabRow) {
+        var tabs = Array.from(tabRow.querySelectorAll('.sys-tab'));
+
+        function activate(tab) {
+            var project = tabRow.dataset.projectTabs;
+            var panelKey = tab.dataset.tab;
+
+            tabs.forEach(function (t) {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+            });
+            tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
+
+            var panelGroup = document.querySelector('[data-project-panels="' + project + '"]');
+            if (!panelGroup) return;
+            panelGroup.querySelectorAll('.sys-panel').forEach(function (p) { p.classList.remove('active'); });
+            var target = panelGroup.querySelector('[data-panel="' + panelKey + '"]');
+            if (!target) return;
+            target.classList.add('active');
+
+            loadVideo(target.querySelector('.lazy-gif'));
+        }
+
+        tabs.forEach(function (tab, i) {
+            tab.addEventListener('click', function () { activate(tab); });
+            tab.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowRight') {
+                    var next = tabs[(i + 1) % tabs.length];
+                    next.focus(); activate(next);
+                }
+                if (e.key === 'ArrowLeft') {
+                    var prev = tabs[(i - 1 + tabs.length) % tabs.length];
+                    prev.focus(); activate(prev);
+                }
+            });
+        });
     });
 })();

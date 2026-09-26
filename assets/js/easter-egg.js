@@ -27,163 +27,25 @@
     var spriteImgs = {};  /* keyed by section id */
     var SPRITE_SIZE = 32;
 
-    var SPRITE_SVGS = {
-        'hero': [
-            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">',
-            '<rect x="6" y="14" width="1" height="1" fill="rgba(0,229,255,0.5)"/>',
-            '<rect x="9" y="14" width="1" height="1" fill="rgba(0,229,255,0.5)"/>',
-            '<rect x="6" y="13" width="4" height="1" fill="rgba(255,209,102,0.6)"/>',
-            '<rect x="7" y="14" width="2" height="1" fill="#FFD166"/>',
-            '<rect x="7" y="15" width="2" height="1" fill="rgba(255,209,102,0.35)"/>',
-            '<rect x="4" y="11" width="2" height="2" fill="#7B61FF"/>',
-            '<rect x="4" y="10" width="1" height="1" fill="#5A44CC"/>',
-            '<rect x="10" y="11" width="2" height="2" fill="#7B61FF"/>',
-            '<rect x="11" y="10" width="1" height="1" fill="#5A44CC"/>',
-            '<rect x="6" y="10" width="4" height="3" fill="#00c8e0"/>',
-            '<rect x="6" y="7" width="4" height="3" fill="#00d4f0"/>',
-            '<rect x="6" y="5" width="4" height="2" fill="#00E5FF"/>',
-            '<rect x="6" y="5" width="1" height="8" fill="rgba(0,0,0,0.12)"/>',
-            '<rect x="9" y="5" width="1" height="8" fill="rgba(255,255,255,0.08)"/>',
-            '<rect x="6" y="10" width="4" height="1" fill="#00b0c8"/>',
-            '<rect x="6" y="4" width="4" height="1" fill="#9B84FF"/>',
-            '<rect x="7" y="3" width="2" height="1" fill="#b0a0ff"/>',
-            '<rect x="7" y="2" width="2" height="1" fill="#c4b8ff"/>',
-            '<rect x="8" y="1" width="1" height="1" fill="#ffffff"/>',
-            '<rect x="7" y="7" width="2" height="2" fill="#ffffff"/>',
-            '<rect x="7" y="7" width="1" height="1" fill="#e0f8ff"/>',
-            '<rect x="8" y="8" width="1" height="1" fill="#7B61FF"/>',
-            '<rect x="6" y="7" width="1" height="2" fill="#00a8c0"/>',
-            '<rect x="9" y="7" width="1" height="2" fill="#00a8c0"/>',
-            '<rect x="7" y="6" width="2" height="1" fill="#00a8c0"/>',
-            '<rect x="7" y="9" width="2" height="1" fill="#00a8c0"/>',
-            '</svg>'
-        ].join(''),
-
-        'about': [
-            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">',
-            '<rect x="4" y="0" width="1" height="1" fill="#00E5FF"/>',
-            '<rect x="4" y="1" width="1" height="2" fill="#7B61FF"/>',
-            '<rect x="11" y="0" width="1" height="1" fill="#00E5FF"/>',
-            '<rect x="10" y="1" width="1" height="2" fill="#7B61FF"/>',
-            '<rect x="4" y="3" width="8" height="1" fill="#00c8e0"/>',
-            '<rect x="3" y="4" width="10" height="1" fill="#00d4f0"/>',
-            '<rect x="3" y="5" width="10" height="1" fill="#00d4f0"/>',
-            '<rect x="3" y="6" width="10" height="1" fill="#00c0d8"/>',
-            '<rect x="3" y="7" width="10" height="1" fill="#00b8d0"/>',
-            '<rect x="4" y="8" width="8" height="1" fill="#00b0c8"/>',
-            '<rect x="4" y="4" width="3" height="3" fill="#ffffff"/>',
-            '<rect x="5" y="5" width="1" height="1" fill="#7B61FF"/>',
-            '<rect x="5" y="4" width="1" height="1" fill="#e0f8ff"/>',
-            '<rect x="9" y="4" width="3" height="3" fill="#ffffff"/>',
-            '<rect x="10" y="5" width="1" height="1" fill="#7B61FF"/>',
-            '<rect x="10" y="4" width="1" height="1" fill="#e0f8ff"/>',
-            '<rect x="4" y="3" width="3" height="1" fill="rgba(123,97,255,0.3)"/>',
-            '<rect x="9" y="3" width="3" height="1" fill="rgba(123,97,255,0.3)"/>',
-            '<rect x="7" y="7" width="2" height="1" fill="#009ab0"/>',
-            '<rect x="5" y="8" width="1" height="1" fill="#007a90"/>',
-            '<rect x="6" y="9" width="4" height="1" fill="#007a90"/>',
-            '<rect x="10" y="8" width="1" height="1" fill="#007a90"/>',
-            '<rect x="5" y="10" width="6" height="1" fill="#00b8d0"/>',
-            '<rect x="4" y="11" width="8" height="1" fill="#00a8c0"/>',
-            '<rect x="4" y="12" width="8" height="1" fill="#0098b0"/>',
-            '<rect x="2" y="11" width="2" height="1" fill="#00c0d8"/>',
-            '<rect x="1" y="12" width="2" height="1" fill="#00b0c8"/>',
-            '<rect x="12" y="11" width="2" height="1" fill="#00c0d8"/>',
-            '<rect x="13" y="12" width="2" height="1" fill="#00b0c8"/>',
-            '<rect x="5" y="13" width="2" height="1" fill="#0090a8"/>',
-            '<rect x="9" y="13" width="2" height="1" fill="#0090a8"/>',
-            '<rect x="5" y="14" width="2" height="1" fill="#007890"/>',
-            '<rect x="9" y="14" width="2" height="1" fill="#007890"/>',
-            '<rect x="4" y="15" width="3" height="1" fill="#006878"/>',
-            '<rect x="9" y="15" width="3" height="1" fill="#006878"/>',
-            '<rect x="7" y="11" width="2" height="1" fill="#7B61FF"/>',
-            '</svg>'
-        ].join(''),
-
-        'skills': [
-            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">',
-            '<rect x="5" y="2" width="6" height="1" fill="rgba(123,97,255,0.3)"/>',
-            '<rect x="6" y="3" width="4" height="1" fill="#9B84FF"/>',
-            '<rect x="5" y="4" width="6" height="1" fill="#7B61FF"/>',
-            '<rect x="5" y="5" width="6" height="1" fill="#6B54EE"/>',
-            '<rect x="6" y="3" width="2" height="1" fill="#c4b8ff"/>',
-            '<rect x="6" y="4" width="1" height="1" fill="#ffffff"/>',
-            '<rect x="3" y="6" width="10" height="1" fill="#00d4f0"/>',
-            '<rect x="2" y="7" width="12" height="1" fill="#00E5FF"/>',
-            '<rect x="1" y="8" width="14" height="1" fill="#00c8e0"/>',
-            '<rect x="2" y="9" width="12" height="1" fill="#00a8c0"/>',
-            '<rect x="4" y="10" width="8" height="1" fill="#008aaa"/>',
-            '<rect x="4" y="9" width="1" height="1" fill="#FFD166"/>',
-            '<rect x="6" y="9" width="1" height="1" fill="#7B61FF"/>',
-            '<rect x="8" y="9" width="1" height="1" fill="#FFD166"/>',
-            '<rect x="10" y="9" width="1" height="1" fill="#7B61FF"/>',
-            '<rect x="12" y="9" width="1" height="1" fill="#FFD166"/>',
-            '<rect x="6" y="11" width="1" height="1" fill="rgba(255,209,102,0.4)"/>',
-            '<rect x="7" y="11" width="2" height="1" fill="rgba(255,209,102,0.25)"/>',
-            '<rect x="9" y="11" width="1" height="1" fill="rgba(255,209,102,0.4)"/>',
-            '<rect x="6" y="12" width="4" height="1" fill="rgba(255,209,102,0.15)"/>',
-            '</svg>'
-        ].join(''),
-
-        'systems': [
-            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">',
-            '<rect x="1" y="6" width="1" height="1" fill="rgba(0,229,255,0.4)"/>',
-            '<rect x="1" y="9" width="1" height="1" fill="rgba(0,229,255,0.4)"/>',
-            '<rect x="2" y="7" width="1" height="2" fill="rgba(0,229,255,0.6)"/>',
-            '<rect x="3" y="7" width="1" height="1" fill="#00E5FF"/>',
-            '<rect x="3" y="8" width="1" height="1" fill="#00E5FF"/>',
-            '<rect x="4" y="7" width="1" height="2" fill="#7B61FF"/>',
-            '<rect x="5" y="6" width="1" height="4" fill="#9B84FF"/>',
-            '<rect x="6" y="6" width="1" height="4" fill="#7B61FF"/>',
-            '<rect x="7" y="5" width="1" height="6" fill="#9B84FF"/>',
-            '<rect x="8" y="5" width="1" height="6" fill="#7B61FF"/>',
-            '<rect x="9" y="6" width="1" height="4" fill="#5A44CC"/>',
-            '<rect x="5" y="5" width="3" height="1" fill="#7B61FF"/>',
-            '<rect x="5" y="10" width="3" height="1" fill="#7B61FF"/>',
-            '<rect x="6" y="4" width="2" height="1" fill="#5A44CC"/>',
-            '<rect x="6" y="11" width="2" height="1" fill="#5A44CC"/>',
-            '<rect x="10" y="7" width="2" height="2" fill="#b0a0ff"/>',
-            '<rect x="12" y="7" width="1" height="1" fill="#00E5FF"/>',
-            '<rect x="12" y="8" width="1" height="1" fill="#00E5FF"/>',
-            '<rect x="13" y="7" width="1" height="1" fill="#ffffff"/>',
-            '<rect x="13" y="8" width="1" height="1" fill="#ffffff"/>',
-            '<rect x="9" y="7" width="1" height="2" fill="#00E5FF"/>',
-            '<rect x="6" y="7" width="1" height="2" fill="#6B54EE"/>',
-            '<rect x="8" y="7" width="1" height="2" fill="#6B54EE"/>',
-            '</svg>'
-        ].join(''),
-
-        'contact': [
-            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">',
-            '<circle cx="8" cy="8" r="7" fill="rgba(0,229,255,0.08)"/>',
-            '<circle cx="8" cy="8" r="5" fill="rgba(0,229,255,0.12)"/>',
-            '<rect x="6" y="5" width="1" height="1" fill="#b0eeff"/>',
-            '<rect x="7" y="4" width="2" height="1" fill="#c8f4ff"/>',
-            '<rect x="9" y="5" width="1" height="1" fill="#b0eeff"/>',
-            '<rect x="5" y="6" width="1" height="1" fill="#90d8f0"/>',
-            '<rect x="6" y="6" width="4" height="1" fill="#d6f8ff"/>',
-            '<rect x="10" y="6" width="1" height="1" fill="#90d8f0"/>',
-            '<rect x="5" y="7" width="1" height="2" fill="#7cc8e8"/>',
-            '<rect x="6" y="7" width="4" height="2" fill="#e8fbff"/>',
-            '<rect x="10" y="7" width="1" height="2" fill="#7cc8e8"/>',
-            '<rect x="5" y="9" width="1" height="1" fill="#90d8f0"/>',
-            '<rect x="6" y="9" width="4" height="1" fill="#d6f8ff"/>',
-            '<rect x="10" y="9" width="1" height="1" fill="#90d8f0"/>',
-            '<rect x="6" y="10" width="1" height="1" fill="#b0eeff"/>',
-            '<rect x="7" y="11" width="2" height="1" fill="#c8f4ff"/>',
-            '<rect x="9" y="10" width="1" height="1" fill="#b0eeff"/>',
-            '<rect x="7" y="7" width="2" height="2" fill="#ffffff"/>',
-            '<rect x="8" y="7" width="1" height="1" fill="#ffffff"/>',
-            '</svg>'
-        ].join('')
+    /* Pixel-art sprites live as files in assets/images/sprites/ — single source of truth.
+       (Inline SVG strings removed; was ~20 KB of duplicated art.) */
+    var SPRITE_FILES = {
+        'hero': 'assets/images/sprites/rocket.svg',
+        'about': 'assets/images/sprites/alien.svg',
+        'skills': 'assets/images/sprites/ufo.svg',
+        'systems': 'assets/images/sprites/spaceship.svg',
+        'contact': 'assets/images/sprites/comet.svg'
     };
     var dpr = window.devicePixelRatio || 1;
     var raf = null;
     var tick = 0;
     var allDone = false;
+    var idleFrames = 0;   /* frames rendered after final collection — lets burst FX fade before stopping */
     var rectCache = {};   /* cached section bounds (doc space) — avoids per-frame layout reads */
 
     function init() {
+        /* reduced motion — skip the easter egg entirely */
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         buildCanvas();
         buildHUD();
         measureRects();
@@ -212,18 +74,14 @@
     }
 
     function loadSprite(cb) {
-        var keys = Object.keys(SPRITE_SVGS);
+        var keys = Object.keys(SPRITE_FILES);
         var loaded = 0;
         keys.forEach(function (key) {
-            var blob = new Blob([SPRITE_SVGS[key]], { type: 'image/svg+xml' });
-            var url = URL.createObjectURL(blob);
             var img = new Image();
-            img.onload = img.onerror = function () {
-                URL.revokeObjectURL(url);
-                spriteImgs[key] = img;
-                if (++loaded === keys.length) cb();
-            };
-            img.src = url;
+            function done() { if (++loaded === keys.length) cb(); }
+            img.onload = function () { spriteImgs[key] = img; done(); };
+            img.onerror = function () { spriteImgs[key] = null; done(); };   /* drawStar falls back to a plain dot */
+            img.src = SPRITE_FILES[key];
         });
     }
 
@@ -370,6 +228,8 @@
         ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
         tick++;
         stars.forEach(drawStar);
+        /* all collected: keep clearing ~2s so collect-burst FX fade, then stop the rAF loop */
+        if (allDone && stars.length === 0 && ++idleFrames > 120) { raf = null; return; }
         raf = requestAnimationFrame(loop);
     }
 

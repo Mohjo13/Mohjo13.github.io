@@ -12,6 +12,9 @@
     <meta property="og:description" content="Game Developer & Designer — Unity, C#, Unreal. Based in Stockholm, Sweden.">
     <meta property="og:image" content="https://mohjo13.github.io/assets/images/guy.webp">
     <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://mohjo13.github.io/">
+    <meta name="theme-color" content="#0A0C10">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Mohsen Parchami","jobTitle":"Game Developer & Designer","url":"https://mohjo13.github.io/","address":{"@type":"PostalAddress","addressLocality":"Stockholm","addressCountry":"SE"},"sameAs":["https://github.com/Mohjo13","https://www.linkedin.com/in/mohsen-parchami-4b0344238/"]}</script>
     <link rel="shortcut icon" href="assets/images/gt_favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,16 +52,16 @@
             <a href="#projects" class="nav-mobile-link">Projects</a>
             <a href="#skills" class="nav-mobile-link">Skills</a>
             <a href="#systems" class="nav-mobile-link">Systems</a>
-            <a href="assets/cv/CV_Mohsen_Parchami.pdf" target="_blank" class="nav-mobile-link">CV</a>
+            <a href="assets/cv/CV_Mohsen_Parchami.pdf" target="_blank" rel="noopener" class="nav-mobile-link">CV</a>
         </div>
     </nav>
 
     <!-- HERO -->
     <section id="hero">
         <div class="hero-bg">
-            <div class="hero-glow hero-glow-1" data-parallax="0.04"></div>
-            <div class="hero-glow hero-glow-2" data-parallax="0.07"></div>
-            <div class="hero-grid" data-parallax="0.02"></div>
+            <div class="hero-glow hero-glow-1"></div>
+            <div class="hero-glow hero-glow-2"></div>
+            <div class="hero-grid"></div>
         </div>
         <div class="hero-inner">
             <div class="hero-content">
@@ -146,8 +149,8 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-bar"></span>
-                <h2 class="section-title">Featured Project</h2>
-                <span class="section-sub">A shipped Steam title</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <span class="section-sub">Shipped &amp; in development</span>
             </div>
             <div class="project-card reveal-child" id="projectCard">
                 <div class="project-media">
@@ -185,6 +188,44 @@
                        target="_blank" rel="noopener" class="btn btn-primary btn-sm">
                         View on Steam &#8594;
                     </a>
+                </div>
+            </div>
+
+            <!-- PIZZA TO HELL PROJECT CARD -->
+            <div class="project-card project-card--alt reveal-child">
+                <div class="project-media">
+                    <img src="assets/images/pizza-to-hell.webp" alt="Pizza to Hell" class="project-img" loading="lazy" decoding="async" width="600" height="400">
+                    <span class="project-wip-badge">&#9679;&nbsp; In Development</span>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">PIZZA TO HELL</h3>
+                    <p class="project-meta">Unity 6 HDRP &nbsp;&middot;&nbsp; PSX Aesthetic &nbsp;&middot;&nbsp; Pizza-To-Hell Team</p>
+                    <div class="project-tags">
+                        <span class="tag tag--violet">Combat Systems</span>
+                        <span class="tag tag--violet">Editor Tooling</span>
+                        <span class="tag tag--violet">AI</span>
+                        <span class="tag tag--violet">VFX</span>
+                        <span class="tag tag--violet">HLSL</span>
+                    </div>
+                    <p class="project-desc">
+                        A PSX-inspired melee combat game built in Unity 6 HDRP. The team is building a
+                        fully data-driven combat architecture &mdash; every attack, combo, and weapon is
+                        authored as a ScriptableObject, no code required to add content.
+                    </p>
+                    <div class="project-contributions">
+                        <p class="contrib-label">My contributions</p>
+                        <ul class="contrib-list">
+                            <li>Combat &amp; Combo System Architecture</li>
+                            <li>Custom Editor Tooling &mdash; visual timeline, hitbox gizmos, designer-facing weapon authoring</li>
+                            <li>Parry System &amp; Enemy AI States</li>
+                            <li>Streak HUD &amp; Custom HLSL Shaders</li>
+                        </ul>
+                    </div>
+                    <div class="project-card-actions">
+                        <a href="https://github.com/Pizza-to-Hell/Pizza-To-Hell" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                            View on GitHub &#8594;
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -306,13 +347,26 @@
                 <span class="section-sub">Code &amp; craft — built from scratch</span>
             </div>
             <div class="systems-wrap reveal-child">
-                <div class="sys-tabs" role="tablist">
+                <!-- Project picker -->
+                <div class="sys-project-picker">
+                    <button class="sys-project-btn active" data-project="murmurs">Murmurs of the Mist</button>
+                    <button class="sys-project-btn" data-project="pizza">Pizza to Hell</button>
+                </div>
+                <!-- Murmurs tabs -->
+                <div class="sys-tabs" role="tablist" data-project-tabs="murmurs">
                     <button class="sys-tab active" data-tab="camera" role="tab" aria-selected="true">Camera</button>
                     <button class="sys-tab" data-tab="movement" role="tab" aria-selected="false">Movement</button>
                     <button class="sys-tab" data-tab="shaders" role="tab" aria-selected="false">Shaders</button>
                     <button class="sys-tab" data-tab="lighting" role="tab" aria-selected="false">Lighting</button>
                 </div>
-                <div class="sys-panels">
+                <!-- Pizza to Hell tabs -->
+                <div class="sys-tabs sys-hidden" role="tablist" data-project-tabs="pizza">
+                    <button class="sys-tab active" data-tab="combat" role="tab" aria-selected="true">Combat</button>
+                    <button class="sys-tab" data-tab="parry" role="tab" aria-selected="false">Parry</button>
+                    <button class="sys-tab" data-tab="editor" role="tab" aria-selected="false">Editor Tool</button>
+                    <button class="sys-tab" data-tab="vfx" role="tab" aria-selected="false">VFX</button>
+                </div>
+                <div class="sys-panels" data-project-panels="murmurs">
                     <div class="sys-panel active" data-panel="camera">
                         <div class="sys-media">
                             <video data-src="assets/gifs/camera.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Dynamic camera system"></video>
@@ -347,6 +401,45 @@
                         <div class="sys-content">
                             <h3 class="sys-title">Lights &amp; Post Production</h3>
                             <p class="sys-desc">A lighting and post-processing setup built to support visual storytelling and mood through controlled use of light, shadow, and color. Post-processing effects including color grading, exposure, and bloom are applied to refine atmosphere, depth, and overall visual realism.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pizza to Hell panels -->
+                <div class="sys-panels sys-hidden" data-project-panels="pizza">
+                    <div class="sys-panel active" data-panel="combat">
+                        <div class="sys-media">
+                            <video data-src="assets/gifs/pth-combat.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Melee combat system"></video>
+                        </div>
+                        <div class="sys-content">
+                            <h3 class="sys-title">Combat System</h3>
+                            <p class="sys-desc">A data-driven melee combat system with light attacks, heavy attacks, combos, and dodge integration. Every attack is a ScriptableObject &mdash; timing windows, hitbox phases, and animation are all tuned without touching code. Input buffering ensures combos feel responsive even during active animations.</p>
+                        </div>
+                    </div>
+                    <div class="sys-panel" data-panel="parry">
+                        <div class="sys-media">
+                            <video data-src="assets/gifs/pth-parry.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Parry system"></video>
+                        </div>
+                        <div class="sys-content">
+                            <h3 class="sys-title">Parry System</h3>
+                            <p class="sys-desc">A tight, timing-based parry that triggers spark particle feedback and pushes the enemy into a dedicated staggered state. The parry window is data-driven, letting designers tune startup and recovery per weapon without any code changes.</p>
+                        </div>
+                    </div>
+                    <div class="sys-panel" data-panel="editor">
+                        <div class="sys-media">
+                            <video data-src="assets/gifs/pth-editor.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Custom editor tooling"></video>
+                        </div>
+                        <div class="sys-content">
+                            <h3 class="sys-title">Custom Editor Tool</h3>
+                            <p class="sys-desc">A bespoke Unity EditorWindow for authoring weapons and attacks. Designers drag phase markers on a visual timeline, preview hitbox gizmos live in the scene, and tune combo sequences &mdash; all without writing code. Built to keep the combat system accessible to the whole team.</p>
+                        </div>
+                    </div>
+                    <div class="sys-panel" data-panel="vfx">
+                        <div class="sys-media">
+                            <video data-src="assets/gifs/pth-streak.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Streak HUD and VFX"></video>
+                        </div>
+                        <div class="sys-content">
+                            <h3 class="sys-title">Streak HUD &amp; Shaders</h3>
+                            <p class="sys-desc">A combo streak HUD where attack icons fly into a row and combo names dissolve away using a custom TMP SDF dissolve shader written in HLSL. The panel glow is also a custom shader &mdash; HDRP blocks Shader Graph on Canvas, so it was hand-written from scratch.</p>
                         </div>
                     </div>
                 </div>
