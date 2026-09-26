@@ -31,7 +31,7 @@
     --on-accent: #17171A;      /* text on accent fills. Never white. */
 
     /* Type */
-    --font-display: 'Rajdhani', sans-serif;
+    --font-display: 'Bricolage Grotesque', 'Arial Narrow', sans-serif;
     --font-body: 'DM Sans', system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
@@ -563,7 +563,7 @@ ul {
 }
 
 .zelda-mark {
-    font-family: Georgia, serif;
+    font-family: var(--font-display);
     font-size: 48px;
     line-height: 0.7;
     color: var(--accent-ink);
