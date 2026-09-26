@@ -189,6 +189,11 @@ function loadVideo(el) {
         btn.addEventListener('click', function () { switchProject(btn.dataset.project); });
     });
 
+    // links elsewhere on the page (e.g. Projects) that jump here with a project picked
+    document.querySelectorAll('[data-show-project]').forEach(function (link) {
+        link.addEventListener('click', function () { switchProject(link.dataset.showProject); });
+    });
+
     // wire tabs (click + arrow-key nav) inside each project tab group
     document.querySelectorAll('[data-project-tabs]').forEach(function (tabRow) {
         var tabs = Array.from(tabRow.querySelectorAll('.sys-tab'));
