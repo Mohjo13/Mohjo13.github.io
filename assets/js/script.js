@@ -4,6 +4,22 @@
 
 'use strict';
 
+/* ── 0. REDUCED MOTION: no autoplaying video ────────────── */
+/* Videos stay paused on their poster/first frame with native controls,
+   so the clips are still one click away. */
+var prefersReducedMotion = !!(window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+(function initReducedMotionVideo() {
+    if (!prefersReducedMotion) return;
+    document.querySelectorAll('video').forEach(function (v) {
+        v.autoplay = false;
+        v.removeAttribute('autoplay');
+        v.controls = true;
+        v.pause();
+    });
+})();
+
 /* ── 1. SCROLL PROGRESS BAR ─────────────────────────────── */
 (function initScrollBar() {
     var bar = document.getElementById('scrollBar');
@@ -126,6 +142,11 @@ function loadVideo(el) {
     el.src = el.dataset.src;
     el.removeAttribute('data-src');
     if (el.tagName === 'VIDEO') {
+        if (prefersReducedMotion) {
+            el.preload = 'metadata';    // show the first frame, don't play
+            el.load();
+            return;
+        }
         el.load();
         var p = el.play();
         if (p && p.catch) p.catch(function () {});
