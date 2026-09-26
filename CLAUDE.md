@@ -1,6 +1,7 @@
 # Project: mohjo13.github.io portfolio
 Plain HTML/CSS/JS, no frameworks, hosted on GitHub Pages from main.
 Files: index.html, assets/css/styles.css, assets/js/script.js, assets/js/easter-egg.js. Videos in assets/gifs/ (.webm), images in assets/images/.
+Design source of truth: _notes/design-spec.md
 
 ## Workflow
 - Always audit and propose a numbered plan first. Wait for my approval before editing.
@@ -9,7 +10,7 @@ Files: index.html, assets/css/styles.css, assets/js/script.js, assets/js/easter-
 - Never delete files. Move unused ones to _trash/.
 
 ## Positioning and copy
-- Role: Junior Gameplay Programmer / Technical Designer (Unity, C#, gameplay systems, level design).
+- Role: Junior Gameplay Developer & Technical Designer (Unity, C#, gameplay systems, level design).
 - No em dashes or en dashes used as punctuation anywhere (site or code comments shown to users). Use commas, periods or colons.
 - No AI-style phrasing: leverage, seamless, passionate, cutting-edge, delve, robust, elevate, journey.
 - Short, readable sentences. Project card copy stays friendly, not jargon-heavy.
