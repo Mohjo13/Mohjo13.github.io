@@ -92,105 +92,159 @@
     <!-- SYSTEMS -->
     <section id="systems" class="section reveal">
         <div class="container">
-            <div class="section-header">
-                <span class="section-bar"></span>
-                <h2 class="section-title">Technical Systems</h2>
-                <span class="section-sub">Code &amp; craft — built from scratch</span>
-            </div>
-            <div class="systems-wrap reveal-child">
-                <!-- Project picker -->
-                <div class="sys-project-picker">
-                    <button class="sys-project-btn active" data-project="murmurs">Murmurs of the Mist</button>
-                    <button class="sys-project-btn" data-project="pizza">Pizza to Hell</button>
+            <div class="section-head">
+                <div class="section-head-title">
+                    <span class="section-num">02</span>
+                    <h2 class="section-h2">Technical Systems</h2>
                 </div>
-                <!-- Murmurs tabs -->
-                <div class="sys-tabs" role="tablist" data-project-tabs="murmurs">
+                <p class="section-head-text">Systems I designed and built, shown in motion. Pick a project, then a system.</p>
+            </div>
+            <div class="sys-controls">
+                <div class="sys-project-picker" aria-label="Project">
+                    <button class="sys-project-btn" data-project="murmurs" aria-pressed="false">Murmurs of the Mist</button>
+                    <button class="sys-project-btn active" data-project="pizza" aria-pressed="true">Pizza to Hell</button>
+                </div>
+                <div class="sys-tabs sys-hidden" role="tablist" aria-label="Murmurs of the Mist systems" data-project-tabs="murmurs">
                     <button class="sys-tab active" data-tab="camera" role="tab" aria-selected="true">Camera</button>
                     <button class="sys-tab" data-tab="movement" role="tab" aria-selected="false">Movement</button>
                     <button class="sys-tab" data-tab="shaders" role="tab" aria-selected="false">Shaders</button>
                     <button class="sys-tab" data-tab="lighting" role="tab" aria-selected="false">Lighting</button>
                 </div>
-                <!-- Pizza to Hell tabs -->
-                <div class="sys-tabs sys-hidden" role="tablist" data-project-tabs="pizza">
+                <div class="sys-tabs" role="tablist" aria-label="Pizza to Hell systems" data-project-tabs="pizza">
                     <button class="sys-tab active" data-tab="combat" role="tab" aria-selected="true">Combat</button>
                     <button class="sys-tab" data-tab="parry" role="tab" aria-selected="false">Parry</button>
                     <button class="sys-tab" data-tab="editor" role="tab" aria-selected="false">Editor Tool</button>
                     <button class="sys-tab" data-tab="vfx" role="tab" aria-selected="false">VFX</button>
                 </div>
-                <div class="sys-panels" data-project-panels="murmurs">
-                    <div class="sys-panel active" data-panel="camera">
-                        <div class="sys-media">
-                            <video data-src="assets/gifs/camera.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Dynamic camera system"></video>
-                        </div>
-                        <div class="sys-content">
-                            <h3 class="sys-title">Camera System</h3>
-                            <p class="sys-desc">A dynamic camera system built to heighten tension and guide player focus through shifting perspectives. Multiple camera angles emphasize pressure, reveal threats, and shape moment-to-moment gameplay, while smooth transitions create cinematic flow and allow camera behavior to adapt to different level layouts and pacing needs.</p>
-                        </div>
-                    </div>
-                    <div class="sys-panel" data-panel="movement">
-                        <div class="sys-media">
-                            <video data-src="assets/gifs/dashing.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Movement and dash system"></video>
-                        </div>
-                        <div class="sys-content">
-                            <h3 class="sys-title">Movement Mechanics</h3>
-                            <p class="sys-desc">A responsive traversal system built to support fast pacing and player control. Combines a directional dash so the player can quickly reposition, clear gaps, and maintain momentum during high-pressure moments. Designed to feel snappy and consistent, with clean tuning points for speed, timing, and cooldown.</p>
-                        </div>
-                    </div>
-                    <div class="sys-panel" data-panel="shaders">
-                        <div class="sys-media">
-                            <video data-src="assets/gifs/shaders.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Shader effects"></video>
-                        </div>
-                        <div class="sys-content">
-                            <h3 class="sys-title">Shaders</h3>
-                            <p class="sys-desc">Shaders used for cooldown indicators to provide visual feedback without traditional UI. Reflective and refractive multi-colored materials that distort the surrounding environment based on object shape. Dynamic ripple effects that respond to player movement through liquid surfaces.</p>
-                        </div>
-                    </div>
-                    <div class="sys-panel" data-panel="lighting">
-                        <div class="sys-media">
-                            <video data-src="assets/gifs/lights.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Lighting and post processing"></video>
-                        </div>
-                        <div class="sys-content">
-                            <h3 class="sys-title">Lights &amp; Post Production</h3>
-                            <p class="sys-desc">A lighting and post-processing setup built to support visual storytelling and mood through controlled use of light, shadow, and color. Post-processing effects including color grading, exposure, and bloom are applied to refine atmosphere, depth, and overall visual realism.</p>
+            </div>
+            <div class="sys-panels sys-hidden" data-project-panels="murmurs">
+                <div class="sys-panel active" data-panel="camera" role="tabpanel">
+                    <figure class="media-panel sys-media">
+                        <video data-src="assets/gifs/camera.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Camera System clip"></video>
+                        <figcaption class="media-caption">Murmurs of the Mist &middot; Camera</figcaption>
+                        <span class="media-meta">Unity</span>
+                    </figure>
+                    <div class="sys-content">
+                        <p class="sys-count">01 / 04</p>
+                        <h3 class="sys-title">Camera System</h3>
+                        <p class="sys-desc">A dynamic camera that shifts angle to build tension and point the player at threats. Smooth transitions keep the flow cinematic, and each level tunes the behaviour to its own layout and pacing.</p>
+                        <div class="sys-stack">
+                            <p class="mono-label">Built with</p>
+                            <p class="sys-stack-line">Unity &middot; C#</p>
                         </div>
                     </div>
                 </div>
-                <!-- Pizza to Hell panels -->
-                <div class="sys-panels sys-hidden" data-project-panels="pizza">
-                    <div class="sys-panel active" data-panel="combat">
-                        <div class="sys-media">
-                            <video data-src="assets/gifs/pth-combat.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Melee combat system"></video>
-                        </div>
-                        <div class="sys-content">
-                            <h3 class="sys-title">Combat System</h3>
-                            <p class="sys-desc">A data-driven melee combat system with light attacks, heavy attacks, combos, and dodge integration. Every attack is a ScriptableObject &mdash; timing windows, hitbox phases, and animation are all tuned without touching code. Input buffering ensures combos feel responsive even during active animations.</p>
-                        </div>
-                    </div>
-                    <div class="sys-panel" data-panel="parry">
-                        <div class="sys-media">
-                            <video data-src="assets/gifs/pth-parry.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Parry system"></video>
-                        </div>
-                        <div class="sys-content">
-                            <h3 class="sys-title">Parry System</h3>
-                            <p class="sys-desc">A tight, timing-based parry that triggers spark particle feedback and pushes the enemy into a dedicated staggered state. The parry window is data-driven, letting designers tune startup and recovery per weapon without any code changes.</p>
+                <div class="sys-panel" data-panel="movement" role="tabpanel">
+                    <figure class="media-panel sys-media">
+                        <video data-src="assets/gifs/dashing.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Movement Mechanics clip"></video>
+                        <figcaption class="media-caption">Murmurs of the Mist &middot; Movement</figcaption>
+                        <span class="media-meta">Unity</span>
+                    </figure>
+                    <div class="sys-content">
+                        <p class="sys-count">02 / 04</p>
+                        <h3 class="sys-title">Movement Mechanics</h3>
+                        <p class="sys-desc">Fast, responsive traversal with a directional dash for repositioning, clearing gaps and keeping momentum under pressure. Speed, timing and cooldown are all exposed for tuning.</p>
+                        <div class="sys-stack">
+                            <p class="mono-label">Built with</p>
+                            <p class="sys-stack-line">Unity &middot; C#</p>
                         </div>
                     </div>
-                    <div class="sys-panel" data-panel="editor">
-                        <div class="sys-media">
-                            <video data-src="assets/gifs/pth-editor.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Custom editor tooling"></video>
-                        </div>
-                        <div class="sys-content">
-                            <h3 class="sys-title">Custom Editor Tool</h3>
-                            <p class="sys-desc">A bespoke Unity EditorWindow for authoring weapons and attacks. Designers drag phase markers on a visual timeline, preview hitbox gizmos live in the scene, and tune combo sequences &mdash; all without writing code. Built to keep the combat system accessible to the whole team.</p>
+                </div>
+                <div class="sys-panel" data-panel="shaders" role="tabpanel">
+                    <figure class="media-panel sys-media">
+                        <video data-src="assets/gifs/shaders.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Shaders clip"></video>
+                        <figcaption class="media-caption">Murmurs of the Mist &middot; Shaders</figcaption>
+                        <span class="media-meta">Unity</span>
+                    </figure>
+                    <div class="sys-content">
+                        <p class="sys-count">03 / 04</p>
+                        <h3 class="sys-title">Shaders</h3>
+                        <p class="sys-desc">Cooldown feedback drawn by shaders instead of UI, reflective and refractive materials that distort what sits behind them, and ripples that react as the player moves through liquid.</p>
+                        <div class="sys-stack">
+                            <p class="mono-label">Built with</p>
+                            <p class="sys-stack-line">Unity &middot; Shaders</p>
                         </div>
                     </div>
-                    <div class="sys-panel" data-panel="vfx">
-                        <div class="sys-media">
-                            <video data-src="assets/gifs/pth-streak.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Streak HUD and VFX"></video>
+                </div>
+                <div class="sys-panel" data-panel="lighting" role="tabpanel">
+                    <figure class="media-panel sys-media">
+                        <video data-src="assets/gifs/lights.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Lights and Post Production clip"></video>
+                        <figcaption class="media-caption">Murmurs of the Mist &middot; Lighting</figcaption>
+                        <span class="media-meta">Unity</span>
+                    </figure>
+                    <div class="sys-content">
+                        <p class="sys-count">04 / 04</p>
+                        <h3 class="sys-title">Lights and Post Production</h3>
+                        <p class="sys-desc">Lighting that carries the mood through controlled light, shadow and colour. Grading, exposure and bloom add depth and atmosphere.</p>
+                        <div class="sys-stack">
+                            <p class="mono-label">Built with</p>
+                            <p class="sys-stack-line">Unity &middot; Post-processing</p>
                         </div>
-                        <div class="sys-content">
-                            <h3 class="sys-title">Streak HUD &amp; Shaders</h3>
-                            <p class="sys-desc">A combo streak HUD where attack icons fly into a row and combo names dissolve away using a custom TMP SDF dissolve shader written in HLSL. The panel glow is also a custom shader &mdash; HDRP blocks Shader Graph on Canvas, so it was hand-written from scratch.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="sys-panels" data-project-panels="pizza">
+                <div class="sys-panel active" data-panel="combat" role="tabpanel">
+                    <figure class="media-panel sys-media">
+                        <video src="assets/gifs/pth-combat.webm" class="lazy-gif" autoplay muted loop playsinline aria-label="Combat System clip"></video>
+                        <figcaption class="media-caption">Pizza to Hell &middot; Combat</figcaption>
+                        <span class="media-meta">Unity 6</span>
+                    </figure>
+                    <div class="sys-content">
+                        <p class="sys-count">01 / 04</p>
+                        <h3 class="sys-title">Combat System</h3>
+                        <p class="sys-desc">Data-driven melee with light and heavy attacks, combos and dodge. Every attack is a ScriptableObject, so timing windows, hitbox phases and animation are tuned without code. Input buffering keeps combos responsive mid-animation.</p>
+                        <div class="sys-stack">
+                            <p class="mono-label">Built with</p>
+                            <p class="sys-stack-line">Unity 6 &middot; C# &middot; ScriptableObjects</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="sys-panel" data-panel="parry" role="tabpanel">
+                    <figure class="media-panel sys-media">
+                        <video data-src="assets/gifs/pth-parry.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Parry System clip"></video>
+                        <figcaption class="media-caption">Pizza to Hell &middot; Parry</figcaption>
+                        <span class="media-meta">Unity 6</span>
+                    </figure>
+                    <div class="sys-content">
+                        <p class="sys-count">02 / 04</p>
+                        <h3 class="sys-title">Parry System</h3>
+                        <p class="sys-desc">A timing-based parry with spark feedback that knocks the enemy into a stagger state. The parry window lives in data, so designers tune startup and recovery per weapon.</p>
+                        <div class="sys-stack">
+                            <p class="mono-label">Built with</p>
+                            <p class="sys-stack-line">C# &middot; Enemy AI states &middot; Particles</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="sys-panel" data-panel="editor" role="tabpanel">
+                    <figure class="media-panel sys-media">
+                        <video data-src="assets/gifs/pth-editor.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Custom Editor Tool clip"></video>
+                        <figcaption class="media-caption">Pizza to Hell &middot; Editor Tool</figcaption>
+                        <span class="media-meta">Unity 6</span>
+                    </figure>
+                    <div class="sys-content">
+                        <p class="sys-count">03 / 04</p>
+                        <h3 class="sys-title">Custom Editor Tool</h3>
+                        <p class="sys-desc">A custom Unity window for authoring weapons and attacks. Drag phase markers on a timeline, preview hitbox gizmos live in the scene and tune combo sequences without writing code.</p>
+                        <div class="sys-stack">
+                            <p class="mono-label">Built with</p>
+                            <p class="sys-stack-line">Unity EditorWindow &middot; Gizmos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="sys-panel" data-panel="vfx" role="tabpanel">
+                    <figure class="media-panel sys-media">
+                        <video data-src="assets/gifs/pth-streak.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Streak HUD and Shaders clip"></video>
+                        <figcaption class="media-caption">Pizza to Hell &middot; VFX</figcaption>
+                        <span class="media-meta">Unity 6</span>
+                    </figure>
+                    <div class="sys-content">
+                        <p class="sys-count">04 / 04</p>
+                        <h3 class="sys-title">Streak HUD and Shaders</h3>
+                        <p class="sys-desc">A combo streak HUD where attack icons fly into a row and combo names dissolve out, using a dissolve shader written in HLSL. The panel glow is hand-written too, since HDRP blocks Shader Graph on Canvas.</p>
+                        <div class="sys-stack">
+                            <p class="mono-label">Built with</p>
+                            <p class="sys-stack-line">HLSL &middot; TextMesh Pro SDF</p>
                         </div>
                     </div>
                 </div>

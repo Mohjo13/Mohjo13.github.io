@@ -137,7 +137,7 @@ function loadVideo(el) {
     if (!sys) return;
     var preloadObs = new IntersectionObserver(function (entries) {
         if (entries[0].isIntersecting) {
-            var group = document.querySelector('[data-project-panels="murmurs"]');
+            var group = document.querySelector('[data-project-panels]:not(.sys-hidden)');
             if (group) group.querySelectorAll('.lazy-gif[data-src]').forEach(loadVideo);
             preloadObs.disconnect();
         }
@@ -157,7 +157,9 @@ function loadVideo(el) {
     function switchProject(project) {
         // update picker buttons
         projectBtns.forEach(function (btn) {
-            btn.classList.toggle('active', btn.dataset.project === project);
+            var on = btn.dataset.project === project;
+            btn.classList.toggle('active', on);
+            btn.setAttribute('aria-pressed', on ? 'true' : 'false');
         });
 
         // show/hide tab rows, reset active tab to first
