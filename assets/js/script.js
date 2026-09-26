@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   MOHSEN PARCHAMI — PORTFOLIO  |  script.js
+   MOHSEN PARCHAMI · PORTFOLIO  |  script.js
 ═══════════════════════════════════════════════════════════ */
 
 'use strict';
@@ -33,14 +33,12 @@
     render();
 })();
 
-/* ── 2. NAV: active spy + background ───────────────────── */
+/* ── 2. NAV: active spy ─────────────────────────────────── */
 (function initNav() {
     var links = Array.from(document.querySelectorAll('.nav-link[data-section]'));
     var sections = links.map(function (l) {
         return document.getElementById(l.dataset.section);
     }).filter(Boolean);
-    var navbar = document.getElementById('navbar');
-
     var offsets = [];       // cached: avoids offsetTop read on every scroll
     var ticking = false;
 
@@ -58,11 +56,6 @@
         links.forEach(function (l) {
             l.classList.toggle('active', l.dataset.section === (current && current.id));
         });
-        if (navbar) {
-            navbar.style.background = window.scrollY > 20
-                ? 'rgba(10,12,16,0.97)'
-                : 'rgba(10,12,16,0.85)';
-        }
     }
 
     function onScroll() {
@@ -174,90 +167,6 @@ function loadVideo(el) {
         }
     }, { threshold: 0.15 });
     preloadObs.observe(sys);
-})();
-
-/* ── 9. SKETCH BUTTON GLOW RIM ──────────────────────────── */
-(function initSketchButtons() {
-
-    function createSVG(w, h, r) {
-        var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-        svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
-        rect.setAttribute('width', '100%');
-        rect.setAttribute('height', '100%');
-        rect.setAttribute('rx', r);
-        rect.setAttribute('ry', r);
-        rect.setAttribute('pathLength', '10');
-        svg.appendChild(rect);
-        return svg;
-    }
-
-    function initEl(el) {
-        if (el.querySelector('.btn-lines')) return;
-
-        var style = getComputedStyle(el);
-        var radius = parseInt(style.borderRadius, 10) || 8;
-        var w = el.offsetWidth;
-        var h = el.offsetHeight;
-
-        // if element has no size yet (e.g. hidden/not rendered), skip
-        if (!w || !h) return;
-
-        var lines = document.createElement('div');
-        lines.className = 'btn-lines';
-
-        var topGroup = document.createElement('div');
-        var bottomGroup = document.createElement('div');
-        var svg = createSVG(w, h, radius);
-
-        for (var i = 0; i < 4; i++) {
-            topGroup.appendChild(svg.cloneNode(true));
-            bottomGroup.appendChild(svg.cloneNode(true));
-        }
-
-        bottomGroup.style.transform = 'rotate(180deg)';
-        lines.appendChild(topGroup);
-        lines.appendChild(bottomGroup);
-        el.appendChild(lines);
-
-        el.addEventListener('pointerenter', function () {
-            el.classList.remove('btn-glow-active');
-            void el.offsetWidth; // force reflow so animation restarts
-            el.classList.add('btn-glow-active');
-        });
-
-        el.addEventListener('animationend', function () {
-            el.classList.remove('btn-glow-active');
-        });
-    }
-
-    // wait for full paint before measuring sizes
-    window.addEventListener('load', function () {
-        document.querySelectorAll('.btn').forEach(initEl);
-    });
-
-})();
-
-(function initTilt() {
-    var card = document.getElementById('projectCard');
-    if (!card) return;
-    if (window.matchMedia('(hover: none)').matches) return;
-
-    var MAX = 2;
-
-    card.addEventListener('mousemove', function (e) {
-        var r = card.getBoundingClientRect();
-        var x = (e.clientX - r.left) / r.width - 0.5;
-        var y = (e.clientY - r.top) / r.height - 0.5;
-        card.style.transition = 'transform 0.1s ease';
-        card.style.transform =
-            'perspective(900px) rotateY(' + (x * MAX * 0.5) + 'deg) rotateX(' + (-y * MAX) + 'deg) scale(1.015)';
-    });
-
-    card.addEventListener('mouseleave', function () {
-        card.style.transition = 'transform 0.5s ease';
-        card.style.transform = 'perspective(900px) rotateY(0deg) rotateX(0deg) scale(1)';
-    });
 })();
 
 /* SYSTEMS: single tab + project controller.
