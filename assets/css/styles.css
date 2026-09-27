@@ -537,9 +537,13 @@ ul {
     line-height: 1.5;
 }
 
+/* min-width: 0 stops iOS Safari sizing the flex item from the video's
+   intrinsic width, which pushed the panel past the right edge */
 .hero-media {
     grid-area: media;
     height: 280px;
+    min-width: 0;
+    max-width: 100%;
 }
 
 /* ── ABOUT ────────────────────────────────────────────────── */
@@ -1320,7 +1324,18 @@ ul {
 
     .hero-media {
         padding: var(--sp-3);
+        width: 100%;
     }
+
+        /* taken out of flow so the panel's size comes only from its
+           aspect-ratio, never from the video or poster dimensions */
+        .hero-media video {
+            position: absolute;
+            top: var(--sp-3);
+            left: var(--sp-3);
+            width: calc(100% - 2 * var(--sp-3));
+            height: calc(100% - 2 * var(--sp-3));
+        }
 
         .hero-media .media-caption,
         .hero-media .media-meta {
