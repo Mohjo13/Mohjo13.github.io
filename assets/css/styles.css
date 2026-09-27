@@ -33,7 +33,7 @@
     /* Type */
     --font-display: 'Bricolage Grotesque', 'Arial Narrow', sans-serif;
     --font-body: 'DM Sans', system-ui, sans-serif;
-    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --font-label: 'Space Grotesk', system-ui, sans-serif;
 
     --fs-hero: clamp(64px, 10.5vw, 150px);
     --fs-h2: clamp(40px, 5vw, 64px);
@@ -68,6 +68,11 @@
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+}
+
+/* iOS Safari ignores overflow-x on html alone; clip keeps sticky working */
+html, body {
+    overflow-x: clip;
 }
 
 body {
@@ -157,13 +162,6 @@ ul {
     gap: var(--sp-5);
 }
 
-.section-num {
-    font-family: var(--font-mono);
-    font-size: var(--fs-caption);
-    font-weight: 500;
-    color: var(--accent-ink);
-}
-
 .section-h2 {
     font-family: var(--font-display);
     font-size: var(--fs-h2);
@@ -177,9 +175,9 @@ ul {
     color: var(--text-body);
 }
 
-/* Mono label */
+/* Label (uppercase, Space Grotesk) */
 .mono-label {
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
     font-size: var(--fs-label);
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -329,7 +327,7 @@ ul {
     padding: 0 var(--sp-5);
     background: var(--ink);
     color: var(--text-on-ink);
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
     font-size: var(--fs-caption);
     font-weight: 500;
     letter-spacing: 0.05em;
@@ -408,7 +406,7 @@ ul {
     left: var(--sp-5);
     padding: 6px 10px;
     background: var(--ink);
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
     font-size: var(--fs-label);
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -582,6 +580,13 @@ ul {
     letter-spacing: -0.02em;
 }
 
+.about-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+    max-width: 68ch;
+}
+
 .about-body {
     font-size: 19px;
     color: var(--text-body);
@@ -590,7 +595,7 @@ ul {
 .about-timeline {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--sp-6);
 }
 
@@ -619,54 +624,6 @@ ul {
     font-size: var(--fs-small);
     color: var(--text-body);
     line-height: 1.5;
-}
-
-.how-i-work {
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-6);
-    padding: var(--sp-10);
-    background: var(--ink);
-    color: var(--text-on-ink);
-}
-
-    .how-i-work .mono-label {
-        color: var(--accent);
-    }
-
-.how-text {
-    font-size: 20px;
-    line-height: 1.55;
-    color: var(--text-on-ink);
-}
-
-.how-steps {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--sp-4);
-}
-
-.how-step {
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-3);
-    padding: var(--sp-5);
-    border: 1px solid var(--line-dark);
-}
-
-.how-num {
-    font-family: var(--font-mono);
-    font-size: var(--fs-label);
-    color: var(--accent);
-}
-
-.how-title {
-    font-family: var(--font-display);
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1.2;
-    color: var(--text-on-ink);
 }
 
 /* ── PROJECTS ─────────────────────────────────────────────── */
@@ -703,14 +660,14 @@ ul {
 
 .proj-badge {
     position: absolute;
-    top: var(--sp-5);
+    bottom: var(--sp-5);
     left: var(--sp-5);
     display: inline-flex;
     align-items: center;
     gap: var(--sp-2);
     height: 32px;
     padding: 0 var(--sp-3);
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
     font-size: var(--fs-label);
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -833,8 +790,25 @@ ul {
     color: var(--accent-ink);
 }
 
+.more-arrow {
+    display: inline-block;
+    width: 0.7em;
+    height: 0.7em;
+    margin-left: 0.15em;
+    vertical-align: 0.05em;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: square;
+    transition: transform var(--transition);
+}
+
+.more-item:hover .more-arrow {
+    transform: translate(2px, -2px);
+}
+
 .more-meta {
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
     font-size: var(--fs-label);
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -865,16 +839,12 @@ ul {
     align-items: baseline;
     gap: var(--sp-3);
     padding-bottom: var(--sp-2);
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
     font-size: var(--fs-label);
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--text);
-}
-
-.skill-count {
-    color: var(--accent-ink);
 }
 
 .skill-list li {
@@ -895,7 +865,7 @@ ul {
 
 .skill-tag {
     margin-left: auto;
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
     font-size: var(--fs-label);
     color: var(--text-muted);
     text-align: right;
@@ -1024,7 +994,7 @@ ul {
 }
 
 .sys-count {
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
     font-size: var(--fs-caption);
     color: var(--accent-ink);
 }
@@ -1087,15 +1057,11 @@ ul {
 .contact-kicker {
     display: flex;
     gap: var(--sp-5);
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
     font-size: var(--fs-caption);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--text-on-ink-muted);
-}
-
-.contact-num {
-    color: var(--accent);
 }
 
 .contact-title {
@@ -1147,7 +1113,7 @@ ul {
 }
 
 .contact-label {
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
     font-size: var(--fs-label);
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -1241,8 +1207,7 @@ ul {
         max-width: 260px;
     }
 
-    .about-timeline,
-    .how-steps {
+    .about-timeline {
         grid-template-columns: minmax(0, 1fr);
     }
 
@@ -1276,15 +1241,13 @@ ul {
         align-items: stretch;
     }
 
+    /* 2 x 2 grid instead of a sideways-scrolling row */
     .sys-tabs {
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        scrollbar-width: none;
-        margin-inline: calc(-1 * var(--gutter));
-        padding-inline: var(--gutter);
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-        .sys-tabs::-webkit-scrollbar {
+        .sys-tabs.sys-hidden {
             display: none;
         }
 
@@ -1331,10 +1294,6 @@ ul {
         font-size: 21px;
     }
 
-    .how-i-work {
-        padding: var(--sp-6);
-    }
-
     .about-body {
         font-size: var(--fs-body);
     }
@@ -1376,18 +1335,14 @@ ul {
             bottom: var(--sp-3);
         }
 
-    /* sticky: stays at the bottom of the screen while the hero is in view */
+    /* sits at the bottom of the hero and scrolls with the page */
     .hero-actions {
         align-self: stretch;
         margin-top: auto;
         flex-direction: column;
         gap: var(--sp-2);
-        position: sticky;
-        bottom: 0;
-        z-index: 5;
         margin-inline: calc(-1 * var(--gutter));
         padding: var(--sp-3) var(--gutter) calc(var(--sp-3) + env(safe-area-inset-bottom));
-        background: var(--paper);
         border-top: 1px solid var(--line);
     }
 

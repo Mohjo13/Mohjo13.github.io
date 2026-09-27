@@ -19,9 +19,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Fonts loaded async (non-render-blocking) -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500&display=swap"></noscript>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -32,8 +32,8 @@
         <div class="nav-inner">
             <a href="#hero" class="nav-logo" aria-label="Mohsen Parchami, back to top">MP<span class="nav-logo-dot">.</span></a>
             <ul class="nav-links">
-                <li><a href="#systems" class="nav-link" data-section="systems">Systems</a></li>
                 <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+                <li><a href="#systems" class="nav-link" data-section="systems">Systems</a></li>
                 <li><a href="#about" class="nav-link" data-section="about">About</a></li>
                 <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
             </ul>
@@ -45,8 +45,8 @@
             </div>
         </div>
         <div class="nav-mobile" id="navMobile">
-            <a href="#systems" class="nav-mobile-link">Systems</a>
             <a href="#projects" class="nav-mobile-link">Projects</a>
+            <a href="#systems" class="nav-mobile-link">Systems</a>
             <a href="#about" class="nav-mobile-link">About</a>
             <a href="#contact" class="nav-mobile-link">Contact</a>
         </div>
@@ -85,12 +85,99 @@
         </div>
     </section>
 
+    <!-- PROJECTS -->
+    <section id="projects" class="section reveal">
+        <div class="container">
+            <div class="section-head">
+                <div class="section-head-title">
+                    <h2 class="section-h2">Projects</h2>
+                </div>
+                <p class="section-head-text">Shipped and in development.</p>
+            </div>
+
+            <div class="proj-list">
+                <article class="proj">
+                    <div class="media-panel proj-media">
+                        <img src="assets/images/murmurs.webp" alt="Murmurs of the Mist gameplay" loading="lazy" decoding="async" width="630" height="500">
+                        <span class="proj-badge proj-badge--live">Live on Steam</span>
+                    </div>
+                    <div class="proj-info">
+                        <p class="mono-label">Unity &middot; Final semester &middot; Team project</p>
+                        <h3 class="proj-title">Murmurs of the Mist</h3>
+                        <p class="proj-stat"><span class="proj-stat-num">25,000+</span> <span class="proj-stat-text">copies sold on Steam</span></p>
+                        <p class="proj-desc">A final-semester game made with a team of developers and artists. Shipped and playable on Steam.</p>
+                        <div class="proj-part">
+                            <p class="mono-label">My part</p>
+                            <ul class="proj-part-list">
+                                <li>Level design and layout</li>
+                                <li>Core chase sequence, from concept to implementation</li>
+                                <li>Voice-over and sound integration</li>
+                                <li>Lighting and post-processing</li>
+                                <li>VFX and shader work</li>
+                            </ul>
+                        </div>
+                        <div class="proj-actions">
+                            <a href="https://store.steampowered.com/app/4187020/Murmurs_of_the_Mist/" target="_blank" rel="noopener" class="btn btn-primary">View on Steam &#8599;</a>
+                            <a href="#systems" class="btn-text" data-show-project="murmurs">See its systems &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="proj proj--media-right">
+                    <div class="media-panel proj-media">
+                        <img src="assets/images/pizza-to-hell.png" alt="Pizza to Hell combat" loading="lazy" decoding="async" width="800" height="700">
+                        <span class="proj-badge proj-badge--wip">In development</span>
+                    </div>
+                    <div class="proj-info">
+                        <p class="mono-label">Unity 6 HDRP &middot; PSX look &middot; Team project</p>
+                        <h3 class="proj-title">Pizza to Hell</h3>
+                        <p class="proj-desc">A PSX-inspired melee combat game. Combat is fully data-driven: every attack, combo and weapon is a ScriptableObject, so new content needs no code.</p>
+                        <div class="proj-part">
+                            <p class="mono-label">My part</p>
+                            <ul class="proj-part-list">
+                                <li>Combat and combo system architecture</li>
+                                <li>Editor tooling: visual timeline, hitbox gizmos, weapon authoring</li>
+                                <li>Parry system and enemy AI states</li>
+                                <li>Streak HUD and custom HLSL shaders</li>
+                            </ul>
+                        </div>
+                        <div class="proj-actions">
+                            <a href="#systems" class="btn btn-primary" data-show-project="pizza">Watch the combat clips &rarr;</a>
+                            <a href="https://github.com/Mohjo13/Combat" target="_blank" rel="noopener" class="btn btn-outline">View on GitHub &#8599;</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="more-work">
+                <p class="mono-label">More work</p>
+                <div class="more-grid">
+                    <a href="https://github.com/Mohjo13/Monopoly" target="_blank" rel="noopener" class="more-item">
+                        <span class="more-title">Monopoly AI <svg class="more-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span>
+                        <span class="more-meta">C# &middot; Solo</span>
+                        <span class="more-desc">Full Monopoly with a Minimax AI opponent. Game state, rules and decision logic kept in separate classes.</span>
+                    </a>
+                    <a href="https://github.com/Mohjo13/Cannonier" target="_blank" rel="noopener" class="more-item">
+                        <span class="more-title">Cannoneer <svg class="more-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span>
+                        <span class="more-meta">MonoGame &middot; Solo</span>
+                        <span class="more-desc">A 2D physics game. Projectile trajectories, collision response and game feel built from scratch.</span>
+                    </a>
+                    <a href="https://github.com/Mohjo13/streets-of-belonging" target="_blank" rel="noopener" class="more-item">
+                        <span class="more-title">Streets of Belonging <svg class="more-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span>
+                        <span class="more-meta">Unity &middot; Team project</span>
+                        <span class="more-desc">A narrative game made with a team. I owned UI and UX and wove story beats into play.</span>
+                    </a>
+                    <!-- 4th slot reserved for Godot work once it is ready to publish -->
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- SYSTEMS -->
     <section id="systems" class="section reveal">
         <div class="container">
             <div class="section-head">
                 <div class="section-head-title">
-                    <span class="section-num">02</span>
                     <h2 class="section-h2">Technical Systems</h2>
                 </div>
                 <p class="section-head-text">Systems I designed and built, shown in motion. Pick a project, then a system.</p>
@@ -248,101 +335,11 @@
         </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section reveal">
-        <div class="container">
-            <div class="section-head">
-                <div class="section-head-title">
-                    <span class="section-num">03</span>
-                    <h2 class="section-h2">Projects</h2>
-                </div>
-                <p class="section-head-text">Shipped and in development.</p>
-            </div>
-
-            <div class="proj-list">
-                <article class="proj">
-                    <div class="media-panel proj-media">
-                        <img src="assets/images/murmurs.webp" alt="Murmurs of the Mist gameplay" loading="lazy" decoding="async" width="630" height="500">
-                        <span class="proj-badge proj-badge--live">Live on Steam</span>
-                    </div>
-                    <div class="proj-info">
-                        <p class="mono-label">Unity &middot; Final semester &middot; Team project</p>
-                        <h3 class="proj-title">Murmurs of the Mist</h3>
-                        <p class="proj-stat"><span class="proj-stat-num">25,000+</span> <span class="proj-stat-text">copies sold on Steam</span></p>
-                        <p class="proj-desc">A final-semester game made with a team of developers and artists. Shipped and playable on Steam.</p>
-                        <div class="proj-part">
-                            <p class="mono-label">My part</p>
-                            <ul class="proj-part-list">
-                                <li>Level design and layout</li>
-                                <li>Core chase sequence, from concept to implementation</li>
-                                <li>Voice-over and sound integration</li>
-                                <li>Lighting and post-processing</li>
-                                <li>VFX and shader work</li>
-                            </ul>
-                        </div>
-                        <div class="proj-actions">
-                            <a href="https://store.steampowered.com/app/4187020/Murmurs_of_the_Mist/" target="_blank" rel="noopener" class="btn btn-primary">View on Steam &#8599;</a>
-                            <a href="#systems" class="btn-text" data-show-project="murmurs">See its systems &rarr;</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="proj proj--media-right">
-                    <div class="media-panel proj-media">
-                        <img src="assets/images/pizza-to-hell.png" alt="Pizza to Hell combat" loading="lazy" decoding="async" width="800" height="700">
-                        <span class="proj-badge proj-badge--wip">In development</span>
-                    </div>
-                    <div class="proj-info">
-                        <p class="mono-label">Unity 6 HDRP &middot; PSX look &middot; Team project</p>
-                        <h3 class="proj-title">Pizza to Hell</h3>
-                        <p class="proj-desc">A PSX-inspired melee combat game. Combat is fully data-driven: every attack, combo and weapon is a ScriptableObject, so new content needs no code.</p>
-                        <div class="proj-part">
-                            <p class="mono-label">My part</p>
-                            <ul class="proj-part-list">
-                                <li>Combat and combo system architecture</li>
-                                <li>Editor tooling: visual timeline, hitbox gizmos, weapon authoring</li>
-                                <li>Parry system and enemy AI states</li>
-                                <li>Streak HUD and custom HLSL shaders</li>
-                            </ul>
-                        </div>
-                        <div class="proj-actions">
-                            <a href="#systems" class="btn btn-primary" data-show-project="pizza">Watch the combat clips &rarr;</a>
-                            <a href="https://github.com/Mohjo13/Combat" target="_blank" rel="noopener" class="btn btn-outline">View on GitHub &#8599;</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <div class="more-work">
-                <p class="mono-label">More work</p>
-                <div class="more-grid">
-                    <a href="https://github.com/Mohjo13/Monopoly" target="_blank" rel="noopener" class="more-item">
-                        <span class="more-title">Monopoly AI <span aria-hidden="true">&#8599;</span></span>
-                        <span class="more-meta">C# &middot; Solo</span>
-                        <span class="more-desc">Full Monopoly with a Minimax AI opponent. Game state, rules and decision logic kept in separate classes.</span>
-                    </a>
-                    <a href="https://github.com/Mohjo13/Cannonier" target="_blank" rel="noopener" class="more-item">
-                        <span class="more-title">Cannoneer <span aria-hidden="true">&#8599;</span></span>
-                        <span class="more-meta">MonoGame &middot; Solo</span>
-                        <span class="more-desc">A 2D physics game. Projectile trajectories, collision response and game feel built from scratch.</span>
-                    </a>
-                    <a href="https://github.com/Mohjo13/streets-of-belonging" target="_blank" rel="noopener" class="more-item">
-                        <span class="more-title">Streets of Belonging <span aria-hidden="true">&#8599;</span></span>
-                        <span class="more-meta">Unity &middot; Team project</span>
-                        <span class="more-desc">A narrative game made with a team. I owned UI and UX and wove story beats into play.</span>
-                    </a>
-                    <!-- 4th slot reserved for Godot work once it is ready to publish -->
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ABOUT -->
     <section id="about" class="section reveal">
         <div class="container">
             <div class="section-head">
                 <div class="section-head-title">
-                    <span class="section-num">04</span>
                     <h2 class="section-h2">About</h2>
                 </div>
             </div>
@@ -352,43 +349,25 @@
                     <figcaption class="mono-label">Mohsen Parchami &middot; Stockholm</figcaption>
                 </figure>
                 <div class="about-content">
-                    <p class="about-lead">From HVAC engineer to gameplay programmer.</p>
-                    <p class="about-body">Before games, I worked as an HVAC engineer, designing complex building systems in CAD. That job taught me structured thinking and a systematic approach to projects, and it's still how I approach gameplay.</p>
+                    <p class="about-lead">Hi, I'm Mohsen. I make gameplay systems, and the tools to tune them.</p>
+                    <div class="about-text">
+                        <p class="about-body">I studied Game Design and Scripting at S&ouml;dert&ouml;rn University and graduated in 2026. From 2019 to 2026 I also worked in HVAC at TQI Consult, drawing ventilation and piping systems in MagiCAD for building projects.</p>
+                        <p class="about-body">The two jobs have more in common than you'd think. Both are about systems that have to fit together, and about deadlines shared with other people. On Murmurs of the Mist I took a chase level from blockout to release. On Pizza to Hell I own the combat code and the editor tools the team uses to tune it.</p>
+                        <p class="about-body">I use Claude Code and Unity MCP day to day. I plan the architecture, and I read and test everything that goes into the project.</p>
+                    </div>
                     <ol class="about-timeline">
                         <li class="tl-item">
-                            <p class="mono-label">Before</p>
-                            <p class="tl-title">HVAC engineer</p>
-                            <p class="tl-text">Building systems in CAD and MagiCAD</p>
-                        </li>
-                        <li class="tl-item">
-                            <p class="mono-label">Now</p>
-                            <p class="tl-title">Game Design and Scripting</p>
-                            <p class="tl-text">S&ouml;dert&ouml;rn University, Stockholm</p>
+                            <p class="mono-label">2019 to 2026</p>
+                            <p class="tl-title">HVAC engineering</p>
+                            <p class="tl-text">CAD and MagiCAD, TQI Consult</p>
                         </li>
                         <li class="tl-item tl-item--next">
                             <p class="mono-label">2026</p>
-                            <p class="tl-title">Graduating</p>
-                            <p class="tl-text">Open to junior gameplay and technical design roles</p>
+                            <p class="tl-title">Graduated</p>
+                            <p class="tl-text">Game Design and Scripting, S&ouml;dert&ouml;rn University</p>
                         </li>
                     </ol>
-                    <div class="how-i-work">
-                        <p class="mono-label">How I work</p>
-                        <p class="how-text">I design the systems and the architecture, and write the specs. AI tools keep the workflow efficient. I review, iterate and integrate the code in Unity or Godot, then tune and test until the design feels right.</p>
-                        <ol class="how-steps">
-                            <li class="how-step">
-                                <span class="how-num">01</span>
-                                <span class="how-title">Design, architecture, specs</span>
-                            </li>
-                            <li class="how-step">
-                                <span class="how-num">02</span>
-                                <span class="how-title">Review, iterate, integrate</span>
-                            </li>
-                            <li class="how-step">
-                                <span class="how-num">03</span>
-                                <span class="how-title">Tune and test until it feels right</span>
-                            </li>
-                        </ol>
-                    </div>
+                    <p class="about-facts mono-label">Swedish, English, Farsi &middot; Stockholm or remote</p>
                 </div>
             </div>
         </div>
@@ -399,14 +378,13 @@
         <div class="container">
             <div class="section-head">
                 <div class="section-head-title">
-                    <span class="section-num">05</span>
                     <h2 class="section-h2">Skills</h2>
                 </div>
                 <p class="section-head-text">Unity and C# first, design close behind.</p>
             </div>
             <div class="skills-grid">
                 <div class="skill-group">
-                    <h3 class="skill-group-head"><span>Gameplay programming</span><span class="skill-count">07</span></h3>
+                    <h3 class="skill-group-head"><span>Gameplay programming</span></h3>
                     <ul class="skill-list">
                         <li><span class="skill-name">Unity</span><span class="skill-tag">Engine</span></li>
                         <li><span class="skill-name">C#</span><span class="skill-tag">Language</span></li>
@@ -418,7 +396,7 @@
                     </ul>
                 </div>
                 <div class="skill-group">
-                    <h3 class="skill-group-head"><span>Design</span><span class="skill-count">04</span></h3>
+                    <h3 class="skill-group-head"><span>Design</span></h3>
                     <ul class="skill-list">
                         <li><span class="skill-name">Game design</span><span class="skill-tag">Gameplay feel</span></li>
                         <li><span class="skill-name">Level design</span><span class="skill-tag">Layout, pacing</span></li>
@@ -427,7 +405,7 @@
                     </ul>
                 </div>
                 <div class="skill-group">
-                    <h3 class="skill-group-head"><span>Visual and audio</span><span class="skill-count">03</span></h3>
+                    <h3 class="skill-group-head"><span>Visual and audio</span></h3>
                     <ul class="skill-list">
                         <li><span class="skill-name">VFX and shaders</span><span class="skill-tag">HLSL</span></li>
                         <li><span class="skill-name">Lighting and post-FX</span><span class="skill-tag">Mood</span></li>
@@ -435,7 +413,7 @@
                     </ul>
                 </div>
                 <div class="skill-group">
-                    <h3 class="skill-group-head"><span>Workflow</span><span class="skill-count">04</span></h3>
+                    <h3 class="skill-group-head"><span>Workflow</span></h3>
                     <ul class="skill-list">
                         <li><span class="skill-name">Git / GitHub</span><span class="skill-tag">Version control</span></li>
                         <li><span class="skill-name">Claude Code</span><span class="skill-tag">AI workflow</span></li>
@@ -450,7 +428,7 @@
     <!-- CONTACT -->
     <footer id="contact">
         <div class="container">
-            <p class="contact-kicker"><span class="contact-num">06</span><span>Contact</span></p>
+            <p class="contact-kicker"><span>Contact</span></p>
             <h2 class="contact-title">Let's build something.</h2>
             <div class="contact-grid">
                 <div class="contact-intro">
