@@ -90,7 +90,7 @@ Nav bar: 88px high, border-bottom 1px var(--line). Logo "MP" in display 800 22px
 - Below name: 3-column grid (1fr 1fr 1.25fr, gap 48px):
   col 1: role "Junior Gameplay Developer & Technical Designer" (display 600, 28px), intro "I build combat systems, editor tools and levels in Unity and C#.", buttons "See the systems" (primary, #systems) + "Download CV" (outline).
   col 2: proof stack with hairlines: "25,000+" display 800 44px in var(--accent-ink) + "copies sold of Murmurs of the Mist on Steam"; "Pizza to Hell" 28px + "combat, parry and editor tooling, in development".
-  col 3: ink media panel 280px tall with pth-combat.webm (autoplay muted loop playsinline, poster pizza-to-hell.webp, src not data-src). Caption "Pizza to Hell · Combat", meta "Unity 6 · C#".
+  col 3: ink media panel 280px tall with pth-combat.webm (autoplay muted loop playsinline, poster pizza-to-hell.png, src not data-src). Caption "Pizza to Hell · Combat", meta "Unity 6 · C#".
 - Mobile (390px): stack order eyebrow, name 64px, role 21px, intro, proof row (34px number), video 16:9, then two full-width 52px buttons pinned to the bottom of the first screen.
 
 ### 02 Technical Systems (#systems), board "C · 02 Technical Systems"
