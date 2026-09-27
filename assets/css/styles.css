@@ -1400,6 +1400,271 @@ ul {
     }
 }
 
+/* #region Attribute Cards */
+/* About: 4 expandable cards. Desktop = accordion spines, mobile = tap-to-pull-out
+   stack. State classes (.is-open / .is-hot) are set by initAttributeCards. */
+
+/* The cards span the full About column; the prose keeps its 68ch measure. */
+.about-text:has(> .attr-cards) {
+    max-width: none;
+}
+
+    .about-text:has(> .attr-cards) > p {
+        max-width: 68ch;
+    }
+
+.attr-cards {
+    --attr-accent: #6dbee2;
+    --attr-label-rest: #0A7F99;
+    --attr-label-active: #FFA630;
+    --attr-card-bg: #FBFAF6;
+    --attr-card-border: rgba(23, 23, 26, .16);
+    --attr-text: #4A4A4F;
+    --attr-ease: cubic-bezier(.2, .8, .2, 1);
+    display: flex;
+    width: 100%;
+    margin-top: var(--sp-4);
+}
+
+.attr-card {
+    position: relative;
+    appearance: none;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    color: var(--ink);
+    text-align: left;
+    cursor: pointer;
+    background: var(--attr-card-bg);
+    border: 1px solid var(--attr-card-border);
+    transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+}
+
+    .attr-card:nth-child(1) { z-index: 4; }
+    .attr-card:nth-child(2) { z-index: 3; }
+    .attr-card:nth-child(3) { z-index: 2; }
+    .attr-card:nth-child(4) { z-index: 1; }
+
+    .attr-card:focus-visible {
+        outline: 2px solid var(--attr-accent);
+        outline-offset: 2px;
+    }
+
+.attr-card__label {
+    font-family: var(--font-label);
+    font-size: 11px;
+    letter-spacing: .14em;
+    color: var(--attr-label-rest);
+    transition: color .3s ease;
+}
+
+.attr-card__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--ink);
+    transition: color .3s ease;
+}
+
+.attr-card__text {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--attr-text);
+    transition: color .3s ease;
+}
+
+.attr-card__chevron {
+    display: none;
+}
+
+/* Desktop: accordion spines */
+@media (min-width: 768px) {
+    .attr-cards {
+        height: 270px;
+    }
+
+    .attr-card {
+        flex: 1 1 0;
+        min-width: 0;
+        overflow: hidden;
+        border-radius: 14px;
+        transition: flex-grow .55s var(--attr-ease), background-color .3s ease, color .3s ease, border-color .3s ease;
+    }
+
+        .attr-card + .attr-card {
+            margin-left: -14px;
+            box-shadow: -10px 0 22px -16px rgba(23, 23, 26, .35);
+        }
+
+        .attr-card.is-open {
+            flex-grow: 7;
+        }
+
+    .attr-card__body {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 470px;
+        padding: 30px 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        opacity: 0;
+        transition: opacity .3s ease 0s;
+    }
+
+    .attr-card.is-open .attr-card__body {
+        opacity: 1;
+        transition-delay: .2s;
+    }
+
+    .attr-card__title {
+        font-size: 32px;
+        line-height: 1.05;
+        letter-spacing: -0.01em;
+    }
+
+    .attr-card__spine {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 72px;
+        padding: 24px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        opacity: 1;
+        transition: opacity .25s ease;
+    }
+
+    .attr-card.is-open .attr-card__spine {
+        opacity: 0;
+    }
+
+    .attr-card + .attr-card .attr-card__body,
+    .attr-card + .attr-card .attr-card__spine {
+        left: 14px;
+    }
+
+    .attr-card__num {
+        font-family: var(--font-display);
+        font-size: 22px;
+        font-weight: 700;
+        color: #FF6A3D;
+        transition: color .3s ease;
+    }
+
+    .attr-card__vtitle {
+        font-family: var(--font-label);
+        font-size: 15px;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        color: var(--attr-text);
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        white-space: nowrap;
+        transition: color .3s ease;
+    }
+}
+
+/* Desktop + real hover: the hovered/focused ("hot") card inverts */
+@media (min-width: 768px) and (hover: hover) {
+    .attr-card.is-hot {
+        background: var(--ink);
+        border-color: var(--ink);
+    }
+
+        .attr-card.is-hot .attr-card__title,
+        .attr-card.is-hot .attr-card__num {
+            color: var(--text-on-ink);
+        }
+
+        .attr-card.is-hot .attr-card__text,
+        .attr-card.is-hot .attr-card__vtitle {
+            color: #CFCBC2;
+        }
+
+        .attr-card.is-hot .attr-card__label {
+            color: var(--attr-label-active);
+        }
+}
+
+/* Mobile: tap to pull out */
+@media (max-width: 767px) {
+    .attr-cards {
+        flex-direction: column;
+    }
+
+    .attr-card {
+        width: 100%;
+        border-radius: 16px;
+        padding: 16px 18px 16px;
+        transition: border-color .3s ease, box-shadow .3s ease;
+    }
+
+        .attr-card + .attr-card {
+            margin-top: -16px;
+            padding-top: 30px;
+        }
+
+        .attr-card.is-open {
+            border-color: var(--attr-accent);
+            box-shadow: 0 18px 34px -20px rgba(23, 23, 26, .4);
+        }
+
+    .attr-card__spine,
+    .attr-card__of {
+        display: none;
+    }
+
+    .attr-card__body {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        grid-template-rows: minmax(44px, auto) auto;
+        align-items: center;
+        column-gap: 12px;
+    }
+
+    .attr-card__label {
+        color: #5C5C62;
+    }
+
+    .attr-card.is-open .attr-card__label {
+        color: var(--attr-label-rest);
+    }
+
+    .attr-card__title {
+        font-size: 22px;
+        line-height: 1.15;
+    }
+
+    .attr-card__chevron {
+        display: block;
+        color: var(--ink);
+        transition: transform .35s var(--attr-ease);
+    }
+
+    .attr-card.is-open .attr-card__chevron {
+        transform: rotate(180deg);
+    }
+
+    .attr-card__text {
+        grid-column: 1 / -1;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height .45s var(--attr-ease), opacity .3s ease;
+    }
+
+    .attr-card.is-open .attr-card__text {
+        max-height: 120px;
+        opacity: 1;
+    }
+}
+/* #endregion */
+
 /* ── LAYOUT HELPERS ───────────────────────────────────────── */
 .sys-hidden {
     display: none;
@@ -1415,5 +1680,10 @@ ul {
 
     html {
         scroll-behavior: auto;
+    }
+
+    .attr-card,
+    .attr-card * {
+        transition: none !important;
     }
 }

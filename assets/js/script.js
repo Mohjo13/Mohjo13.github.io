@@ -255,3 +255,50 @@ function loadVideo(el) {
         });
     });
 })();
+
+/* ── 8. ATTRIBUTE CARDS (About) ─────────────────────────── */
+/* Exactly one card is open. Desktop with real hover: hover/focus opens and
+   inverts ("hot") a card, leaving the row resets to card 1. Touch/mobile: tap. */
+(function initAttributeCards() {
+    var root = document.querySelector('.attr-cards');
+    if (!root) return;
+    var cards = Array.prototype.slice.call(root.querySelectorAll('.attr-card'));
+    var hoverMode = window.matchMedia('(hover: hover) and (min-width: 768px)');
+
+    function setState(openCard, hotCard) {
+        cards.forEach(function (c) {
+            var open = c === openCard;
+            c.classList.toggle('is-open', open);
+            c.classList.toggle('is-hot', c === hotCard);
+            c.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+    }
+
+    function reset() { setState(cards[0], null); }
+
+    // pointerenter doesn't bubble, so listen in the capture phase.
+    root.addEventListener('pointerenter', function (e) {
+        if (e.pointerType !== 'mouse' || !hoverMode.matches) return;
+        if (e.target.classList && e.target.classList.contains('attr-card')) {
+            setState(e.target, e.target);
+        }
+    }, true);
+
+    root.addEventListener('focusin', function (e) {
+        var card = e.target.closest('.attr-card');
+        if (card) setState(card, hoverMode.matches ? card : null);
+    });
+
+    root.addEventListener('click', function (e) {
+        var card = e.target.closest('.attr-card');
+        if (card) setState(card, hoverMode.matches ? card : null);
+    });
+
+    root.addEventListener('mouseleave', function () {
+        if (hoverMode.matches) reset();
+    });
+
+    root.addEventListener('focusout', function (e) {
+        if (hoverMode.matches && !root.contains(e.relatedTarget) && !root.matches(':hover')) reset();
+    });
+})();
