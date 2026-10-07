@@ -463,10 +463,13 @@ ul {
 .hero-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1.25fr;
-    grid-template-rows: auto 1fr;
+    /* 3rd row soaks up the media's extra height, so proof spans exactly
+       intro + actions and its bottom border meets the buttons' bottom */
+    grid-template-rows: auto auto 1fr;
     grid-template-areas:
         "intro   proof media"
-        "actions proof media";
+        "actions proof media"
+        ".       .     media";
     column-gap: var(--sp-12);
     row-gap: var(--sp-8);
 }
@@ -492,7 +495,7 @@ ul {
 
 .hero-actions {
     grid-area: actions;
-    align-self: start;
+    align-self: end;
     display: flex;
     flex-wrap: wrap;
     gap: var(--sp-3);
@@ -505,7 +508,8 @@ ul {
 }
 
 .proof-item {
-    padding: var(--sp-4) 0;
+    flex: 1;
+    padding: var(--sp-5) 0;
     border-top: 1px solid var(--line);
 }
 
@@ -523,12 +527,12 @@ ul {
 }
 
 .proof-num {
-    font-size: 44px;
+    font-size: 48px;
     color: var(--accent-ink);
 }
 
 .proof-title {
-    font-size: 28px;
+    font-size: 32px;
 }
 
 .proof-text {
