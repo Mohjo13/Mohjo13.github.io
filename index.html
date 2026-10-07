@@ -527,5 +527,7 @@
     <script>window.addEventListener('DOMContentLoaded',function(){document.getElementById('year').textContent=new Date().getFullYear();});</script>
     <!-- Parry minigame: script loads only once the box is on screen -->
     <script>(function(){var el=document.getElementById('parryGame');if(!el)return;function load(){var s=document.createElement('script');s.src='assets/js/parry-game.js';s.async=true;document.body.appendChild(s);}if(!('IntersectionObserver' in window)){load();return;}var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){io.disconnect();load();}});io.observe(el);})();</script>
+    <!-- Contact ninja: the game's hero drops into the contact section; loads when the section nears -->
+    <script>(function(){var el=document.getElementById('contact');if(!el)return;function load(){var s=document.createElement('script');s.src='assets/js/contact-ninja.js';s.async=true;document.body.appendChild(s);}if(!('IntersectionObserver' in window)){load();return;}var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){io.disconnect();load();}},{rootMargin:'400px 0px'});io.observe(el);})();</script>
 </body>
 </html>

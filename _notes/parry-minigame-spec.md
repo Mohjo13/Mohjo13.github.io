@@ -108,3 +108,17 @@ From the hand-drawn "Parry game frame by frame" board. `<=>` on the board means 
 | 21 to 22 | Result card as before (parry ms, one parry three hits), Restart, link to Pizza to Hell systems. Loss card: "Cut down", then Restart with the hint beside it, no link. Both cards sit above the fighters' heads. |
 
 Enemy hit reactions differ per attack (A1 knocked back, A2 doubled over). Loss path unchanged. Tap-to-skip unchanged; restart skips the intro.
+
+## Contact cameo (7 Oct 2026)
+
+`assets/js/contact-ninja.js`, lazy-loaded when the contact section nears. The game's hero (headband, sword at the hip) plays once per page load when the contact bar is fully on screen; nothing plays under prefers-reduced-motion.
+
+| Beat | Note |
+|---|---|
+| Fall | Drops out from under the nav (the canvas sits below it). Ink on the paper page, paper on the black contact section, split exactly at its top edge. |
+| Land | On the line above the contact links, toward its right end (all widths). |
+| Pose | The game's win pose: draws, hand on hip, sword resting on the shoulder, held 0.5 s. No roll. |
+| Run | Runs right along the line, sword still on the shoulder, and stops one step short of its right end. |
+| Exit | Jumps off the line's end with a front flip in a tuck, sword at the hip (like the enemy's entrance in the game), then falls out of view in the same pose he fell in with. |
+
+All timings and sizes in its CONFIG.
