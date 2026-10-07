@@ -1,0 +1,391 @@
+/* ═══════════════════════════════════════════════════════════
+   PARRY MINIGAME  |  parry-game.css
+   Spec: _notes/parry-minigame-spec.md
+   The box itself is sized by .media-panel.hero-media in styles.css;
+   everything here sits inside it, absolutely positioned, so the
+   game can never change the hero layout.
+═══════════════════════════════════════════════════════════ */
+
+/* #region Tokens */
+.pg {
+    --pg-enemy: #C8322A;
+    --pg-inset: 0;
+    touch-action: manipulation;          /* no double-tap zoom */
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+    .pg:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+    }
+
+    .pg.is-playing {
+        cursor: pointer;
+    }
+
+/* no frame: the game sits straight on the page (storyboard v2) */
+.pg.media-panel {
+    padding: 0;
+    background: transparent;
+}
+/* #endregion */
+
+/* #region Stage */
+.pg-stage {
+    position: absolute;
+    inset: var(--pg-inset);
+    overflow: visible;                   /* hearts sit half above the box */
+    background: transparent;
+}
+
+.pg-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    /* soft side edges: fighters and floor fade in from nowhere */
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+}
+
+.pg-overlay {
+    position: absolute;
+    inset: 0;
+    font-family: var(--font-display);
+    color: var(--ink);
+}
+
+/* the caption is for the idle box only */
+.pg .media-caption {
+    transition: opacity 0.2s var(--ease);
+}
+
+.pg.is-playing .media-caption {
+    opacity: 0;
+    visibility: hidden;
+}
+/* #endregion */
+
+/* #region HUD */
+/* hearts centred on the box's top edge, in line with the stats' top border */
+.pg-hud {
+    position: absolute;
+    top: -6.5px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+    .pg-hud[hidden] {
+        display: none;
+    }
+
+.pg-hearts {
+    display: flex;
+    gap: 4px;
+}
+
+.pg-heart {
+    width: 14px;
+    height: 13px;
+    background: var(--ink);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 13'%3E%3Cpath d='M7 13 1.2 7.2A3.6 3.6 0 0 1 7 2.6a3.6 3.6 0 0 1 5.8 4.6z'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 13'%3E%3Cpath d='M7 13 1.2 7.2A3.6 3.6 0 0 1 7 2.6a3.6 3.6 0 0 1 5.8 4.6z'/%3E%3C/svg%3E") center / contain no-repeat;
+    transition: transform 0.22s cubic-bezier(.3, 1.6, .5, 1), opacity 0.2s var(--ease);
+}
+
+.pg-hearts--enemy .pg-heart {
+    background: var(--pg-enemy);
+}
+
+.pg-heart.is-empty {
+    opacity: 0.18;
+}
+
+/* intro fill: hearts pop in one at a time */
+.pg-heart.is-hidden {
+    opacity: 0;
+    transform: scale(0);
+}
+/* #endregion */
+
+/* #region Text */
+.pg-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 16%;
+    text-align: center;
+    font-size: clamp(26px, 4.4vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+    .pg-text.is-on {
+        visibility: visible;
+    }
+
+    .pg-text.is-parry {
+        color: var(--ink);
+        text-shadow: 3px 3px 0 var(--accent);
+    }
+/* #endregion */
+
+/* #region Buttons */
+.pg-fight,
+.pg-restart {
+    font-family: var(--font-display);
+    font-weight: 800;
+    color: var(--paper);
+    background: var(--ink);
+    border: 0;
+    cursor: pointer;
+}
+
+.pg-fight {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 18px;
+    font-size: 24px;
+    letter-spacing: 0.02em;
+    /* on/off blink, 1 per second: well under the 3/s limit */
+    animation: pg-blink 1s steps(1, end) infinite;
+}
+
+    .pg-fight:hover,
+    .pg-fight:focus-visible {
+        animation: none;
+        background: var(--accent);
+        color: var(--on-accent);
+    }
+
+    .pg-fight[hidden] {
+        display: none;
+    }
+
+    /* click: rays burst on the canvas while the button fades out */
+    .pg-fight.is-out {
+        animation: none;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.15);
+        transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+        pointer-events: none;
+    }
+
+@keyframes pg-blink {
+    0% { opacity: 1; }
+    65% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.pg-mute {
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    background: transparent;
+    border: 0;
+    color: var(--ink);
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+    .pg-mute:hover,
+    .pg-mute:focus-visible {
+        opacity: 1;
+    }
+
+    .pg-mute svg {
+        width: 100%;
+        height: 100%;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .pg-mute .pg-mute-body {
+        fill: currentColor;
+    }
+
+    .pg-mute .pg-mute-off,
+    .pg-mute[aria-pressed="true"] .pg-mute-on {
+        display: none;
+    }
+
+    .pg-mute[aria-pressed="true"] .pg-mute-off {
+        display: inline;
+    }
+/* #endregion */
+
+/* #region Result */
+/* pinned high so the fighters' final poses stay visible below it */
+.pg-result {
+    position: absolute;
+    left: 50%;
+    top: 16px;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: calc(100% - 24px);
+    padding: 9px 13px;
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    text-align: center;
+}
+
+    .pg-result[hidden] {
+        display: none;
+    }
+
+    /* loss: no link; the hint takes its place beside Restart, one row shorter.
+       :not([hidden]) so this display never beats the hidden rule above */
+    .pg-result.is-loss:not([hidden]) {
+        display: grid;
+        grid-template-columns: auto auto;
+        align-items: center;
+        gap: 6px 12px;
+    }
+
+    .pg-result.is-loss .pg-result-title {
+        grid-column: 1 / -1;
+    }
+
+    .pg-result.is-loss .pg-result-actions {
+        display: contents;
+    }
+
+    .pg-result.is-loss .pg-restart {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .pg-result.is-loss .pg-result-sub {
+        grid-column: 2;
+        grid-row: 2;
+        margin: 0;
+        max-width: 22ch;
+        text-align: left;
+    }
+
+    .pg-result.is-loss .pg-link {
+        display: none;
+    }
+
+.pg-result-title {
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+}
+
+.pg-result-sub {
+    margin-top: 4px;
+    font-family: var(--font-body);
+    font-size: var(--fs-caption);
+    color: var(--text-body);
+}
+
+.pg-result-actions {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px 16px;
+}
+
+.pg-restart {
+    padding: 8px 14px;
+    font-size: 16px;
+}
+
+    .pg-restart:hover,
+    .pg-restart:focus-visible {
+        background: var(--accent);
+        color: var(--on-accent);
+    }
+
+.pg-link {
+    font-family: var(--font-label);
+    font-size: var(--fs-label);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+/* #endregion */
+
+/* #region Debug (?debug) */
+.pg-debug {
+    position: absolute;
+    left: 6px;
+    bottom: 6px;
+    margin: 0;
+    padding: 4px 6px;
+    font: 10px/1.3 ui-monospace, Consolas, monospace;
+    color: var(--paper);
+    background: rgba(23, 23, 26, 0.8);
+    pointer-events: none;
+}
+
+    .pg-debug[hidden] {
+        display: none;
+    }
+/* #endregion */
+
+/* #region Responsive */
+@media (max-width: 700px) {
+    .pg-fight {
+        font-size: 20px;
+        padding: 8px 14px;
+    }
+
+    .pg-heart {
+        width: 12px;
+        height: 11px;
+    }
+
+    .pg-hud {
+        top: -5.5px;
+    }
+
+    .pg-result {
+        top: 10px;
+        padding: 5px 9px;
+    }
+
+    .pg-result-sub {
+        display: none;      /* too tight at phone size; the title says it */
+    }
+
+    .pg-result.is-loss {
+        grid-template-columns: auto;
+        justify-content: center;
+    }
+
+    .pg-result-actions {
+        margin-top: 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pg-fight {
+        animation: none;
+    }
+}
+/* #endregion */

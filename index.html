@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500&display=swap"></noscript>
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/parry-game.css">
 </head>
 <body>
 
@@ -72,10 +73,32 @@
                         <p class="proof-text">combat, parry and editor tooling, in development</p>
                     </div>
                 </div>
-                <figure class="media-panel hero-media">
-                    <video src="assets/gifs/pth-combat.webm" poster="assets/images/pizza-to-hell.png" autoplay muted loop playsinline aria-label="Pizza to Hell combat clip"></video>
-                    <figcaption class="media-caption">Pizza to Hell &middot; Combat</figcaption>
-                    <span class="media-meta">Unity 6 &middot; C#</span>
+                <!-- Parry minigame: spec in _notes/parry-minigame-spec.md. Same slot as the old hero clip, no frame. -->
+                <figure class="media-panel hero-media pg" id="parryGame" tabindex="0" aria-label="Playable parry minigame. Press FIGHT, then tap or press Space when the red enemy swings.">
+                    <div class="pg-stage">
+                        <canvas class="pg-canvas" aria-hidden="true"></canvas>
+                        <div class="pg-overlay">
+                            <div class="pg-hud" hidden>
+                                <div class="pg-hearts pg-hearts--hero" aria-label="Your hearts"><span class="pg-heart"></span><span class="pg-heart"></span><span class="pg-heart"></span></div>
+                                <div class="pg-hearts pg-hearts--enemy" aria-label="Enemy hearts"><span class="pg-heart"></span><span class="pg-heart"></span><span class="pg-heart"></span></div>
+                            </div>
+                            <p class="pg-text" aria-live="polite"></p>
+                            <button type="button" class="pg-fight">FIGHT!</button>
+                            <div class="pg-result" hidden>
+                                <p class="pg-result-title"></p>
+                                <p class="pg-result-sub"></p>
+                                <div class="pg-result-actions">
+                                    <button type="button" class="pg-restart">Restart</button>
+                                    <a href="#systems" class="pg-link" data-show-project="pizza">How it's built &rarr;</a>
+                                </div>
+                            </div>
+                            <button type="button" class="pg-mute" aria-pressed="false" aria-label="Mute sound">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path class="pg-mute-body" d="M4 9h4l5-4v14l-5-4H4z"/><path class="pg-mute-on" d="M16 9c1.3 1.6 1.3 4.4 0 6M18.5 6.5c2.7 3 2.7 8 0 11"/><path class="pg-mute-off" d="M16 9l6 6M22 9l-6 6"/></svg>
+                            </button>
+                            <pre class="pg-debug" hidden></pre>
+                        </div>
+                    </div>
+                    <figcaption class="media-caption">Playable &middot; Pizza to Hell parry</figcaption>
                 </figure>
                 <div class="hero-actions">
                     <a href="#systems" class="btn btn-primary">See the systems</a>
@@ -208,7 +231,6 @@
                         <span class="media-meta">Unity</span>
                     </figure>
                     <div class="sys-content">
-                        <p class="sys-count">01 / 04</p>
                         <h3 class="sys-title">Camera System</h3>
                         <p class="sys-desc">A dynamic camera that shifts angle to build tension and point the player at threats. Smooth transitions keep the flow cinematic, and each level tunes the behaviour to its own layout and pacing.</p>
                         <div class="sys-stack">
@@ -224,7 +246,6 @@
                         <span class="media-meta">Unity</span>
                     </figure>
                     <div class="sys-content">
-                        <p class="sys-count">02 / 04</p>
                         <h3 class="sys-title">Movement Mechanics</h3>
                         <p class="sys-desc">Fast, responsive traversal with a directional dash for repositioning, clearing gaps and keeping momentum under pressure. Speed, timing and cooldown are all exposed for tuning.</p>
                         <div class="sys-stack">
@@ -240,7 +261,6 @@
                         <span class="media-meta">Unity</span>
                     </figure>
                     <div class="sys-content">
-                        <p class="sys-count">03 / 04</p>
                         <h3 class="sys-title">Shaders</h3>
                         <p class="sys-desc">Cooldown feedback drawn by shaders instead of UI, reflective and refractive materials that distort what sits behind them, and ripples that react as the player moves through liquid.</p>
                         <div class="sys-stack">
@@ -256,7 +276,6 @@
                         <span class="media-meta">Unity</span>
                     </figure>
                     <div class="sys-content">
-                        <p class="sys-count">04 / 04</p>
                         <h3 class="sys-title">Lights and Post Production</h3>
                         <p class="sys-desc">Lighting that carries the mood through controlled light, shadow and colour. Grading, exposure and bloom add depth and atmosphere.</p>
                         <div class="sys-stack">
@@ -274,7 +293,6 @@
                         <span class="media-meta">Unity 6</span>
                     </figure>
                     <div class="sys-content">
-                        <p class="sys-count">01 / 04</p>
                         <h3 class="sys-title">Combat System</h3>
                         <p class="sys-desc">Data-driven melee with light and heavy attacks, combos and dodge. Every attack is a ScriptableObject, so timing windows, hitbox phases and animation are tuned without code. Input buffering keeps combos responsive mid-animation.</p>
                         <div class="sys-stack">
@@ -290,7 +308,6 @@
                         <span class="media-meta">Unity 6</span>
                     </figure>
                     <div class="sys-content">
-                        <p class="sys-count">02 / 04</p>
                         <h3 class="sys-title">Parry System</h3>
                         <p class="sys-desc">A timing-based parry with spark feedback that knocks the enemy into a stagger state. The parry window lives in data, so designers tune startup and recovery per weapon.</p>
                         <div class="sys-stack">
@@ -306,7 +323,6 @@
                         <span class="media-meta">Unity 6</span>
                     </figure>
                     <div class="sys-content">
-                        <p class="sys-count">03 / 04</p>
                         <h3 class="sys-title">Custom Editor Tool</h3>
                         <p class="sys-desc">A custom Unity window for authoring weapons and attacks. Drag phase markers on a timeline, preview hitbox gizmos live in the scene and tune combo sequences without writing code.</p>
                         <div class="sys-stack">
@@ -322,7 +338,6 @@
                         <span class="media-meta">Unity 6</span>
                     </figure>
                     <div class="sys-content">
-                        <p class="sys-count">04 / 04</p>
                         <h3 class="sys-title">Streak HUD and Shaders</h3>
                         <p class="sys-desc">A combo streak HUD where attack icons fly into a row and combo names dissolve out, using a dissolve shader written in HLSL. The panel glow is hand-written too, since HDRP blocks Shader Graph on Canvas.</p>
                         <div class="sys-stack">
@@ -510,5 +525,7 @@
 
     <script src="assets/js/script.js" defer></script>
     <script>window.addEventListener('DOMContentLoaded',function(){document.getElementById('year').textContent=new Date().getFullYear();});</script>
+    <!-- Parry minigame: script loads only once the box is on screen -->
+    <script>(function(){var el=document.getElementById('parryGame');if(!el)return;function load(){var s=document.createElement('script');s.src='assets/js/parry-game.js';s.async=true;document.body.appendChild(s);}if(!('IntersectionObserver' in window)){load();return;}var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){io.disconnect();load();}});io.observe(el);})();</script>
 </body>
 </html>
