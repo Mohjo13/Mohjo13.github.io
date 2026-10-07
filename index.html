@@ -15,7 +15,8 @@
     <link rel="canonical" href="https://mohjo13.github.io/">
     <meta name="theme-color" content="#F1EEE7">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Mohsen Parchami","jobTitle":"Junior Gameplay Developer & Technical Designer","url":"https://mohjo13.github.io/","address":{"@type":"PostalAddress","addressLocality":"Stockholm","addressCountry":"SE"},"sameAs":["https://github.com/Mohjo13","https://www.linkedin.com/in/mohsen-parchami-4b0344238/"]}</script>
-    <link rel="shortcut icon" href="assets/images/gt_favicon.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/images/favicon-48.png">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Fonts loaded async (non-render-blocking) -->
@@ -26,6 +27,8 @@
     <link rel="stylesheet" href="assets/css/parry-game.css">
 </head>
 <body>
+
+    <a href="#main" class="skip-link">Skip to content</a>
 
     <div id="scrollBar"></div>
 
@@ -52,6 +55,8 @@
             <a href="#contact" class="nav-mobile-link">Contact</a>
         </div>
     </nav>
+
+    <main id="main">
 
     <!-- HERO -->
     <section id="hero">
@@ -148,7 +153,7 @@
 
                 <article class="proj proj--media-right">
                     <div class="media-panel proj-media">
-                        <img src="assets/images/pizza-to-hell.png" alt="Pizza to Hell combat" loading="lazy" decoding="async" width="800" height="700">
+                        <img src="assets/images/pizza-to-hell.webp" alt="Pizza to Hell combat" loading="lazy" decoding="async" width="800" height="700">
                         <span class="proj-badge proj-badge--wip">In development</span>
                     </div>
                     <div class="proj-info">
@@ -226,7 +231,7 @@
             <div class="sys-panels sys-hidden" data-project-panels="murmurs">
                 <div class="sys-panel active" data-panel="camera" role="tabpanel">
                     <figure class="media-panel sys-media">
-                        <video data-src="assets/gifs/camera.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Camera System clip"></video>
+                        <video data-src="assets/gifs/camera.webm" poster="assets/posters/camera.webp" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Camera System clip"></video>
                         <figcaption class="media-caption">Murmurs of the Mist &middot; Camera</figcaption>
                         <span class="media-meta">Unity</span>
                     </figure>
@@ -241,7 +246,7 @@
                 </div>
                 <div class="sys-panel" data-panel="movement" role="tabpanel">
                     <figure class="media-panel sys-media">
-                        <video data-src="assets/gifs/dashing.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Movement Mechanics clip"></video>
+                        <video data-src="assets/gifs/dashing.webm" poster="assets/posters/dashing.webp" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Movement Mechanics clip"></video>
                         <figcaption class="media-caption">Murmurs of the Mist &middot; Movement</figcaption>
                         <span class="media-meta">Unity</span>
                     </figure>
@@ -256,7 +261,7 @@
                 </div>
                 <div class="sys-panel" data-panel="shaders" role="tabpanel">
                     <figure class="media-panel sys-media">
-                        <video data-src="assets/gifs/shaders.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Shaders clip"></video>
+                        <video data-src="assets/gifs/shaders.webm" poster="assets/posters/shaders.webp" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Shaders clip"></video>
                         <figcaption class="media-caption">Murmurs of the Mist &middot; Shaders</figcaption>
                         <span class="media-meta">Unity</span>
                     </figure>
@@ -271,7 +276,7 @@
                 </div>
                 <div class="sys-panel" data-panel="lighting" role="tabpanel">
                     <figure class="media-panel sys-media">
-                        <video data-src="assets/gifs/lights.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Lights and Post Production clip"></video>
+                        <video data-src="assets/gifs/lights.webm" poster="assets/posters/lights.webp" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Lights and Post Production clip"></video>
                         <figcaption class="media-caption">Murmurs of the Mist &middot; Lighting</figcaption>
                         <span class="media-meta">Unity</span>
                     </figure>
@@ -288,7 +293,7 @@
             <div class="sys-panels" data-project-panels="pizza">
                 <div class="sys-panel active" data-panel="combat" role="tabpanel">
                     <figure class="media-panel sys-media">
-                        <video src="assets/gifs/pth-combat.webm" class="lazy-gif" autoplay muted loop playsinline aria-label="Combat System clip"></video>
+                        <video data-src="assets/gifs/pth-combat.webm" poster="assets/posters/pth-combat.webp" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Combat System clip"></video>
                         <figcaption class="media-caption">Pizza to Hell &middot; Combat</figcaption>
                         <span class="media-meta">Unity 6</span>
                     </figure>
@@ -303,7 +308,7 @@
                 </div>
                 <div class="sys-panel" data-panel="parry" role="tabpanel">
                     <figure class="media-panel sys-media">
-                        <video data-src="assets/gifs/pth-parry.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Parry System clip"></video>
+                        <video data-src="assets/gifs/pth-parry.webm" poster="assets/posters/pth-parry.webp" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Parry System clip"></video>
                         <figcaption class="media-caption">Pizza to Hell &middot; Parry</figcaption>
                         <span class="media-meta">Unity 6</span>
                     </figure>
@@ -318,7 +323,7 @@
                 </div>
                 <div class="sys-panel" data-panel="editor" role="tabpanel">
                     <figure class="media-panel sys-media">
-                        <video data-src="assets/gifs/pth-editor.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Custom Editor Tool clip"></video>
+                        <video data-src="assets/gifs/pth-editor.webm" poster="assets/posters/pth-editor.webp" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Custom Editor Tool clip"></video>
                         <figcaption class="media-caption">Pizza to Hell &middot; Editor Tool</figcaption>
                         <span class="media-meta">Unity 6</span>
                     </figure>
@@ -333,7 +338,7 @@
                 </div>
                 <div class="sys-panel" data-panel="vfx" role="tabpanel">
                     <figure class="media-panel sys-media">
-                        <video data-src="assets/gifs/pth-streak.webm" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Streak HUD and Shaders clip"></video>
+                        <video data-src="assets/gifs/pth-streak.webm" poster="assets/posters/pth-streak.webp" class="lazy-gif" autoplay muted loop playsinline preload="none" aria-label="Streak HUD and Shaders clip"></video>
                         <figcaption class="media-caption">Pizza to Hell &middot; VFX</figcaption>
                         <span class="media-meta">Unity 6</span>
                     </figure>
@@ -474,6 +479,8 @@
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- CONTACT -->
     <footer id="contact">

@@ -509,6 +509,8 @@ ul {
 
 .proof-item {
     flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
     padding: var(--sp-5) 0;
     border-top: 1px solid var(--line);
 }
@@ -1691,3 +1693,21 @@ ul {
         transition: none !important;
     }
 }
+
+/* #region Accessibility: skip link */
+.skip-link {
+    position: absolute;
+    left: var(--sp-5, 16px);
+    top: -100px;
+    z-index: 10000;
+    padding: 10px 16px;
+    background: #111;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+    .skip-link:focus {
+        top: 12px;
+    }
+/* #endregion */
