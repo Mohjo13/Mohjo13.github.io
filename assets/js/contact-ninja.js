@@ -420,8 +420,14 @@
         canvas.height = Math.round(view.h * view.dpr);
     }
 
-    // a resize mid-run moves the landmarks: just end the cameo
-    window.addEventListener('resize', function () { if (n.phase !== Phase.Off) stop(); }, { passive: true });
+    // a width change (rotation, window resize) moves the landmarks: end the cameo.
+    // height-only changes are the mobile URL bar showing/hiding: just re-fit the canvas.
+    var lastW = window.innerWidth;
+    window.addEventListener('resize', function () {
+        if (n.phase === Phase.Off) return;
+        if (window.innerWidth !== lastW) { lastW = window.innerWidth; stop(); }
+        else resize();
+    }, { passive: true });
 
     // trigger: the contact bar (the page's last line) fully on screen, once
     if (window.IntersectionObserver) {
