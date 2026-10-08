@@ -539,8 +539,8 @@
     // #region Audio
     /* Web Audio, created on the FIGHT! press (first user gesture, so iOS
        Safari allows it). A missing or undecodable file just stays silent. */
-    var SOUND_FILES = { swing: 'swing', parry: 'parry', hit: 'hit', final: 'final', jump: 'jump', step: 'step' };
-    var audio = { ctx: null, gain: null, buffers: {}, muted: false };
+    var SOUND_FILES = { swing: 'swing', parry: 'parry', hit: 'hit', final: 'final', jump: 'jump', step: 'step', fanfare: 'fanfare', button: 'button' };
+    var audio = { ctx: null, gain: null, buffers: {}, pending: {}, muted: false };
 
     try { audio.muted = localStorage.getItem(CONFIG.storageKey) === '1'; } catch (e) { /* storage blocked */ }
     syncMuteButton();
@@ -565,7 +565,11 @@
                 // callback form: older Safari has no promise-returning decodeAudioData
                 return new Promise(function (res, rej) { audio.ctx.decodeAudioData(data, res, rej); });
             })
-            .then(function (buf) { audio.buffers[key] = buf; })
+            .then(function (buf) {
+                audio.buffers[key] = buf;
+                var p = audio.pending[key];
+                if (p) { delete audio.pending[key]; play(key, p.rate, p.vol); }
+            })
             .catch(function () { /* missing file: stay silent */ });
     }
 
@@ -584,6 +588,13 @@
             src.connect(audio.gain);
         }
         src.start();
+    }
+
+    /* plays now, or as soon as the buffer finishes decoding (sounds
+       triggered by the gesture that also starts audio loading) */
+    function playSoon(key, rate, vol) {
+        if (audio.buffers[key]) play(key, rate, vol);
+        else audio.pending[key] = { rate: rate, vol: vol };
     }
 
     function setMuted(m) {
@@ -910,7 +921,7 @@
         g.hitstopLeft = CONFIG.hitstop;
         shake(CONFIG.shakeParry);
         showText('PARRY!', 0.7, true);
-        play('parry', 1, 1);
+        play('parry', 1, 0.8);
         g.actionT = 0;
     };
     UPDATE[State.Parry] = function () {
@@ -1029,6 +1040,7 @@
         g.timeScale = 1;
         g.slowLeft = 0;
         hero.pose('victory', 0.3, Ease.outBack);
+        play('fanfare', 1, 1);
         showResult('Parried in ' + g.reactionMs + ' ms', 'One parry, three hits. The Pizza to Hell parry.');
     };
     UPDATE[State.Win] = function () {
@@ -1109,7 +1121,7 @@
         renderHearts();
         root.focus({ preventScroll: true });
         if (g.started) { setState(State.Restart); }
-        else { g.started = true; setState(State.Intro); }
+        else { g.started = true; playSoon('button', 1, 1); setState(State.Intro); }
         startLoop();
     }
 
