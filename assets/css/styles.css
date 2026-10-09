@@ -496,8 +496,10 @@ ul {
 .hero-actions {
     grid-area: actions;
     align-self: end;
+    justify-self: start;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
     gap: var(--sp-3);
 }
 
@@ -636,7 +638,7 @@ ul {
     line-height: 1.5;
 }
 
-/* ── PROJECTS ─────────────────────────────────────────────── */
+/* ── PROJECTS ───────────────────────────────────────────── */
 .proj-list {
     display: flex;
     flex-direction: column;
