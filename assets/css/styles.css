@@ -1627,12 +1627,18 @@ ul {
         display: none;
     }
 
+    /* Text row animates 0fr -> 1fr, so the open card always fits its full text. */
     .attr-card__body {
         display: grid;
         grid-template-columns: auto minmax(0, 1fr) auto;
-        grid-template-rows: minmax(44px, auto) auto;
+        grid-template-rows: minmax(44px, auto) 0fr;
         align-items: center;
         column-gap: 12px;
+        transition: grid-template-rows .45s var(--attr-ease);
+    }
+
+    .attr-card.is-open .attr-card__body {
+        grid-template-rows: minmax(44px, auto) 1fr;
     }
 
     .attr-card__label {
@@ -1660,14 +1666,14 @@ ul {
 
     .attr-card__text {
         grid-column: 1 / -1;
-        max-height: 0;
+        align-self: start;
+        min-height: 0;
         overflow: hidden;
         opacity: 0;
-        transition: max-height .45s var(--attr-ease), opacity .3s ease;
+        transition: opacity .3s ease;
     }
 
     .attr-card.is-open .attr-card__text {
-        max-height: 120px;
         opacity: 1;
     }
 }

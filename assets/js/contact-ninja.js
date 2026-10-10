@@ -6,7 +6,7 @@
    (hand on hip, sword on the shoulder), runs to one step short of the
    line's right end, front-flips off it (like the enemy's entrance in
    the game) and falls out of view the way he came in. Ink on the
-   paper page, paper on the black contact section; he flips colour
+   paper page, accent on the black contact section; he flips colour
    exactly where he crosses its top edge.
    Plays once per page load. Off under prefers-reduced-motion.
    Lazy-loaded by an IntersectionObserver in index.html.
@@ -132,7 +132,7 @@
 
     var css = getComputedStyle(document.documentElement);
     var INK = css.getPropertyValue('--ink').trim() || '#17171A';
-    var PAPER = css.getPropertyValue('--paper').trim() || '#F1EEE7';
+    var ACCENT = css.getPropertyValue('--accent').trim() || '#FF6A3D';   // on the black section: stands apart from the paper-white heading and text
 
     var canvas = document.createElement('canvas');
     canvas.className = 'contact-ninja';
@@ -386,7 +386,7 @@
         n.rafId = requestAnimationFrame(frame);
     }
 
-    /* ink above the contact section's top edge, paper below it */
+    /* ink above the contact section's top edge, accent below it */
     function draw() {
         var c = ctx, edge = n.sectionTop - window.scrollY;
         c.setTransform(1, 0, 0, 1, 0, 0);
@@ -407,7 +407,7 @@
             c.beginPath();
             c.rect(0, Math.max(edge, 0), view.w, view.h);
             c.clip();
-            drawFigure(PAPER);
+            drawFigure(ACCENT);
             c.restore();
         }
     }
