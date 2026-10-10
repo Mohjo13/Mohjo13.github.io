@@ -38,6 +38,7 @@
             <ul class="nav-links">
                 <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
                 <li><a href="#systems" class="nav-link" data-section="systems">Systems</a></li>
+                <li><a href="#notes" class="nav-link" data-section="notes">Build notes</a></li>
                 <li><a href="#about" class="nav-link" data-section="about">About</a></li>
                 <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
             </ul>
@@ -51,6 +52,7 @@
         <div class="nav-mobile" id="navMobile">
             <a href="#projects" class="nav-mobile-link">Projects</a>
             <a href="#systems" class="nav-mobile-link">Systems</a>
+            <a href="#notes" class="nav-mobile-link">Build notes</a>
             <a href="#about" class="nav-mobile-link">About</a>
             <a href="#contact" class="nav-mobile-link">Contact</a>
         </div>
@@ -130,11 +132,13 @@
                     <div class="proj-info">
                         <p class="mono-label">Unity, final semester, team project</p>
                         <h3 class="proj-title">Murmurs of the Mist</h3>
-                        <p class="proj-desc">A final-semester game made with a team of developers and artists. Shipped and playable on Steam.</p>
+                        <p class="proj-desc">A psychological horror game with a heart: a young girl searching her own head for answers about her emotions and trauma. The centerpiece is a chase built to feel like a panic attack.</p>
                         <div class="proj-part">
                             <ul class="proj-part-list">
                                 <li>Level design and layout</li>
                                 <li>Core chase sequence, from concept to implementation</li>
+                                <li>Camera system and transitions</li>
+                                <li>Jump and dash</li>
                                 <li>Voice-over and sound integration</li>
                                 <li>Lighting and post-processing</li>
                                 <li>VFX and shader work</li>
@@ -231,7 +235,7 @@
                     </figure>
                     <div class="sys-content">
                         <h3 class="sys-title">Camera System</h3>
-                        <p class="sys-desc">A dynamic camera that shifts angle to build tension and point the player at threats. Smooth transitions keep the flow cinematic, and each level tunes the behaviour to its own layout and pacing.</p>
+                        <p class="sys-desc">Several Cinemachine cameras, run by one handler script. Trigger zones hand the game to a Timeline, and each blend between front, side and back views is tuned by hand, so walls close and new hazards appear only once the camera is in place. The monster stays hidden, apart from dark fragments when it gets too close.</p>
                         <div class="sys-stack">
                             <p class="sys-stack-line">Unity, C#</p>
                         </div>
@@ -245,7 +249,7 @@
                     </figure>
                     <div class="sys-content">
                         <h3 class="sys-title">Movement Mechanics</h3>
-                        <p class="sys-desc">Fast, responsive traversal with a directional dash for repositioning, clearing gaps and keeping momentum under pressure. Speed, timing and cooldown are all exposed for tuning.</p>
+                        <p class="sys-desc">Jump and dash; the rest was a team effort. No UI explains the dash, just a short tip, a sound, a flash and a cooldown ring at the player&#8217;s feet. Playtests killed the first, timing-based version, so it became a plain tunable cooldown. In the glue section the dash is disabled while the monster closes in, timed so the player breaks free just in time.</p>
                         <div class="sys-stack">
                             <p class="sys-stack-line">Unity, C#</p>
                         </div>
@@ -259,7 +263,7 @@
                     </figure>
                     <div class="sys-content">
                         <h3 class="sys-title">Shaders</h3>
-                        <p class="sys-desc">Cooldown feedback drawn by shaders instead of UI, reflective and refractive materials that distort what sits behind them, and ripples that react as the player moves through liquid.</p>
+                        <p class="sys-desc">All Shader Graph. The dash cooldown is a ring that fills around the player&#8217;s feet, wired straight to the dash values. Glass bottles refract what&#8217;s behind them, and marbles roll by with reflective surfaces. The standout is the glue, which ripples around the player and follows them while they&#8217;re stuck. Simple, but it stuck with players.</p>
                         <div class="sys-stack">
                             <p class="sys-stack-line">Unity, Shaders</p>
                         </div>
@@ -273,7 +277,7 @@
                     </figure>
                     <div class="sys-content">
                         <h3 class="sys-title">Lights and Post Production</h3>
-                        <p class="sys-desc">Lighting that carries the mood through controlled light, shadow and colour. Grading, exposure and bloom add depth and atmosphere.</p>
+                        <p class="sys-desc">Eerie, not just dark: a darker blue baked directional light under red local lights, blending into purple. Warm set-piece lights pull the player toward clues and puzzles. In the chase, the drawer&#8217;s toys light the way, and a flashlight throws the monster&#8217;s shadow on the wall before the monster arrives, gaining on the player&#8217;s shadow. A green light marks the exit.</p>
                         <div class="sys-stack">
                             <p class="sys-stack-line">Unity, Post-processing</p>
                         </div>
@@ -331,11 +335,49 @@
                     </figure>
                     <div class="sys-content">
                         <h3 class="sys-title">Streak HUD and Shaders</h3>
-                        <p class="sys-desc">A combo streak HUD where attack icons fly into a row and combo names dissolve out, using a dissolve shader written in HLSL. The panel glow is hand-written too, since HDRP blocks Shader Graph on Canvas.</p>
+                        <p class="sys-desc">A combo streak HUD where attack icons fly into a row and combo names dissolve out, using a dissolve shader written in HLSL. The panel glow is HLSL too, since HDRP blocks Shader Graph on Canvas.</p>
                         <div class="sys-stack">
                             <p class="sys-stack-line">HLSL, TextMesh Pro SDF</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BUILD NOTES -->
+    <section id="notes" class="section reveal">
+        <div class="container">
+            <div class="section-head">
+                <div class="section-head-title">
+                    <h2 class="section-h2">Build notes</h2>
+                </div>
+                <p class="section-head-text">What broke along the way, and what changed.</p>
+            </div>
+            <div class="notes-group">
+                <h3 class="notes-project">Murmurs of the Mist</h3>
+                <div class="notes-grid">
+                    <article class="note">
+                        <h4 class="note-title">Triggers fired before the camera arrived</h4>
+                        <p class="note-text">One trigger switched cameras and changed the level at the same moment, so players could see walls move. Each trigger now has an optional delay, set per trigger in the Inspector, so changes happen once the blend has finished.</p>
+                    </article>
+                    <article class="note">
+                        <h4 class="note-title">The camera kept showing the skybox</h4>
+                        <p class="note-text">The chase runs through a tight hallway, and the cameras kept swinging outside the level. Confiner volumes lock each camera to the space it&#8217;s allowed to move in.</p>
+                    </article>
+                </div>
+            </div>
+            <div class="notes-group">
+                <h3 class="notes-project">Pizza to Hell</h3>
+                <div class="notes-grid">
+                    <article class="note">
+                        <h4 class="note-title">Two parry scripts became one</h4>
+                        <p class="note-text">One script handled the timing window, the other the hit check. Different jobs, but for the same mechanic, so there was no reason to keep them apart. They were merged into <code>ParryHandler</code>, which raises one event on <code>CombatEvents</code>, and the enemy AI handles its own stagger.</p>
+                    </article>
+                    <article class="note">
+                        <h4 class="note-title">Shader Graph wasn&#8217;t an option</h4>
+                        <p class="note-text">HDRP doesn&#8217;t support Shader Graph on UI canvases, and the fullscreen PSX pass never reaches screen-space UI. So the HUD shaders are HLSL, written with Claude Code, with the PSX posterised edge built into the dissolve.</p>
+                    </article>
                 </div>
             </div>
         </div>
