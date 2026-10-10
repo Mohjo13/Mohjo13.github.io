@@ -20,7 +20,7 @@ var prefersReducedMotion = !!(window.matchMedia &&
     });
 })();
 
-/* ── 1. SCROLL PROGRESS BAR ─────────────────────────────── */
+/* ── 1. SCROLL PROGRESS BAR ───────────────────────────── */
 (function initScrollBar() {
     var bar = document.getElementById('scrollBar');
     if (!bar) return;
@@ -49,7 +49,7 @@ var prefersReducedMotion = !!(window.matchMedia &&
     render();
 })();
 
-/* ── 2. NAV: active spy ─────────────────────────────────── */
+/* ── 2. NAV: active spy ───────────────────────────────── */
 (function initNav() {
     var links = Array.from(document.querySelectorAll('.nav-link[data-section]'));
     var sections = links.map(function (l) {
@@ -85,7 +85,7 @@ var prefersReducedMotion = !!(window.matchMedia &&
     render();
 })();
 
-/* ── 3. MOBILE BURGER ───────────────────────────────────── */
+/* ── 3. MOBILE BURGER ─────────────────────────────────── */
 (function initBurger() {
     var burger = document.getElementById('navBurger');
     var mobile = document.getElementById('navMobile');
@@ -104,7 +104,7 @@ var prefersReducedMotion = !!(window.matchMedia &&
     });
 })();
 
-/* ── 4. SMOOTH ANCHOR SCROLL ────────────────────────────── */
+/* ── 4. SMOOTH ANCHOR SCROLL ──────────────────────────── */
 (function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(function (link) {
         link.addEventListener('click', function (e) {
@@ -120,7 +120,7 @@ var prefersReducedMotion = !!(window.matchMedia &&
     });
 })();
 
-/* ── 5. SCROLL REVEAL ───────────────────────────────────── */
+/* ── 5. SCROLL REVEAL ─────────────────────────────────── */
 (function initReveal() {
     var obs = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
@@ -134,7 +134,7 @@ var prefersReducedMotion = !!(window.matchMedia &&
     document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
 })();
 
-/* ── 7. SYSTEMS TABS + LAZY GIFs ────────────────────────── */
+/* ── 7. SYSTEMS TABS + LAZY GIFs ──────────────────────── */
 /* Shared helper: swap data-src → src and start playback (Safari-safe).
    Used by the preloader below and the tab controller in initSystemsPicker. */
 function loadVideo(el) {
@@ -256,7 +256,7 @@ function loadVideo(el) {
     });
 })();
 
-/* ── 8. ATTRIBUTE CARDS (About) ─────────────────────────── */
+/* ── 8. ATTRIBUTE CARDS (About) ───────────────────────── */
 /* Exactly one card is open. Desktop with real hover: hover/focus opens and
    inverts ("hot") a card, leaving the row resets to card 1. Touch/mobile: tap. */
 (function initAttributeCards() {
@@ -302,3 +302,21 @@ function loadVideo(el) {
         if (hoverMode.matches && !root.contains(e.relatedTarget) && !root.matches(':hover')) reset();
     });
 })();
+
+/* #region Dev commentary toggle */
+/* One switch for the whole Systems section, so it stays on across
+   projects and tabs. CSS shows .sys-commentary under #systems.is-commentary. */
+(function initSysCommentary() {
+    var section = document.getElementById('systems');
+    var toggle = section && section.querySelector('.sys-commentary-toggle');
+    if (!toggle) return;
+    var state = toggle.querySelector('.sys-switch-state');
+
+    toggle.addEventListener('click', function () {
+        var on = toggle.getAttribute('aria-pressed') !== 'true';
+        toggle.setAttribute('aria-pressed', on ? 'true' : 'false');
+        section.classList.toggle('is-commentary', on);
+        if (state) state.textContent = on ? 'On' : 'Off';
+    });
+})();
+/* #endregion */

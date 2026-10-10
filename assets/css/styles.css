@@ -1168,59 +1168,146 @@ ul {
     flex-shrink: 0;
 }
 
-/* #region Build notes */
-.notes-group + .notes-group {
-    margin-top: var(--sp-12);
+/* #region Dev commentary */
+/* Systems: one toggle shows each system's build notes under its stack line.
+   State: #systems.is-commentary, set by initSysCommentary in script.js. */
+.sys-commentary-toggle {
+    width: 100%;
+    min-height: var(--control-h);
+    margin-bottom: var(--sp-8);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    background: none;
+    border: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    cursor: pointer;
+    font-family: var(--font-label);
+    font-size: var(--fs-caption);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text);
 }
 
-.notes-project {
-    margin-bottom: var(--sp-5);
-    font-family: var(--font-display);
-    font-size: 26px;
-    font-weight: 600;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
+    .sys-commentary-toggle:focus-visible {
+        outline: 2px solid var(--accent-ink);
+        outline-offset: 3px;
+    }
+
+.sys-switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.notes-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--sp-8);
+.sys-switch-state {
+    color: var(--text-muted);
 }
 
-.note {
+.sys-switch-track {
+    width: 44px;
+    height: 24px;
+    padding: 3px;
+    display: flex;
+    justify-content: flex-start;
+    border: 1px solid var(--ink);
+    transition: background var(--transition);
+}
+
+.sys-switch-knob {
+    width: 16px;
+    height: 16px;
+    background: var(--line-strong);
+    transition: background var(--transition);
+}
+
+.sys-commentary-toggle[aria-pressed="true"] .sys-switch-state {
+    color: var(--accent-ink);
+}
+
+.sys-commentary-toggle[aria-pressed="true"] .sys-switch-track {
+    justify-content: flex-end;
+    background: var(--accent);
+}
+
+.sys-commentary-toggle[aria-pressed="true"] .sys-switch-knob {
+    background: var(--ink);
+}
+
+.sys-commentary {
+    display: none;
+    flex-direction: column;
+    margin-top: var(--sp-2);
+    padding: var(--sp-5);
+    background: var(--ink);
+    color: var(--text-on-ink);
+}
+
+    #systems.is-commentary .sys-commentary {
+        display: flex;
+        animation: panelFadeIn 0.3s ease-out;
+    }
+
+    /* taller text column: pin the clip to the top instead of centring it */
+    #systems.is-commentary .sys-panel.active {
+        align-items: start;
+    }
+
+.sys-commentary-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: var(--sp-3);
+    font-family: var(--font-label);
+    font-size: var(--fs-label);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.sys-commentary-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    flex-shrink: 0;
+}
+
+.sys-note {
     display: flex;
     flex-direction: column;
-    gap: var(--sp-2);
-    padding-top: 14px;
-    border-top: 2px solid var(--ink);
+    gap: 6px;
+    padding: var(--sp-4) 0;
+    border-top: 1px solid var(--line-dark);
 }
 
-.note-title {
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
+    .sys-note:last-child {
+        padding-bottom: 0;
+    }
+
+.sys-note-title {
+    font-size: var(--fs-body);
+    font-weight: 700;
+    line-height: 1.3;
 }
 
-.note-text {
-    color: var(--text-body);
+.sys-note-text {
+    font-size: var(--fs-small);
+    line-height: 1.55;
+    color: var(--text-on-ink-muted);
 }
 
-    .note-text code {
+    .sys-note-text code {
         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
         font-size: 0.88em;
         padding: 1px 5px;
-        background: var(--paper-2);
+        background: var(--line-dark);
+        color: var(--text-on-ink);
         overflow-wrap: anywhere;
     }
-
-@media (max-width: 900px) {
-    .notes-grid {
-        grid-template-columns: minmax(0, 1fr);
-    }
-}
 /* #endregion */
 
 /* ── SCROLL REVEAL ────────────────────────────────────────── */
