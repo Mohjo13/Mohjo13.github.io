@@ -263,7 +263,9 @@ function loadVideo(el) {
     var root = document.querySelector('.attr-cards');
     if (!root) return;
     var cards = Array.prototype.slice.call(root.querySelectorAll('.attr-card'));
-    var hoverMode = window.matchMedia('(hover: hover) and (min-width: 768px)');
+    // Accordion mode is decided by CSS container width, so read the rendered layout.
+    var hover = window.matchMedia('(hover: hover)');
+    var hoverMode = { get matches() { return hover.matches && getComputedStyle(root).flexDirection !== 'column'; } };
 
     function setState(openCard, hotCard) {
         cards.forEach(function (c) {
