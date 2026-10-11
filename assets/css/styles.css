@@ -1563,6 +1563,7 @@ ul {
 /* The cards span the full About column; the prose keeps its 68ch measure. */
 .about-text:has(> .attr-cards) {
     max-width: none;
+    container: attr / inline-size;
 }
 
     .about-text:has(> .attr-cards) > p {
@@ -1633,8 +1634,8 @@ ul {
     display: none;
 }
 
-/* Desktop: accordion spines */
-@media (min-width: 768px) {
+/* Wide column: accordion spines (container query, so split-screen widths fall back to the stack) */
+@container attr (min-width: 700px) {
     .attr-cards {
         height: 270px;
     }
@@ -1725,8 +1726,9 @@ ul {
     }
 }
 
-/* Desktop + real hover: the hovered/focused ("hot") card inverts */
-@media (min-width: 768px) and (hover: hover) {
+/* Wide column + real hover: the hovered/focused ("hot") card inverts */
+@media (hover: hover) {
+@container attr (min-width: 700px) {
     .attr-card.is-hot {
         background: var(--ink);
         border-color: var(--ink);
@@ -1747,8 +1749,10 @@ ul {
         }
 }
 
-/* Mobile: tap to pull out */
-@media (max-width: 767px) {
+}
+
+/* Narrow column: tap to pull out */
+@container attr (max-width: 699.98px) {
     .attr-cards {
         flex-direction: column;
     }
