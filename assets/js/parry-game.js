@@ -539,7 +539,7 @@
     // #region Audio
     /* Web Audio, created on the FIGHT! press (first user gesture, so iOS
        Safari allows it). A missing or undecodable file just stays silent. */
-    var SOUND_FILES = { swing: 'swing', parry: 'parry', hit: 'hit', final: 'final', jump: 'jump', step: 'step', fanfare: 'fanfare', button: 'button' };
+    var SOUND_FILES = { swing: 'swing', parry: 'parry', hit: 'hit', final: 'final', jump: 'jump', step: 'step', fanfare: 'fanfare', button: 'button', fight: 'fight' };
     var audio = { ctx: null, gain: null, buffers: {}, pending: {}, muted: false };
 
     try { audio.muted = localStorage.getItem(CONFIG.storageKey) === '1'; } catch (e) { /* storage blocked */ }
@@ -819,6 +819,7 @@
         if (!g.introFight && t >= C.fightAt) {
             g.introFight = true;
             showText('FIGHT!', C.fightText, false);
+            playSoon('fight');
         }
         if (t >= C.fightAt + C.fightText + C.afterFight) setState(State.Wait);
     };
@@ -1110,6 +1111,7 @@
         enemy.place(CONFIG.enemyFightX, 'eGuard');
         hero.place(CONFIG.heroFightX, 'guard');
         showText('FIGHT!', CONFIG.fightText * 0.7, false);
+        playSoon('fight');
         setState(State.Wait);
     }
 

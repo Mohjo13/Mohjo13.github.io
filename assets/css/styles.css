@@ -26,21 +26,26 @@
     --text-on-ink-muted: #A9A69E;
 
     /* Accent */
-    --accent: #FF6A3D;         /* fills, underlines, dots, text on ink ONLY */
-    --accent-ink: #B8411C;     /* accent-coloured TEXT on paper */
-    --on-accent: #17171A;      /* text on accent fills. Never white. */
+    --accent: #C8322A;         /* parry red: fills, underlines, dots */
+    --accent-ink: #C8322A;     /* accent-coloured TEXT on paper, 4.6:1 */
+    --on-accent: #F1EEE7;      /* text on accent fills (paper, 4.6:1) */
+
+    /* Tertiary */
+    --tertiary: #6DBEE2;       /* WIP badge, dev commentary, card focus */
+    --on-tertiary: #17171A;    /* text on tertiary fills, 8.6:1 */
 
     /* Type */
-    --font-display: 'Bricolage Grotesque', 'Arial Narrow', sans-serif;
+    --font-display: 'Schibsted Grotesk', 'Arial Narrow', sans-serif;
     --font-body: 'DM Sans', system-ui, sans-serif;
-    --font-label: 'Space Grotesk', system-ui, sans-serif;
+    --font-label: var(--font-body);
 
-    --fs-hero: clamp(64px, 10.5vw, 150px);
-    --fs-h2: clamp(40px, 5vw, 64px);
-    --fs-h3: clamp(32px, 4vw, 56px);
-    --fs-h3-sys: clamp(28px, 3vw, 40px);
-    --fs-lead: clamp(28px, 3vw, 44px);
-    --fs-contact: clamp(56px, 8vw, 112px);
+    /* display sizes at 0.9 scale */
+    --fs-hero: clamp(57.6px, 9.45vw, 135px);
+    --fs-h2: clamp(36px, 4.5vw, 57.6px);
+    --fs-h3: clamp(28.8px, 3.6vw, 50.4px);
+    --fs-h3-sys: clamp(25.2px, 2.7vw, 36px);
+    --fs-lead: clamp(25.2px, 2.7vw, 39.6px);
+    --fs-contact: clamp(50.4px, 7.2vw, 100.8px);
     --fs-body: 17px;
     --fs-small: 15px;
     --fs-caption: 13px;
@@ -167,7 +172,7 @@ ul {
     font-size: var(--fs-h2);
     font-weight: 800;
     line-height: 0.95;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
 }
 
 .section-head-text {
@@ -267,7 +272,7 @@ ul {
     font-size: 22px;
     font-weight: 800;
     color: var(--text);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
 }
 
     .nav-logo:hover {
@@ -456,7 +461,7 @@ ul {
     font-size: var(--fs-hero);
     font-weight: 800;
     line-height: 0.86;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.025em;
     color: var(--text);
 }
 
@@ -486,7 +491,7 @@ ul {
     font-size: 28px;
     font-weight: 600;
     line-height: 1.15;
-    letter-spacing: -0.01em;
+    letter-spacing: 0em;
 }
 
 .hero-lead {
@@ -526,7 +531,7 @@ ul {
     font-family: var(--font-display);
     font-weight: 800;
     line-height: 1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     margin-bottom: var(--sp-2);
 }
 
@@ -589,7 +594,7 @@ ul {
     font-size: var(--fs-lead);
     font-weight: 600;
     line-height: 1.08;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
 }
 
 .about-text {
@@ -691,15 +696,15 @@ ul {
 }
 
 .proj-badge--wip {
-    background: var(--paper);
-    color: var(--text);
+    background: var(--tertiary);
+    color: var(--on-tertiary);
 }
 
     .proj-badge--wip::before {
         content: '';
         width: 8px;
         height: 8px;
-        background: var(--accent);
+        background: var(--on-tertiary);
         flex-shrink: 0;
     }
 
@@ -715,7 +720,7 @@ ul {
     font-size: var(--fs-h3);
     font-weight: 800;
     line-height: 0.95;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
 }
 
 .proj-stat {
@@ -730,7 +735,7 @@ ul {
     font-size: 40px;
     font-weight: 800;
     line-height: 1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     color: var(--accent-ink);
 }
 
@@ -793,7 +798,7 @@ ul {
     font-size: 24px;
     font-weight: 600;
     line-height: 1.15;
-    letter-spacing: -0.01em;
+    letter-spacing: 0em;
     color: var(--text);
     transition: color var(--transition);
 }
@@ -909,7 +914,7 @@ ul {
     font-size: 26px;
     font-weight: 600;
     line-height: 1.1;
-    letter-spacing: -0.01em;
+    letter-spacing: 0em;
     color: var(--text-muted);
     transition: color var(--transition), border-color var(--transition);
 }
@@ -1016,7 +1021,7 @@ ul {
     font-size: var(--fs-h3-sys);
     font-weight: 600;
     line-height: 1.05;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
 }
 
 .sys-desc {
@@ -1059,6 +1064,7 @@ ul {
 
         #contact .btn-primary:hover {
             background: var(--paper);
+            color: var(--ink);
         }
 
     #contact .btn:focus-visible,
@@ -1082,7 +1088,7 @@ ul {
     font-size: var(--fs-contact);
     font-weight: 800;
     line-height: 0.9;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.025em;
     color: var(--text-on-ink);
 }
 
@@ -1231,7 +1237,7 @@ ul {
 
 .sys-commentary-toggle[aria-pressed="true"] .sys-switch-track {
     justify-content: flex-end;
-    background: var(--accent);
+    background: var(--tertiary);
 }
 
 .sys-commentary-toggle[aria-pressed="true"] .sys-switch-knob {
@@ -1266,13 +1272,13 @@ ul {
     font-size: var(--fs-label);
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--tertiary);
 }
 
 .sys-commentary-dot {
     width: 8px;
     height: 8px;
-    background: var(--accent);
+    background: var(--tertiary);
     flex-shrink: 0;
 }
 
@@ -1564,7 +1570,7 @@ ul {
     }
 
 .attr-cards {
-    --attr-accent: #6dbee2;
+    --attr-accent: var(--tertiary);
     --attr-label-rest: #0A7F99;
     --attr-label-active: #FFA630;
     --attr-card-bg: #FBFAF6;
