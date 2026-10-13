@@ -370,6 +370,17 @@
                         <div class="sys-stack">
                             <p class="sys-stack-line">Unity EditorWindow, Gizmos</p>
                         </div>
+                        <div class="sys-commentary">
+                            <p class="sys-commentary-label"><span class="sys-commentary-dot" aria-hidden="true"></span>Dev commentary</p>
+                            <div class="sys-note">
+                                <h4 class="sys-note-title">Retiming an attack meant touching the animation</h4>
+                                <p class="sys-note-text">Making a swing snappier meant editing the clip or its FBX import. Now each attack has speed multipliers for startup, impact and recovery, and the tool remaps clip time per phase, so a windup can be cut without re-exporting anything.</p>
+                            </div>
+                            <div class="sys-note">
+                                <h4 class="sys-note-title">Tuning combos needed Play mode</h4>
+                                <p class="sys-note-text">Every exit-window or crossfade tweak meant entering Play mode and performing the combo by hand. The tool samples the whole chain in edit mode, so you scrub it on a timeline and see the pose in the Scene view, with crossfade presets (Smooth, Standard, Snappy) and a fine-tune slider.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="sys-panel" data-panel="vfx" role="tabpanel">
