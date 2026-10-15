@@ -1,10 +1,6 @@
-/* ═══════════════════════════════════════════════════════════
-   MOHSEN PARCHAMI · PORTFOLIO  |  script.js
-═══════════════════════════════════════════════════════════ */
-
 'use strict';
 
-/* ── 0. REDUCED MOTION: no autoplaying video ────────────── */
+// #region Reduced motion
 /* Videos stay paused on their poster/first frame with native controls,
    so the clips are still one click away. */
 var prefersReducedMotion = !!(window.matchMedia &&
@@ -20,12 +16,14 @@ var prefersReducedMotion = !!(window.matchMedia &&
     });
 })();
 
-/* ── 1. SCROLL PROGRESS BAR ───────────────────────────── */
+// #endregion
+
+// #region Scroll progress bar
 (function initScrollBar() {
     var bar = document.getElementById('scrollBar');
     if (!bar) return;
 
-    var total = 0;          // cached: avoids scrollHeight read on every scroll
+    var total = 0;
     var ticking = false;
 
     function measure() {
@@ -35,7 +33,7 @@ var prefersReducedMotion = !!(window.matchMedia &&
     function render() {
         ticking = false;
         var ratio = total > 0 ? window.scrollY / total : 0;
-        bar.style.transform = 'scaleX(' + Math.min(ratio, 1) + ')';   // composited
+        bar.style.transform = 'scaleX(' + Math.min(ratio, 1) + ')';
     }
 
     function onScroll() {
@@ -49,13 +47,15 @@ var prefersReducedMotion = !!(window.matchMedia &&
     render();
 })();
 
-/* ── 2. NAV: active spy ───────────────────────────────── */
+// #endregion
+
+// #region Nav active state
 (function initNav() {
     var links = Array.from(document.querySelectorAll('.nav-link[data-section]'));
     var sections = links.map(function (l) {
         return document.getElementById(l.dataset.section);
     }).filter(Boolean);
-    var offsets = [];       // cached: avoids offsetTop read on every scroll
+    var offsets = [];
     var ticking = false;
 
     function measure() {
@@ -85,7 +85,9 @@ var prefersReducedMotion = !!(window.matchMedia &&
     render();
 })();
 
-/* ── 3. MOBILE BURGER ─────────────────────────────────── */
+// #endregion
+
+// #region Mobile menu
 (function initBurger() {
     var burger = document.getElementById('navBurger');
     var mobile = document.getElementById('navMobile');
@@ -104,7 +106,9 @@ var prefersReducedMotion = !!(window.matchMedia &&
     });
 })();
 
-/* ── 4. SMOOTH ANCHOR SCROLL ──────────────────────────── */
+// #endregion
+
+// #region Smooth anchor scroll
 (function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(function (link) {
         link.addEventListener('click', function (e) {
@@ -120,7 +124,9 @@ var prefersReducedMotion = !!(window.matchMedia &&
     });
 })();
 
-/* ── 5. SCROLL REVEAL ─────────────────────────────────── */
+// #endregion
+
+// #region Scroll reveal
 (function initReveal() {
     var obs = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
@@ -134,9 +140,10 @@ var prefersReducedMotion = !!(window.matchMedia &&
     document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
 })();
 
-/* ── 7. SYSTEMS TABS + LAZY GIFs ──────────────────────── */
-/* Shared helper: swap data-src → src and start playback (Safari-safe).
-   Used by the preloader below and the tab controller in initSystemsPicker. */
+// #endregion
+
+// #region Systems section
+/* Swaps data-src to src and starts playback. */
 function loadVideo(el) {
     if (!el || !el.dataset || !el.dataset.src) return;
     el.src = el.dataset.src;
@@ -166,9 +173,7 @@ function loadVideo(el) {
     preloadObs.observe(sys);
 })();
 
-/* SYSTEMS: single tab + project controller.
-   Sole owner of picker buttons, tab rows (click + arrow keys),
-   panel switching, and lazy video loading for BOTH projects. */
+/* Project picker, tabs (click + arrow keys) and panel switching. */
 (function initSystemsPicker() {
     var picker = document.querySelector('.sys-project-picker');
     if (!picker) return;
@@ -256,7 +261,9 @@ function loadVideo(el) {
     });
 })();
 
-/* ── 8. ATTRIBUTE CARDS (About) ───────────────────────── */
+// #endregion
+
+// #region Attribute cards
 /* Exactly one card is open. Desktop with real hover: hover/focus opens and
    inverts ("hot") a card, leaving the row resets to card 1. Touch/mobile: tap. */
 (function initAttributeCards() {
@@ -305,7 +312,9 @@ function loadVideo(el) {
     });
 })();
 
-/* #region Dev commentary toggle */
+// #endregion
+
+// #region Dev commentary toggle
 /* One switch for the whole Systems section, so it stays on across
    projects and tabs. CSS shows .sys-commentary under #systems.is-commentary. */
 (function initSysCommentary() {
@@ -321,4 +330,4 @@ function loadVideo(el) {
         if (state) state.textContent = on ? 'On' : 'Off';
     });
 })();
-/* #endregion */
+// #endregion

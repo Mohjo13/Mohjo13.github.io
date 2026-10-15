@@ -1,16 +1,6 @@
-/* ═══════════════════════════════════════════════════════════
-   CONTACT NINJA  |  contact-ninja.js
-   The parry game's hero (headband, sword) drops in from under
-   the nav once the visitor reaches the bottom of the page: falls,
-   lands on the line above the contact links, strikes the win pose
-   (hand on hip, sword on the shoulder), runs to one step short of the
-   line's right end, front-flips off it (like the enemy's entrance in
-   the game) and falls out of view the way he came in. Ink on the
-   paper page, accent on the black contact section; he flips colour
-   exactly where he crosses its top edge.
-   Plays once per page load. Off under prefers-reduced-motion.
-   Lazy-loaded by an IntersectionObserver in index.html.
-═══════════════════════════════════════════════════════════ */
+/* Contact cameo: the parry game's hero drops in under the nav, lands above
+   the contact links, poses, runs and flips out. Once per load, off under
+   reduced motion. Lazy-loaded from index.html. */
 
 (function () {
     'use strict';
@@ -132,7 +122,7 @@
 
     var css = getComputedStyle(document.documentElement);
     var INK = css.getPropertyValue('--ink').trim() || '#17171A';
-    var ACCENT = css.getPropertyValue('--accent').trim() || '#FF6A3D';   // on the black section: stands apart from the paper-white heading and text
+    var ACCENT = css.getPropertyValue('--accent').trim() || '#C8322A';
 
     var canvas = document.createElement('canvas');
     canvas.className = 'contact-ninja';

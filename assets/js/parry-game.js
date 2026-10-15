@@ -1,10 +1,5 @@
-/* ═══════════════════════════════════════════════════════════
-   PARRY MINIGAME  |  parry-game.js
-   Spec: _notes/parry-minigame-spec.md (source of truth).
-   Lazy-loaded by an IntersectionObserver in index.html.
-   No loop runs before FIGHT!; the loop pauses when the tab is
-   hidden or the box leaves the viewport.
-═══════════════════════════════════════════════════════════ */
+/* Parry minigame. Lazy-loaded from index.html. The loop starts on FIGHT!
+   and pauses when the tab is hidden or the box is off screen. */
 
 (function () {
     'use strict';
@@ -42,7 +37,7 @@
         enemyFightX: 204,
         enemyLunge: 20,          // how far the enemy steps in on a swing
 
-        // intro, storyboard frames 1-8 (seconds from the FIGHT! press)
+        // intro timings (seconds from the FIGHT! press)
         raysTime: 0.45,          // button burst
         floorAt: 0.15,
         floorDraw: 0.5,          // floor draws left to right
@@ -62,7 +57,7 @@
         waitMin: 0.8,
         waitMax: 2.0,
         telegraph: 0.7,
-        telegraphBlinks: 2,      // 2 over 0.7 s = 2.9 per second (limit 3)
+        telegraphBlinks: 2,
         swingImpact: 0.32,       // swing start -> impact frame
         windowBefore: 0.15,
         windowAfter: 0.07,
@@ -135,8 +130,8 @@
        set by the numbers, not the shortest path. bl = blade length factor
        (default 1): a short blade reads as one pointing at or away from the
        camera, which is how a level, horizontal sweep shows in profile.
-       sheathed draws the sword
-       in the fighter's sheath (opts.sheath) instead of in his hand. */
+       sheathed draws the sword in the fighter's sheath (opts.sheath)
+       instead of in his hand. */
     var POSES = {
         // hero
         idle:    { h: [0, -30], n: [0, -23], p: [0, 0], kb: [-3, 12], fb: [-4, 24], kf: [3, 12], ff: [4, 24], eb: [-3, -12], hb: [-4, -2], ef: [3, -12], hf: [4, -2], s: 145, sheathed: true },
@@ -148,7 +143,7 @@
         strike:  { h: [8, -26], n: [6, -19], p: [2, 3], kb: [-8, 13], fb: [-14, 24], kf: [11, 12], ff: [15, 24], eb: [-3, -10], hb: [-9, -6], ef: [12, -15], hf: [20, -11], s: 20 },
         parry:   { h: [5, -28], n: [4, -21], p: [1, 2], kb: [-7, 13], fb: [-12, 24], kf: [7, 12], ff: [11, 24], eb: [-3, -11], hb: [-8, -6], ef: [9, -17], hf: [14, -23], s: -55 },
         hurt:    { h: [-7, -27], n: [-5, -20], p: [-1, 1], kb: [-8, 12], fb: [-10, 24], kf: [3, 12], ff: [6, 24], eb: [-10, -16], hb: [-14, -22], ef: [1, -14], hf: [4, -20], s: -120 },
-        // combo, storyboard frames 10-18
+        // combo
         a1Wind:   { h: [-2, -30], n: [-2, -23], p: [0, 1], kb: [-6, 12], fb: [-10, 24], kf: [6, 12], ff: [10, 24], eb: [-8, -16], hb: [-6, -24], ef: [-3, -15], hf: [-6, -24], s: -150 },
         a1:       { h: [10, -20], n: [8, -13], p: [2, 6], kb: [-9, 15], fb: [-18, 24], kf: [12, 14], ff: [18, 24], eb: [-4, -10], hb: [-14, -14], ef: [14, -10], hf: [22, -8], s: 5 },
         a2Grab:   { h: [6, -28], n: [5, -21], p: [1, 2], kb: [-7, 13], fb: [-13, 24], kf: [8, 12], ff: [13, 24], eb: [4, -14], hb: [14, -15], ef: [8, -16], hf: [16, -16], s: 0 },
@@ -158,14 +153,14 @@
         // a3Spin/a3Air hold the blade level: the spin's cos squash turns it into a horizontal slash
         a3Spin:   { h: [1, -30], n: [1, -23], p: [0, 0], kb: [-8, 2], fb: [-5, 12], kf: [9, 8], ff: [3, 17], eb: [5, -18], hb: [10, -15], ef: [6, -19], hf: [12, -14], s: 0 },
         a3Air:    { h: [4, -29], n: [3, -22], p: [0, 0], kb: [-8, 2], fb: [-5, 12], kf: [9, 8], ff: [3, 17], eb: [-5, -30], hb: [-8, -38], ef: [10, -15], hf: [20, -10], s: 0 },
-        // follow-through (frame 17): the level sweep carries on the way the spin turned,
+        // follow-through: the level sweep carries on the way the spin turned,
         // across his body (blade short: pointing at the camera) and out behind him
         a3SweepA: { h: [3, -29], n: [2, -22], p: [0, 0], kb: [-8, 2], fb: [-5, 12], kf: [9, 8], ff: [3, 17], eb: [-4, -27], hb: [-5, -34], ef: [8, -17], hf: [8, -13], s: 0, bl: 0.12 },
         a3SweepB: { h: [1, -29], n: [1, -22], p: [0, 0], kb: [-8, 2], fb: [-5, 12], kf: [9, 8], ff: [3, 17], eb: [2, -24], hb: [4, -31], ef: [2, -18], hf: [-3, -15], s: -180, bl: 0.12 },
         a3Follow: { h: [-1, -30], n: [0, -23], p: [0, 0], kb: [-8, 2], fb: [-5, 12], kf: [9, 8], ff: [3, 17], eb: [8, -18], hb: [13, -25], ef: [-4, -20], hf: [-9, -22], s: -125 },
         land:     { h: [0, -17], n: [0, -10], p: [0, 8], kb: [-11, 15], fb: [-20, 24], kf: [11, 15], ff: [20, 24], eb: [9, -11], hb: [17, -12], ef: [-7, -13], hf: [-14, -12], s: -160 },
         kneel:   { h: [6, -16], n: [4, -9], p: [-2, 10], kb: [-8, 24], fb: [-18, 24], kf: [8, 10], ff: [8, 24], eb: [0, -2], hb: [-2, 6], ef: [8, -2], hf: [12, 4], s: 85 },
-        // win (frame 19): hand on hip, sword resting on the shoulder
+        // win: hand on hip, sword resting on the shoulder
         victory:  { h: [0, -30], n: [0, -23], p: [0, 0], kb: [-3, 12], fb: [-5, 24], kf: [4, 12], ff: [6, 24], eb: [-11, -14], hb: [-2, 0], ef: [7, -14], hf: [3, -21], s: -160 },
 
         // enemy (two-handed great sword: both hands on the hilt)
@@ -183,7 +178,7 @@
         eFallen:   { h: [-2, -30], n: [-1, -23], p: [0, 0], kb: [-1, 12], fb: [-2, 24], kf: [1, 12], ff: [2, 24], eb: [-10, -20], hb: [-16, -28], ef: [8, -16], hf: [14, -12], s: -320 },
         eHit2:     { h: [3, -17], n: [0, -11], p: [-4, 4], kb: [-10, 13], fb: [-12, 24], kf: [2, 14], ff: [6, 24], eb: [2, -4], hb: [6, 4], ef: [4, -5], hf: [7, 3], s: -212 },
 
-        // enemy intro (frames 4-7): great sword on his back until he draws.
+        // enemy intro: great sword on his back until he draws.
         // eReach's front hand sits on the sheathed hilt, so the draw is seamless.
         eTuck:     { h: [3, -22], n: [2, -16], p: [0, 0], kb: [5, 4], fb: [-2, 10], kf: [7, 2], ff: [1, 9], eb: [5, -12], hb: [6, -6], ef: [6, -12], hf: [7, -6], s: 0, sheathed: true },
         eLandS:    { h: [5, -18], n: [4, -11], p: [0, 9], kb: [-10, 15], fb: [-12, 24], kf: [10, 14], ff: [12, 24], eb: [4, -4], hb: [9, 0], ef: [7, -4], hf: [10, 1], s: 0, sheathed: true },
@@ -201,7 +196,7 @@
     var BLADE = PTS + 2;                 // blade length factor
     var POSE_LEN = PTS + 3;
 
-    // compile once into flat arrays: sampling then allocates nothing
+    // poses as flat arrays
     var COMPILED = {};
     Object.keys(POSES).forEach(function (name) {
         var src = POSES[name], out = new Float32Array(POSE_LEN);
@@ -437,7 +432,7 @@
     };
     // #endregion
 
-    // #region DOM refs (cached once)
+    // #region DOM refs
     var root = document.getElementById('parryGame');
     if (!root || root.dataset.pgReady) return;
     root.dataset.pgReady = '1';
@@ -729,7 +724,7 @@
     UPDATE[State.Idle] = function () { };
     ACTION[State.Idle] = function () { startFight(); };
 
-    // Intro, storyboard frames 1-8: button burst, floor draws, hero walks in,
+    // Intro: button burst, floor draws, hero walks in,
     // enemy front-flips in, both draw while the hearts fill, FIGHT!, pause.
     ENTER[State.Intro] = function () {
         g.introStepIndex = -1;
@@ -751,11 +746,11 @@
             fightBtn.classList.remove('is-out');
         }
 
-        // frame 2: floor, left to right
+        // floor, left to right
         var fk = (t - C.floorAt) / C.floorDraw;
         g.floorK = fk <= 0 ? 0 : fk >= 1 ? 1 : Ease.outQuad(fk);
 
-        // frames 3-4: hero walks in from the left, sword sheathed
+        // hero walks in from the left, sword sheathed
         if (!g.introWalk && t >= C.heroWalkAt) {
             g.introWalk = true;
             hero.visible = true;
@@ -776,7 +771,7 @@
             }
         }
 
-        // frame 4: enemy front-flips in from the right. He faces left, so
+        // enemy front-flips in from the right. He faces left, so
         // forward is counter-clockwise (negative).
         if (!g.introJump && t >= C.enemyJumpAt) {
             g.introJump = true;
@@ -787,7 +782,7 @@
             enemy.rot.go(-Math.PI * 2, C.enemyJumpIn * 0.9, Ease.inOut);
             play('jump', 1, 0.8);
         }
-        // frame 5: lands in front of the hero, sword still on his back
+        // lands in front of the hero, sword still on his back
         if (g.introJump && !g.introLanded && t >= C.enemyJumpAt + C.enemyJumpIn) {
             g.introLanded = true;
             enemy.rot.set(0);
@@ -799,7 +794,7 @@
             play('step', 0.7, 1);
         }
 
-        // frames 6-7, same time: both draw and take stances, hearts fill
+        // both draw and take stances together, hearts fill
         if (!g.introDrawn && t >= C.drawAt) {
             g.introDrawn = true;
             enemy.pose('eReach', 0.12, Ease.outQuad).then('eDraw', 0.14, Ease.inOut).then('eGuard', 0.3, Ease.outBack);
@@ -815,7 +810,7 @@
             }
         }
 
-        // frame 8
+        // FIGHT!
         if (!g.introFight && t >= C.fightAt) {
             g.introFight = true;
             showText('FIGHT!', C.fightText, false);
@@ -934,18 +929,18 @@
     };
     ACTION[State.Parry] = function () { };
 
-    // Combo, storyboard frames 10-18: three taps, three attacks.
+    // Combo: three taps, three attacks.
     // keys: pose chain; impact: game time of the hit; lock: input lock after
     // the tap; x: hero offset from heroComboX; react/push: enemy hit reaction;
     // events: [time, fn] fired in order during the attack.
     var COMBO = [
-        // A1 (10-11): both hands take the sword to his back, open one-hand sweep
+        // A1: both hands take the sword to his back, open one-hand sweep
         { keys: [['a1Wind', 0.05, Ease.outQuad], ['a1', 0.08, Ease.inQuad]],
           impact: 0.13, lock: 0.3, x: 0, react: 'eHit', push: 5, events: [] },
-        // A2 (12-14): two-hand thrust, the swing carries over his head to the left
+        // A2: two-hand thrust, the swing carries over his head to the left
         { keys: [['a2Grab', 0.06, Ease.inQuad], ['a2Mid', 0.08, Ease.outQuad], ['a2End', 0.1, Ease.outQuad]],
           impact: 0.06, lock: 0.3, x: 8, react: 'eHit2', push: 9, events: [] },
-        // A3 (15-18): crouch, jump with a 360 spin that ends in a horizontal slash, landing
+        // A3: crouch, jump with a 360 spin that ends in a horizontal slash, landing
         { keys: [['a3Crouch', 0.07, Ease.outQuad], ['a3Spin', 0.2, Ease.outQuad], ['a3Air', 0.14, Ease.outQuad], ['a3SweepA', 0.04, Ease.linear], ['a3SweepB', 0.03, Ease.linear], ['a3Follow', 0.08, Ease.outQuad]],
           impact: 0.41, lock: 0, x: 8, react: null, push: 0,
           events: [[0.07, a3Jump], [0.37, a3Slow], [0.49, a3Fall], [0.69, a3Land]] }

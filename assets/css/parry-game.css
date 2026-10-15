@@ -1,10 +1,5 @@
-/* ═══════════════════════════════════════════════════════════
-   PARRY MINIGAME  |  parry-game.css
-   Spec: _notes/parry-minigame-spec.md
-   The box itself is sized by .media-panel.hero-media in styles.css;
-   everything here sits inside it, absolutely positioned, so the
-   game can never change the hero layout.
-═══════════════════════════════════════════════════════════ */
+/* Parry minigame. Sized by .media-panel.hero-media in styles.css; everything
+   here is absolutely positioned inside it, so the game never changes the hero layout. */
 
 /* #region Tokens */
 .pg {
@@ -26,7 +21,7 @@
         cursor: pointer;
     }
 
-/* no frame: the game sits straight on the page (storyboard v2) */
+/* no frame: the game sits straight on the page */
 .pg.media-panel {
     padding: 0;
     background: transparent;
@@ -159,7 +154,7 @@
     padding: 10px 18px;
     font-size: 24px;
     letter-spacing: 0.02em;
-    /* on/off blink, 1 per second: well under the 3/s limit */
+    /* on/off blink, once per second */
     animation: pg-blink 1s steps(1, end) infinite;
 }
 

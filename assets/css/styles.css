@@ -1,8 +1,3 @@
-/* ═══════════════════════════════════════════════════════════
-   MOHSEN PARCHAMI · PORTFOLIO  |  styles.css
-   Design: Direction C "Paper". Spec in _notes/design-spec.md
-═══════════════════════════════════════════════════════════ */
-
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -20,26 +15,26 @@
 
     /* Text */
     --text: #17171A;
-    --text-body: #45433F;      /* paragraphs, 8.5:1 */
-    --text-muted: #55534E;     /* captions, mono labels, 6.6:1 */
+    --text-body: #45433F;      /* paragraphs */
+    --text-muted: #55534E;     /* captions, labels */
     --text-on-ink: #F1EEE7;
     --text-on-ink-muted: #A9A69E;
 
     /* Accent */
     --accent: #C8322A;         /* parry red: fills, underlines, dots */
-    --accent-ink: #C8322A;     /* accent-coloured TEXT on paper, 4.6:1 */
-    --on-accent: #F1EEE7;      /* text on accent fills (paper, 4.6:1) */
+    --accent-ink: #C8322A;     /* accent text on paper */
+    --on-accent: #F1EEE7;      /* text on accent fills */
 
     /* Tertiary */
     --tertiary: #6DBEE2;       /* WIP badge, dev commentary, card focus */
-    --on-tertiary: #17171A;    /* text on tertiary fills, 8.6:1 */
+    --on-tertiary: #17171A;    /* text on tertiary fills */
 
     /* Type */
     --font-display: 'Schibsted Grotesk', 'Arial Narrow', sans-serif;
     --font-body: 'DM Sans', system-ui, sans-serif;
     --font-label: var(--font-body);
 
-    /* display sizes at 0.9 scale */
+    /* Display sizes */
     --fs-hero: clamp(57.6px, 9.45vw, 135px);
     --fs-h2: clamp(36px, 4.5vw, 57.6px);
     --fs-h3: clamp(28.8px, 3.6vw, 50.4px);
@@ -61,10 +56,10 @@
     --control-h: 52px;
     --tab-h: 44px;
 
-    /* Radius: everything is square in this direction */
+    /* Radius */
     --radius: 0px;
 
-    /* Layout and motion (not colours) */
+    /* Layout and motion */
     --nav-h: 88px;
     --ease: cubic-bezier(0.4, 0, 0.2, 1);
     --transition: 0.3s var(--ease);
@@ -130,7 +125,7 @@ ul {
     padding: 0 var(--gutter);
 }
 
-/* ── SCROLL PROGRESS BAR ──────────────────────────────────── */
+/* #region Scroll progress bar */
 #scrollBar {
     position: fixed;
     top: var(--nav-h);
@@ -145,7 +140,9 @@ ul {
     pointer-events: none;
 }
 
-/* ── SECTION SHARED ───────────────────────────────────────── */
+/* #endregion */
+
+/* #region Section shared */
 .section {
     padding: var(--section-y) 0;
 }
@@ -180,7 +177,7 @@ ul {
     color: var(--text-body);
 }
 
-/* Label (uppercase, Space Grotesk) */
+/* Uppercase label */
 .mono-label {
     font-family: var(--font-label);
     font-size: var(--fs-label);
@@ -189,7 +186,9 @@ ul {
     color: var(--text-muted);
 }
 
-/* ── BUTTONS ──────────────────────────────────────────────── */
+/* #endregion */
+
+/* #region Buttons */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -229,23 +228,9 @@ ul {
         color: var(--text-on-ink);
     }
 
-.btn-text {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--text);
-    border-bottom: 1px solid var(--ink);
-    padding-bottom: 2px;
-}
+/* #endregion */
 
-    .btn-text:hover {
-        color: var(--accent-ink);
-        border-bottom-color: var(--accent-ink);
-    }
-
-/* ── NAV ──────────────────────────────────────────────────── */
+/* #region Nav */
 #navbar {
     position: fixed;
     top: 0;
@@ -278,10 +263,6 @@ ul {
     .nav-logo:hover {
         color: var(--text);
     }
-
-.nav-logo-dot {
-    color: var(--accent);
-}
 
 .nav-links {
     display: flex;
@@ -389,7 +370,9 @@ ul {
         background: var(--paper-2);
     }
 
-/* ── MEDIA PANEL (hero, systems) ──────────────────────────── */
+/* #endregion */
+
+/* #region Media panel (hero, systems) */
 .media-panel {
     position: relative;
     margin: 0;
@@ -428,7 +411,9 @@ ul {
     color: var(--text-on-ink-muted);
 }
 
-/* ── HERO ─────────────────────────────────────────────────── */
+/* #endregion */
+
+/* #region Hero */
 #hero {
     min-height: 100vh;
     min-height: 100svh;
@@ -445,15 +430,6 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 36px;
-}
-
-.hero-eyebrow {
-    font-family: var(--font-body);
-    font-size: clamp(12px, 1.25vw, 18px);
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-muted);
 }
 
 .hero-name {
@@ -559,7 +535,9 @@ ul {
     max-width: 100%;
 }
 
-/* ── ABOUT ────────────────────────────────────────────────── */
+/* #endregion */
+
+/* #region About */
 .about-grid {
     display: grid;
     grid-template-columns: 360px minmax(0, 1fr);
@@ -609,41 +587,9 @@ ul {
     color: var(--text-body);
 }
 
-.about-timeline {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--sp-6);
-}
+/* #endregion */
 
-.tl-item {
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-1);
-    padding-top: 14px;
-    border-top: 2px solid var(--ink);
-}
-
-.tl-item--next {
-    border-top-color: var(--accent);
-}
-
-    .tl-item--next .mono-label {
-        color: var(--accent-ink);
-    }
-
-.tl-title {
-    font-weight: 700;
-    line-height: 1.3;
-}
-
-.tl-text {
-    font-size: var(--fs-small);
-    color: var(--text-body);
-    line-height: 1.5;
-}
-
-/* ── PROJECTS ───────────────────────────────────────────── */
+/* #region Projects */
 .proj-list {
     display: flex;
     flex-direction: column;
@@ -721,26 +667,6 @@ ul {
     font-weight: 800;
     line-height: 0.95;
     letter-spacing: -0.02em;
-}
-
-.proj-stat {
-    display: flex;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: var(--sp-3);
-}
-
-.proj-stat-num {
-    font-family: var(--font-display);
-    font-size: 40px;
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: -0.01em;
-    color: var(--accent-ink);
-}
-
-.proj-stat-text {
-    color: var(--text-body);
 }
 
 .proj-desc {
@@ -838,7 +764,9 @@ ul {
     line-height: 1.55;
 }
 
-/* ── SKILLS ───────────────────────────────────────────────── */
+/* #endregion */
+
+/* #region Skills */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -888,7 +816,9 @@ ul {
     text-align: right;
 }
 
-/* ── SYSTEMS ──────────────────────────────────────────────── */
+/* #endregion */
+
+/* #region Systems */
 .sys-controls {
     display: flex;
     justify-content: space-between;
@@ -963,7 +893,6 @@ ul {
 .sys-project-btn:focus-visible,
 .sys-tab:focus-visible,
 .btn:focus-visible,
-.btn-text:focus-visible,
 .more-item:focus-visible,
 .contact-row:focus-visible,
 .nav-link:focus-visible,
@@ -1010,12 +939,6 @@ ul {
     gap: var(--sp-4);
 }
 
-.sys-count {
-    font-family: var(--font-label);
-    font-size: var(--fs-caption);
-    color: var(--accent-ink);
-}
-
 .sys-title {
     font-family: var(--font-display);
     font-size: var(--fs-h3-sys);
@@ -1042,7 +965,9 @@ ul {
     font-weight: 500;
 }
 
-/* ── CONTACT ──────────────────────────────────────────────── */
+/* #endregion */
+
+/* #region Contact */
 #contact {
     padding: var(--sp-30) 0 var(--sp-12);
     background: var(--ink);
@@ -1071,16 +996,6 @@ ul {
     .contact-row:focus-visible {
         outline-color: var(--accent);
     }
-
-.contact-kicker {
-    display: flex;
-    gap: var(--sp-5);
-    font-family: var(--font-label);
-    font-size: var(--fs-caption);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-on-ink-muted);
-}
 
 .contact-title {
     margin-top: var(--sp-6);
@@ -1161,18 +1076,7 @@ ul {
     color: var(--text-on-ink-muted);
 }
 
-.contact-status {
-    display: flex;
-    align-items: center;
-    gap: var(--sp-3);
-}
-
-.status-square {
-    width: 8px;
-    height: 8px;
-    background: var(--accent);
-    flex-shrink: 0;
-}
+/* #endregion */
 
 /* #region Dev commentary */
 /* Systems: one toggle shows each system's build notes under its stack line.
@@ -1316,8 +1220,7 @@ ul {
     }
 /* #endregion */
 
-/* ── SCROLL REVEAL ────────────────────────────────────────── */
-/* opacity + 12px translateY, 400ms ease-out, stagger capped at 3 items */
+/* #region Scroll reveal */
 .reveal {
     opacity: 0;
     transform: translateY(12px);
@@ -1329,7 +1232,9 @@ ul {
         transform: translateY(0);
     }
 
-/* ── RESPONSIVE ───────────────────────────────────────────── */
+/* #endregion */
+
+/* #region Responsive */
 @media (max-width: 900px) {
     .hero-grid {
         grid-template-columns: 1fr;
@@ -1365,10 +1270,6 @@ ul {
 
     .about-photo {
         max-width: 260px;
-    }
-
-    .about-timeline {
-        grid-template-columns: minmax(0, 1fr);
     }
 
     .proj,
@@ -1556,6 +1457,8 @@ ul {
     }
 }
 
+/* #endregion */
+
 /* #region Attribute Cards */
 /* About: 4 expandable cards. Desktop = accordion spines, mobile = tap-to-pull-out
    stack. State classes (.is-open / .is-hot) are set by initAttributeCards. */
@@ -1572,8 +1475,6 @@ ul {
 
 .attr-cards {
     --attr-accent: var(--tertiary);
-    --attr-label-rest: #0A7F99;
-    --attr-label-active: #FFA630;
     --attr-card-bg: #FBFAF6;
     --attr-card-border: rgba(23, 23, 26, .16);
     --attr-text: #4A4A4F;
@@ -1606,14 +1507,6 @@ ul {
         outline: 2px solid var(--attr-accent);
         outline-offset: 2px;
     }
-
-.attr-card__label {
-    font-family: var(--font-label);
-    font-size: 11px;
-    letter-spacing: .14em;
-    color: var(--attr-label-rest);
-    transition: color .3s ease;
-}
 
 .attr-card__title {
     font-family: var(--font-display);
@@ -1705,14 +1598,6 @@ ul {
         left: 14px;
     }
 
-    .attr-card__num {
-        font-family: var(--font-display);
-        font-size: 22px;
-        font-weight: 700;
-        color: #FF6A3D;
-        transition: color .3s ease;
-    }
-
     .attr-card__vtitle {
         font-family: var(--font-label);
         font-size: 15px;
@@ -1734,18 +1619,13 @@ ul {
         border-color: var(--ink);
     }
 
-        .attr-card.is-hot .attr-card__title,
-        .attr-card.is-hot .attr-card__num {
+        .attr-card.is-hot .attr-card__title {
             color: var(--text-on-ink);
         }
 
         .attr-card.is-hot .attr-card__text,
         .attr-card.is-hot .attr-card__vtitle {
             color: #CFCBC2;
-        }
-
-        .attr-card.is-hot .attr-card__label {
-            color: var(--attr-label-active);
         }
 }
 
@@ -1774,8 +1654,7 @@ ul {
             box-shadow: 0 18px 34px -20px rgba(23, 23, 26, .4);
         }
 
-    .attr-card__spine,
-    .attr-card__of {
+    .attr-card__spine {
         display: none;
     }
 
@@ -1791,14 +1670,6 @@ ul {
 
     .attr-card.is-open .attr-card__body {
         grid-template-rows: minmax(44px, auto) 1fr;
-    }
-
-    .attr-card__label {
-        color: #5C5C62;
-    }
-
-    .attr-card.is-open .attr-card__label {
-        color: var(--attr-label-rest);
     }
 
     .attr-card__title {
@@ -1831,12 +1702,14 @@ ul {
 }
 /* #endregion */
 
-/* ── LAYOUT HELPERS ───────────────────────────────────────── */
+/* #region Layout helpers */
 .sys-hidden {
     display: none;
 }
 
-/* ── REDUCED MOTION ───────────────────────────────────────── */
+/* #endregion */
+
+/* #region Reduced motion */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -1853,6 +1726,8 @@ ul {
         transition: none !important;
     }
 }
+
+/* #endregion */
 
 /* #region Accessibility: skip link */
 .skip-link {
